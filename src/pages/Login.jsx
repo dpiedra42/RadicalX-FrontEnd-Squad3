@@ -16,7 +16,7 @@ const Login = () => {
                         <LoginInput type="text" name="Email" placeholder='Email'/>
                         <LoginInput type="text" name="Password" placeholder='Password'/>
                         <p>Remember me</p>
-                        <p>Forgot password?</p>
+                        <ForgotText>Forgot password?</ForgotText>
                         <SubmitInput type="submit" value="Login" />
                     </form>
                 </div>
@@ -67,6 +67,12 @@ const LoginInput = styled.input`
     background: #F5F5F7;
     border: 1px solid #CECECE;
     border-radius: 16px;
+`
+const ForgotText = styled.p`
+    color: #7041ec;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
 `
 const SubmitInput = styled.input`
     align-items: center;
