@@ -63,34 +63,39 @@ const LogoImg = styled.img`
     top: 77px;
 `
 const LoginTitle = styled.h1`
+    width: 66px;
+    height: 24px;   
     font-weight: 500;
     font-size: 24px;
     line-height: 24px;
     letter-spacing: 0.4px;
+    padding-bottom: 5px;
 `
 const IconContainer = styled.div`
     position:relative;
-    padding:0;
+    padding-bottom:12px;
     margin:0;
 `
 const Icon = styled.img`
     position:absolute;
-    bottom:8px;
-    left:10px;
+    top:14px;
+    left:16px;
+    width: 20px;
+    height: 20px;
 `
 const LoginInput = styled.input`
+    font-family: 'Space Grotesk';   
     box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px 16px;
     width: 360px;
     height: 48px;
     background: #F5F5F7;
     border: 1px solid #CECECE;
     border-radius: 16px;
-    margin:0;
-    padding-left:30px;
+    padding-left:44px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.3px;
 `
 const ForgotText = styled.p`
     color: #7041ec;
