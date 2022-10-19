@@ -25,10 +25,10 @@ const Login = () => {
                             <LoginInput type="text" name="Password" placeholder='Password'/>
                             <IconEye src={Eye} alt="Eye Icon"/>
                         </IconContainer>
-                        <div>
+                        <LoginOptions>
                             <p>Remember me</p>
                             <ForgotText>Forgot password?</ForgotText>
-                        </div>
+                        </LoginOptions>
                         <SubmitInput type="submit" value="Login" />
                     </form>
                 </div>
@@ -38,7 +38,7 @@ const Login = () => {
 };
 
 const GridContainer = styled.div`
-    display: inline-grid;
+    display: flex;
     width: 100%;
     grid-template-columns: 50vw 50vw;
     height: 100vh;
@@ -46,8 +46,10 @@ const GridContainer = styled.div`
 `
 const Grid1 = styled.div`
     background-color: #7041ec;
+    flex: 1 1 0;
 `
 const Grid2 = styled.div`
+    flex: 1 1 0;
     background-color: white;
     display: grid;
     grid-row: auto auto;
@@ -107,6 +109,10 @@ const LoginInput = styled.input`
     line-height: 24px;
     letter-spacing: 0.3px;
 `
+const LoginOptions = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
 const ForgotText = styled.p`
     color: #7041ec;
     font-weight: 500;
@@ -114,10 +120,11 @@ const ForgotText = styled.p`
     line-height: 24px;
 `
 const SubmitInput = styled.input`
+    font-family: 'Space Grotesk';
     align-items: center;
     color: white;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 20px;
     width: 360px;
     height: 48px;
