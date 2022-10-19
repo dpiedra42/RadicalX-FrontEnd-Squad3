@@ -1,6 +1,9 @@
 import React, {} from 'react';
 import styled from '@emotion/styled';
-import Logo from '../assets/RadicalXLogo.png'
+import Logo from '../assets/RadicalXLogo.png';
+import Email from '../assets/sms.png';
+import Lock from '../assets/lock.png';
+import Eye from '../assets/eye.png';
 
 const Login = () => {
     return (
@@ -13,10 +16,19 @@ const Login = () => {
                 <div>
                     <LoginTitle>Login</LoginTitle>
                     <form>
-                        <LoginInput type="text" name="Email" placeholder='Email'/>
-                        <LoginInput type="text" name="Password" placeholder='Password'/>
-                        <p>Remember me</p>
-                        <ForgotText>Forgot password?</ForgotText>
+                        <IconContainer>
+                            <Icon src={Email} alt="Email Icon"/>
+                            <LoginInput type="text" name="Email" placeholder='Email'/>
+                        </IconContainer>
+                        <IconContainer>
+                            <Icon src={Lock} alt="Lock Icon"/>
+                            <LoginInput type="text" name="Password" placeholder='Password'/>
+                        </IconContainer>
+                        <img src={Eye} alt="Eye Icon"/>
+                        <div>
+                            <p>Remember me</p>
+                            <ForgotText>Forgot password?</ForgotText>
+                        </div>
                         <SubmitInput type="submit" value="Login" />
                     </form>
                 </div>
@@ -56,6 +68,16 @@ const LoginTitle = styled.h1`
     line-height: 24px;
     letter-spacing: 0.4px;
 `
+const IconContainer = styled.div`
+    position:relative;
+    padding:0;
+    margin:0;
+`
+const Icon = styled.img`
+    position:absolute;
+    bottom:8px;
+    left:10px;
+`
 const LoginInput = styled.input`
     box-sizing: border-box;
     display: flex;
@@ -67,6 +89,8 @@ const LoginInput = styled.input`
     background: #F5F5F7;
     border: 1px solid #CECECE;
     border-radius: 16px;
+    margin:0;
+    padding-left:30px;
 `
 const ForgotText = styled.p`
     color: #7041ec;
