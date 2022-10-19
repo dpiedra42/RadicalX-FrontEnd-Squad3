@@ -20,11 +20,11 @@ const Login = () => {
                     <form>
                         <IconContainer>
                             <Icon src={Email} alt="Email Icon"/>
-                            <LoginInput type="text" name="Email" placeholder='Email'/>
+                            <LoginInput type="text" name="Email" placeholder='Email' required/>
                         </IconContainer>
                         <IconContainer>
                             <Icon src={Lock} alt="Lock Icon"/>
-                            <LoginInput type={showPassword ? "text" : "password"} name="Password" placeholder='Password'/>
+                            <LoginInput type={showPassword ? "text" : "password"} name="Password" placeholder='Password' required/>
                             <IconEye src={Eye} alt="Eye Icon" onClick={() => setShowPassword(!showPassword)}/>
                         </IconContainer>
                         <LoginOptions>
@@ -65,6 +65,10 @@ const Grid2 = styled.div`
 const LogoContainer = styled.div`
     display: flex;
     justify-content: center;
+
+    @media screen and (max-height: 450px) {
+        display: none;
+    }
 `
 const LogoImg = styled.img`
     position: absolute;
