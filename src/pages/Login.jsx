@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import styled from '@emotion/styled';
 import Logo from '../assets/RadicalXLogo.png';
 import Email from '../assets/sms.png';
@@ -6,6 +6,9 @@ import Lock from '../assets/lock.png';
 import Eye from '../assets/eye.png';
 
 const Login = () => {
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    
     const [showPassword, setShowPassword] = useState(false);
 
     return (

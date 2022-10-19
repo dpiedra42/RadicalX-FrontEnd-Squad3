@@ -8,7 +8,7 @@ function App() {
     //a <router> that uses the html5 history API to keep UI and URL in sync
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/" element={<Login />}></Route>
       </Routes>
     </BrowserRouter>
   );
