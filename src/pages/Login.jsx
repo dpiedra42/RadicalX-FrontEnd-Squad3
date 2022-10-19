@@ -49,6 +49,10 @@ const GridContainer = styled.div`
 const Grid1 = styled.div`
     background-color: #7041ec;
     flex: 1 1 0;
+
+    @media screen and (max-width: 768px) {
+        flex: 0 0 0;
+    }
 `
 const Grid2 = styled.div`
     flex: 1 1 0;
