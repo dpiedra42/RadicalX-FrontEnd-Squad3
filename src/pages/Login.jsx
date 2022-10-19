@@ -1,4 +1,4 @@
-import React, {} from 'react';
+import React, {useState} from 'react';
 import styled from '@emotion/styled';
 import Logo from '../assets/RadicalXLogo.png';
 import Email from '../assets/sms.png';
@@ -6,6 +6,8 @@ import Lock from '../assets/lock.png';
 import Eye from '../assets/eye.png';
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false);
+
     return (
         <GridContainer>
             <Grid1/>
@@ -22,8 +24,8 @@ const Login = () => {
                         </IconContainer>
                         <IconContainer>
                             <Icon src={Lock} alt="Lock Icon"/>
-                            <LoginInput type="text" name="Password" placeholder='Password'/>
-                            <IconEye src={Eye} alt="Eye Icon"/>
+                            <LoginInput type={showPassword ? "text" : "password"} name="Password" placeholder='Password'/>
+                            <IconEye src={Eye} alt="Eye Icon" onClick={() => setShowPassword(!showPassword)}/>
                         </IconContainer>
                         <LoginOptions>
                             <p>Remember me</p>
@@ -94,6 +96,7 @@ const IconEye = styled.img`
     right: 16px;
     width: 20px;
     height: 20px;
+    cursor: pointer;
 `
 const LoginInput = styled.input`
     font-family: 'Space Grotesk';   
@@ -112,12 +115,18 @@ const LoginInput = styled.input`
 const LoginOptions = styled.div`
     display: flex;
     justify-content: space-between;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 0px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    color: grey;
+    padding-bottom: 18px;
 `
 const ForgotText = styled.p`
     color: #7041ec;
     font-weight: 500;
     font-size: 16px;
-    line-height: 24px;
 `
 const SubmitInput = styled.input`
     font-family: 'Space Grotesk';
