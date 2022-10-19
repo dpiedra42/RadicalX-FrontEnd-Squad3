@@ -23,8 +23,8 @@ const Login = () => {
                         <IconContainer>
                             <Icon src={Lock} alt="Lock Icon"/>
                             <LoginInput type="text" name="Password" placeholder='Password'/>
+                            <IconEye src={Eye} alt="Eye Icon"/>
                         </IconContainer>
-                        <img src={Eye} alt="Eye Icon"/>
                         <div>
                             <p>Remember me</p>
                             <ForgotText>Forgot password?</ForgotText>
@@ -60,7 +60,10 @@ const LogoContainer = styled.div`
 `
 const LogoImg = styled.img`
     position: absolute;
+    width: 200px;
+    height: 40px;
     top: 77px;
+
 `
 const LoginTitle = styled.h1`
     width: 66px;
@@ -80,6 +83,13 @@ const Icon = styled.img`
     position:absolute;
     top:14px;
     left:16px;
+    width: 20px;
+    height: 20px;
+`
+const IconEye = styled.img`
+    position:absolute;
+    top :14px;
+    right: 16px;
     width: 20px;
     height: 20px;
 `
