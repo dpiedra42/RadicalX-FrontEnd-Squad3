@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
@@ -32,7 +32,7 @@ const Login = () => {
       };
 
     return (
-        <GridContainer>
+        <PageContainer>
             <Grid1/>
             <Grid2>
                 <LogoContainer>
@@ -61,27 +61,25 @@ const Login = () => {
                     </form>
                 </div>
             </Grid2>
-        </GridContainer>
+        </PageContainer>
     );
 };
 
-const GridContainer = styled.div`
+const PageContainer = styled.div`
     display: flex;
     width: 100%;
-    grid-template-columns: 50vw 50vw;
     height: 100vh;
-    grid-template-rows: auto;
 `
 const Grid1 = styled.div`
     background-color: #7041ec;
-    flex: 1 1 0;
+    flex: 1;
 
     @media screen and (max-width: 768px) {
         flex: 0 0 0;
     }
 `
 const Grid2 = styled.div`
-    flex: 1 1 0;
+    flex: 1;
     background-color: white;
     display: grid;
     grid-row: auto auto;
