@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     //a <router> that uses the html5 history API to keep UI and URL in sync
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />}></Route>
+        <Route path="/" element={<Dashboard />}></Route>
+        <Route path="/login" element={<Login />}></Route>
       </Routes>
     </BrowserRouter>
   );
