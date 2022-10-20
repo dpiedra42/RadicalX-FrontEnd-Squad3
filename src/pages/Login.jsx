@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import React, { useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 
 import styled from '@emotion/styled';
@@ -12,22 +12,15 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [loginPassword, setloginPassword] = useState('');
     const [loginEmail, setloginEmail] = useState('');
-    const [user, setUser] = useState({});
-
-    useEffect(() => onAuthStateChanged(auth,(currentUser) => {
-        setUser(currentUser);
-    }),[])
 
     const handlelogin = async () => {
         try {
-          const user = await signInWithEmailAndPassword(
-            auth,
-            loginEmail,
-            loginPassword
-          );
-          console.log(user)
+          const res = await signInWithEmailAndPassword( auth, loginEmail,loginPassword);
+          const user = res.user;
+          console.log(user);
         } catch (error) {
           console.log(error.message);
+          alert(error.message)
         }
       };
 
@@ -58,7 +51,6 @@ const Login = () => {
                         </LoginOptions>
                         <SubmitButton type="submit" onClick={handlelogin}>Login</SubmitButton>
                     </form>
-                    {user?.email}
                 </div>
             </Grid2>
         </GridContainer>
