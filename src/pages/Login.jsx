@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 
@@ -12,15 +13,21 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [loginPassword, setloginPassword] = useState('');
     const [loginEmail, setloginEmail] = useState('');
+    const [errorMsg, setErrorMsg] = useState('');
+    const navigate = useNavigate();
 
-    const handlelogin = async () => {
+    const handleLogin = async (e) => {
+        setErrorMsg('');
+        e.preventDefault();
+        console.debug("logging in...")
         try {
-          const res = await signInWithEmailAndPassword( auth, loginEmail,loginPassword);
-          const user = res.user;
-          console.log(user);
+          const res = await signInWithEmailAndPassword(auth, loginEmail,loginPassword);
+          console.debug(res);
+          navigate('/dashboard');
+
         } catch (error) {
-          console.log(error.message);
-          alert(error.message)
+          console.debug(error.message);
+          setErrorMsg(error.message);
         }
       };
 
@@ -33,7 +40,7 @@ const Login = () => {
                 </LogoContainer>
                 <div>
                     <LoginTitle>Login</LoginTitle>
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <IconContainer>
                             <Icon src={Email} alt="Email Icon"/>
                             <LoginInput type="text" name="Email" placeholder='Email' 
@@ -49,7 +56,8 @@ const Login = () => {
                             <p>Remember me</p>
                             <ForgotText>Forgot password?</ForgotText>
                         </LoginOptions>
-                        <SubmitButton type="submit" onClick={handlelogin}>Login</SubmitButton>
+                        <SubmitButton type="submit">Login</SubmitButton>
+                        {errorMsg && <p style={{ maxWidth: '300px' }}>Error: {errorMsg}</p>}
                     </form>
                 </div>
             </Grid2>
