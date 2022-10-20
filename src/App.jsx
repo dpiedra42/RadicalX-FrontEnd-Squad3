@@ -6,7 +6,6 @@ import Dashboard from './pages/Dashboard';
 function App() {
   return (
     //a <router> that uses the html5 history API to keep UI and URL in sync
-    //everything in AuthProvider will have access to the val currentuser
     <BrowserRouter>
         <Routes>
           <Route path="/dashboard" element={<Dashboard />}></Route>

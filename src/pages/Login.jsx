@@ -1,4 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
+
 import styled from '@emotion/styled';
 import Logo from '../assets/RadicalXLogo.png';
 import Email from '../assets/sms.png';
@@ -7,6 +10,21 @@ import Eye from '../assets/eye.png';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [loginPassword, setloginPassword] = useState('');
+    const [loginEmail, setloginEmail] = useState('');
+
+    const handlelogin = async () => {
+        try {
+          const user = await createUserWithEmailAndPassword(
+            auth,
+            loginEmail,
+            loginPassword
+          );
+          console.log(user);
+        } catch (error) {
+          console.log(error.message);
+        }
+      };
 
     return (
         <GridContainer>
@@ -20,18 +38,20 @@ const Login = () => {
                     <form>
                         <IconContainer>
                             <Icon src={Email} alt="Email Icon"/>
-                            <LoginInput type="text" name="Email" placeholder='Email' required/>
+                            <LoginInput type="text" name="Email" placeholder='Email' 
+                            onChange={(e) => {setloginEmail(e.target.value)}} required/>
                         </IconContainer>
                         <IconContainer>
                             <Icon src={Lock} alt="Lock Icon"/>
-                            <LoginInput type={showPassword ? "text" : "password"} name="Password" placeholder='Password' required/>
+                            <LoginInput type={showPassword ? "text" : "password"} name="Password" placeholder='Password' 
+                            onChange={(e) => {setloginPassword(e.target.value)}} required/>
                             <IconEye src={Eye} alt="Eye Icon" onClick={() => setShowPassword(!showPassword)}/>
                         </IconContainer>
                         <LoginOptions>
                             <p>Remember me</p>
                             <ForgotText>Forgot password?</ForgotText>
                         </LoginOptions>
-                        <SubmitInput type="submit" value="Login" />
+                        <SubmitButton type="submit" onClick={handlelogin}>Login</SubmitButton>
                     </form>
                 </div>
             </Grid2>
@@ -136,7 +156,7 @@ const ForgotText = styled.p`
     font-weight: 500;
     font-size: 16px;
 `
-const SubmitInput = styled.input`
+const SubmitButton = styled.button`
     font-family: 'Space Grotesk';
     align-items: center;
     color: white;
