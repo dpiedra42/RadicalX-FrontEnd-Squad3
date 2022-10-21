@@ -51,13 +51,18 @@ const Dashboard = () => {
                             in which knowledge about space can be both a priori and synthetic.
                         </BoxDesc>
                     </InsightsBox>
-                    <div></div>
+                    <DateBox>
+                        <button>This week</button>
+                        <button>This month</button>
+                        <button>Select dates</button>
+                    </DateBox>
                     <div></div>
                 </InternshipInsights>
             </Internships>
         </DashContainer>
     );
 }
+export default Dashboard;
 
 const DashContainer = styled.div`
     display: flex;
@@ -143,6 +148,12 @@ const AddButton = styled.button`
     font-family: 'Space Grotesk';
     font-size: 14px;
     letter-spacing: 0.4px;
+    cursor: pointer;
+
+    :hover {
+        background-color:  #E2E6EB;
+        color: #828282;
+    }
 `
 const AddIcon = styled.img`
     width: 20px;
@@ -179,5 +190,13 @@ const BoxDesc = styled.p`
     line-height: 20px;
     letter-spacing: 0.3px;
 `
-
-export default Dashboard;
+const DateBox = styled.div`
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+    gap: 10px;
+    /* width: 100%; */
+    height: 48px;
+    background: #F2F2F2;
+    border-radius: 12px;
+`

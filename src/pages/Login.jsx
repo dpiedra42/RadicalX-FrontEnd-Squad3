@@ -64,6 +64,7 @@ const Login = () => {
         </PageContainer>
     );
 };
+export default Login;
 
 const PageContainer = styled.div`
     display: flex;
@@ -172,6 +173,5 @@ const SubmitButton = styled.button`
     background: #793EF5;
     border-radius: 16px;
     border: none;
+    cursor: pointer;
 `
-
-export default Login;
