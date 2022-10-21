@@ -15,23 +15,23 @@ const Dashboard = () => {
                 <div>
                     <IconContainer>
                         <Icons src={Dash} alt='Dashboard-Icon'></Icons>
-                        <IconLabel>Dashboard</IconLabel>
+                        Dashboard
                     </IconContainer>
                     <IconContainer>
                         <Icons src={Medal} alt='Medal-Icon'></Icons>
-                        <IconLabel>Apprenticeships</IconLabel>
+                        Apprenticeship
                     </IconContainer>
                     <IconContainer>
                         <Icons src={Book} alt='Book-Icon'></Icons>
-                        <IconLabel>Internships</IconLabel>
+                       Internships
                     </IconContainer>
                     <IconContainer>
                         <Icons src={Brief} alt='Briefcase-Icon'></Icons>
-                        <IconLabel>Jobs</IconLabel>
+                        Jobs
                     </IconContainer>
                     <IconContainer>
                         <Icons src={Setting} alt='Settings-Icon'></Icons>
-                        <IconLabel>Settings</IconLabel>
+                       Settings
                     </IconContainer>
                 </div>
                 {/* last tab will be username */}
@@ -44,15 +44,17 @@ const Dashboard = () => {
 const DashContainer = styled.div`
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: #F1F4F8;
 `
 const Sidebar = styled.div`
+    box-sizing: content-box;
     display: flex;
     flex-direction: column;
     align-items: left;
     margin: 16px;
     width: 229px;
+    height: calc(100% - 32px);
     background: #ffffff;
     box-shadow: 0px 12px 34px rgba(0, 0, 0, 0.04);
     border-radius: 24px;
@@ -62,7 +64,7 @@ const LogoImg = styled.img`
     height: 32px;
     margin: 34px;
 `
-const IconContainer = styled.div`
+const IconContainer = styled.button`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -70,19 +72,34 @@ const IconContainer = styled.div`
     gap: 10px;
     width: 189px;
     height: 48px;
+    font-size: 16px;
+    font-family: "Space Grotesk", sans-serif;
+    background-color: white;
+    border: none;
+
+    :hover {
+        background-color: #5047f233;
+        border: 1px solid black;
+        border-radius: 16px;
+        filter: invert(36%) sepia(78%) saturate(7009%) hue-rotate(253deg) brightness(100%) contrast(93%);
+    }
 `
 const Icons = styled.img`
     width: 24px;
     height: 24px;
-    margin-left: 20px;
 `
-const IconLabel = styled.p`
-    width: 86px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.3px;
-`
+// const IconLabel = styled.p`
+//     border: none;
+//     background-color: white;
+//     font-size: 16px;
+//     font-family: 'Space Grotesk', sans-serif;
+//     cursor: pointer;
+//     width: 86px;
+//     height: 24px;
+//     display: flex;
+//     align-items: center;
+//     letter-spacing: 0.3px;
+// `
 const Internships = styled.div`
 `
 
