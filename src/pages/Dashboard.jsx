@@ -46,11 +46,13 @@ const Dashboard = () => {
                 </TitleContainer>
                 <InternshipInsights>
                     <InsightsBox>
-                        <h1>Internship Insights</h1>
-                        <p>In the eighteenth century the german philosopher Immanuel Kant developed a theory of knowledge
-                            in which knowledge about space can be both a priori and synthetic
-                        </p>
+                        <BoxTitle>Internship Insights</BoxTitle>
+                        <BoxDesc>In the eighteenth century the German philosopher Immanuel Kant developed a theory of knowledge
+                            in which knowledge about space can be both a priori and synthetic.
+                        </BoxDesc>
                     </InsightsBox>
+                    <div></div>
+                    <div></div>
                 </InternshipInsights>
             </Internships>
         </DashContainer>
@@ -161,6 +163,21 @@ const InsightsBox = styled.p`
     border-radius: 16px;
     width: 280px;
     height: 238px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+`
+const BoxTitle = styled.h2`
+    margin: 16px 35px 0 16px;
+    font-weight: 600;
+    font-size: 19px;
+`
+const BoxDesc = styled.p`
+    margin: 12px 35px 0 16px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
 `
 
 export default Dashboard;
