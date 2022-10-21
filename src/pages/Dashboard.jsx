@@ -13,24 +13,26 @@ const Dashboard = () => {
             <Sidebar>
                 <LogoImg src={Logo} alt='Logo'></LogoImg>
                 <div>
-                    <Icons src={Dash} alt='Dashboard-Icon'></Icons>
-                    <text>Dashboard</text>
-                </div>
-                <div>
-                    <Icons src={Medal} alt='Medal-Icon'></Icons>
-                    <text>Apprenticeships</text>
-                </div>
-                <div>
-                    <Icons src={Book} alt='Book-Icon'></Icons>
-                    <text>Internships</text>
-                </div>
-                <div>
-                    <Icons src={Brief} alt='Briefcase-Icon'></Icons>
-                    <text>Jobs</text>
-                </div>
-                <div>
-                    <Icons src={Setting} alt='Settings-Icon'></Icons>
-                    <text>Settings</text>
+                    <IconContainer>
+                        <Icons src={Dash} alt='Dashboard-Icon'></Icons>
+                        <IconLabel>Dashboard</IconLabel>
+                    </IconContainer>
+                    <IconContainer>
+                        <Icons src={Medal} alt='Medal-Icon'></Icons>
+                        <IconLabel>Apprenticeships</IconLabel>
+                    </IconContainer>
+                    <IconContainer>
+                        <Icons src={Book} alt='Book-Icon'></Icons>
+                        <IconLabel>Internships</IconLabel>
+                    </IconContainer>
+                    <IconContainer>
+                        <Icons src={Brief} alt='Briefcase-Icon'></Icons>
+                        <IconLabel>Jobs</IconLabel>
+                    </IconContainer>
+                    <IconContainer>
+                        <Icons src={Setting} alt='Settings-Icon'></Icons>
+                        <IconLabel>Settings</IconLabel>
+                    </IconContainer>
                 </div>
                 {/* last tab will be username */}
             </Sidebar>
@@ -60,10 +62,28 @@ const LogoImg = styled.img`
     height: 32px;
     margin: 34px;
 `
-const Internships = styled.div`
+const IconContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 10px;
+    width: 189px;
+    height: 48px;
 `
 const Icons = styled.img`
     width: 24px;
     height: 24px;
+    margin-left: 20px;
 `
+const IconLabel = styled.p`
+    width: 86px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.3px;
+`
+const Internships = styled.div`
+`
+
 export default Dashboard;
