@@ -44,6 +44,14 @@ const Dashboard = () => {
                         Create New Internship
                     </AddButton>
                 </TitleContainer>
+                <InternshipInsights>
+                    <InsightsBox>
+                        <h1>Internship Insights</h1>
+                        <p>In the eighteenth century the german philosopher Immanuel Kant developed a theory of knowledge
+                            in which knowledge about space can be both a priori and synthetic
+                        </p>
+                    </InsightsBox>
+                </InternshipInsights>
             </Internships>
         </DashContainer>
     );
@@ -101,13 +109,14 @@ const Icons = styled.img`
 `
 const Internships = styled.div`
     width: 100%;
-    margin: 45px 50px 0px 50px;
+    margin: 45px 66px 0px 50px;
 `
 const TitleContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
 `
 const Title = styled.h1`
     font-weight: 600;
@@ -136,6 +145,22 @@ const AddButton = styled.button`
 const AddIcon = styled.img`
     width: 20px;
     height: 20px;
+`
+const InternshipInsights = styled.div`
+    height: 270px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 16px;
+    /* gap: 16px; */
+`
+const InsightsBox = styled.p`
+    background: #F6F5F9;
+    border-radius: 16px;
+    width: 280px;
+    height: 238px;
 `
 
 export default Dashboard;
