@@ -5,6 +5,7 @@ import Brief from '../assets/briefcase.png';
 import Dash from '../assets/dashboard.png';
 import Medal from '../assets/medal-star.png';
 import Setting from '../assets/setting.png';
+import Add from '../assets/add-square.png';
 
 
 const Dashboard = () => {
@@ -34,9 +35,16 @@ const Dashboard = () => {
                        Settings
                     </IconContainer>
                 </div>
-                {/* last tab will be username */}
             </Sidebar>
-            <Internships>Internships</Internships>
+            <Internships>
+                <TitleContainer>
+                    <Title>Internships</Title>
+                    <AddButton>
+                        <AddIcon src={Add} alt='Add-Icon'></AddIcon>
+                        Create New Internship
+                    </AddButton>
+                </TitleContainer>
+            </Internships>
         </DashContainer>
     );
 }
@@ -62,7 +70,7 @@ const Sidebar = styled.div`
 const LogoImg = styled.img`
     width: 160px;
     height: 32px;
-    margin: 34px;
+    margin: 35px;
 `
 const IconContainer = styled.button`
     display: flex;
@@ -70,7 +78,7 @@ const IconContainer = styled.button`
     align-items: center;
     padding: 12px 16px;
     gap: 10px;
-    margin: 13px;
+    margin: 13px 0px 0px 20px;
     width: 189px;
     height: 48px;
     font-size: 16px;
@@ -92,6 +100,42 @@ const Icons = styled.img`
     height: 24px;
 `
 const Internships = styled.div`
+    width: 100%;
+    margin: 45px 50px 0px 50px;
+`
+const TitleContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+`
+const Title = styled.h1`
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.3px;
+`
+const AddButton = styled.button`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 217px;
+    height: 44px;
+    background: #793EF5;
+    border-radius: 12px;
+    color: white;
+    border: none;
+    font-family: 'Space Grotesk';
+    font-size: 14px;
+    letter-spacing: 0.4px;
+`
+const AddIcon = styled.img`
+    width: 20px;
+    height: 20px;
 `
 
 export default Dashboard;
