@@ -70,12 +70,15 @@ const IconContainer = styled.button`
     align-items: center;
     padding: 12px 16px;
     gap: 10px;
+    margin: 13px;
     width: 189px;
     height: 48px;
     font-size: 16px;
     font-family: "Space Grotesk", sans-serif;
+    cursor: pointer;
     background-color: white;
     border: none;
+    letter-spacing: 0.3px;
 
     :hover {
         background-color: #5047f233;
@@ -88,18 +91,6 @@ const Icons = styled.img`
     width: 24px;
     height: 24px;
 `
-// const IconLabel = styled.p`
-//     border: none;
-//     background-color: white;
-//     font-size: 16px;
-//     font-family: 'Space Grotesk', sans-serif;
-//     cursor: pointer;
-//     width: 86px;
-//     height: 24px;
-//     display: flex;
-//     align-items: center;
-//     letter-spacing: 0.3px;
-// `
 const Internships = styled.div`
 `
 
