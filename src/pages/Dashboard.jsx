@@ -6,6 +6,7 @@ import Dash from '../assets/dashboard.png';
 import Medal from '../assets/medal-star.png';
 import Setting from '../assets/setting.png';
 import Add from '../assets/add-square.png';
+import Calendar from '../assets/calendar.png';
 
 
 const Dashboard = () => {
@@ -52,9 +53,12 @@ const Dashboard = () => {
                         </BoxDesc>
                     </InsightsBox>
                     <DateBox>
-                        <button>This week</button>
-                        <button>This month</button>
-                        <button>Select dates</button>
+                        <SmallButton>This week</SmallButton>
+                        <SmallButton>This month</SmallButton>
+                        <LargeButton>
+                            <img src={Calendar} alt='calendar icon'></img>
+                            Select dates
+                        </LargeButton>
                     </DateBox>
                     <div></div>
                 </InternshipInsights>
@@ -102,12 +106,18 @@ const IconContainer = styled.button`
     background-color: white;
     border: none;
     letter-spacing: 0.3px;
+    border-radius: 16px;
+
+    transition: 0.3s;
 
     :hover {
+        border: 1px solid #793EF5;
         background-color: #5047f233;
-        border: 1px solid black;
-        border-radius: 16px;
-        filter: invert(36%) sepia(78%) saturate(7009%) hue-rotate(253deg) brightness(100%) contrast(93%);
+        color: #793EF5;
+        
+        img {
+            filter: invert(36%) sepia(78%) saturate(7009%) hue-rotate(253deg) brightness(100%) contrast(93%);
+        }
     }
 `
 const Icons = styled.img`
@@ -167,7 +177,7 @@ const InternshipInsights = styled.div`
     flex-direction: row;
     align-items: center;
     padding-left: 16px;
-    /* gap: 16px; */
+    gap: 10px;
 `
 const InsightsBox = styled.p`
     background: #F6F5F9;
@@ -193,10 +203,56 @@ const BoxDesc = styled.p`
 const DateBox = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: center;
     padding: 8px;
     gap: 10px;
-    /* width: 100%; */
-    height: 48px;
+    width: calc(100% - 316px);
     background: #F2F2F2;
     border-radius: 12px;
+
+    button {
+        :hover {
+            background-color: #793EF5;
+            color: white;
+        }
+    }
+`
+const SmallButton = styled.button`
+        font-family: 'Space Grotesk';
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 6px 12px;
+        gap: 8px;
+        width: 100px;
+        height: 32px;
+        background: #FFFFFF;
+        border-radius: 8px;
+        border: none;
+`
+const LargeButton = styled.button`
+    width: 137px;
+    height: 32px;
+    font-family: 'Space Grotesk';
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 6px 12px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: none;
+    gap: 8px;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
 `
