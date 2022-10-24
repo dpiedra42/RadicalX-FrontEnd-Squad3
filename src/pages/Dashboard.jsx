@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { AreaChart, Area, CartesianGrid, XAxis } from 'recharts';
 import Logo from '../assets/RadicalXLogo.png';
 import Book from '../assets/book.png';
 import Brief from '../assets/briefcase.png';
@@ -10,6 +11,14 @@ import Calendar from '../assets/calendar.png';
 
 
 const Dashboard = () => {
+    const data = [
+        {name: 'TotalEnrollments', value: 100000},
+        {name: 'Completion', value: 65000},
+        {name: 'Qualified Candidates', value: 850},
+        {name: 'Reached Out', value: 375},
+        {name: 'Interview Set', value: 300},
+        {name: 'Candidates Hired', value: 150}
+      ];
     return (
         <DashContainer>
             <Sidebar>
@@ -62,10 +71,14 @@ const Dashboard = () => {
                             </LargeButton>
                         </div>
                     </DateBox>
-                    <div>
-                        
-                    </div>
                 </InternshipInsights>
+                <div>
+                        <AreaChart width={1000} height={200} data={data}>
+                            <Area dataKey="value" fill="purple" stroke="grey" />
+                            <CartesianGrid stroke="#ccc" />
+                            <XAxis dataKey="name" />
+                        </AreaChart>
+                    </div>
             </Internships>
         </DashContainer>
     );
