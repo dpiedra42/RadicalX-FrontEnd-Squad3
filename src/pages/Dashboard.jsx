@@ -55,12 +55,16 @@ const Dashboard = () => {
                     <DateBox>
                         <SmallButton>This week</SmallButton>
                         <SmallButton>This month</SmallButton>
-                        <LargeButton>
-                            <img src={Calendar} alt='calendar icon'></img>
-                            Select dates
-                        </LargeButton>
+                        <div>
+                            <LargeButton>
+                                <img src={Calendar} alt='calendar icon'></img>
+                                Select dates
+                            </LargeButton>
+                        </div>
                     </DateBox>
-                    <div></div>
+                    <div>
+                        
+                    </div>
                 </InternshipInsights>
             </Internships>
         </DashContainer>
@@ -179,14 +183,13 @@ const InternshipInsights = styled.div`
     padding-left: 16px;
     gap: 10px;
 `
-const InsightsBox = styled.p`
+const InsightsBox = styled.div`
     background: #F6F5F9;
     border-radius: 16px;
     width: 280px;
     height: 238px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
 `
 const BoxTitle = styled.h2`
     margin: 16px 35px 0 16px;
@@ -203,52 +206,43 @@ const BoxDesc = styled.p`
 const DateBox = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: center;
     padding: 8px;
     gap: 10px;
     width: calc(100% - 316px);
     background: #F2F2F2;
     border-radius: 12px;
-
+    div {
+        width: calc(100% - 228px);
+        display: flex;
+        justify-content: end;
+    }
     button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Space Grotesk';
+        font-weight: 500;
+        font-size: 14px;
+        background: #FFFFFF;
+        border-radius: 8px;
+        border: none;
+        
         :hover {
             background-color: #793EF5;
             color: white;
+            img {
+                filter: invert(100%) sepia(8%) saturate(0%) hue-rotate(251deg) brightness(200%) contrast(102%);
+            }
         }
     }
 `
 const SmallButton = styled.button`
-        font-family: 'Space Grotesk';
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 20px;
-        text-align: center;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        padding: 6px 12px;
-        gap: 8px;
-        width: 100px;
-        height: 32px;
-        background: #FFFFFF;
-        border-radius: 8px;
-        border: none;
+    width: 100px;
+    height: 32px;
 `
 const LargeButton = styled.button`
     width: 137px;
     height: 32px;
-    font-family: 'Space Grotesk';
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 6px 12px;
-    background: #FFFFFF;
-    border-radius: 8px;
-    border: none;
     gap: 8px;
 
     img {
