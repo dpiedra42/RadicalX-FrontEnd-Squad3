@@ -47,6 +47,14 @@ const Dashboard = () => {
                         <DaysColumn/>
                         <DaysColumn/>
                     </CompletionColumn>
+                    <TotalColumn>
+                        <HeaderRow3>
+                            <h3>Total Enrolled</h3>
+                            <button>
+                                <img src={Arrow} alt='Arrow Icon'></img>
+                            </button>
+                        </HeaderRow3>
+                    </TotalColumn>
                 </InternshipDetails>
             </Internships>
         </DashContainer>
@@ -116,6 +124,7 @@ const TitleColumn = styled.div`
     flex-direction: column;
     background-color: white;
     border-radius: 16px 0 0 16px;
+    width: 385px;
 `
 const HeaderRow1 = styled.div`
     background-color: #F6F5F9;
@@ -124,7 +133,6 @@ const HeaderRow1 = styled.div`
     justify-content: space-between;
     border-top-left-radius: 16px;
     height: 56px;
-    width: 385px;
     h3 {
         padding-left: 12px;
         font-weight: 500;
@@ -146,8 +154,35 @@ const CompletionColumn = styled.div`
     display: flex;
     flex-direction: column;
     background-color: white;
+    width: 200px;
 `
 const HeaderRow2 = styled.div`
+    background-color: #F6F5F9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 56px;   
+    h3 {
+        padding-left: 12px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+    }
+    button {
+        background-color: #F6F5F9;
+        border: none;
+        padding-right: 12px;
+        cursor: pointer;
+    }
+    img {
+        width: 20px;
+        height: 20px;
+    }
+`
+const TotalColumn = styled.div `
+    width: 160px;
+`
+const HeaderRow3 = styled.div`
     background-color: #F6F5F9;
     display: flex;
     flex-direction: row;

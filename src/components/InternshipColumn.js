@@ -13,7 +13,6 @@ export default function InternshipColumn() {
 }
 
 const InternshipColumnContainer = styled.div`
-    width: 385px;
     height: 96px;
     h4{
         padding-left: 12px;

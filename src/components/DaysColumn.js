@@ -10,7 +10,6 @@ export default function DaysColumn() {
 }
 
 const DaysColumnContainer = styled.div`
-    width: 200px;
     height: 96px;
     h4{
         margin-bottom: 0;
