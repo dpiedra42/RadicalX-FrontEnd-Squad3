@@ -220,5 +220,4 @@ const EnrolledColumn = styled.p`
     display: flex;
     justify-content: center;
     align-self: center;
-    justify-self: center;
 `
