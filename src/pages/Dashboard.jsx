@@ -3,6 +3,7 @@ import Sidebar from '../components/Sidebar'
 import InternshipInsights from '../components/InternshipInsights';
 import Add from '../assets/add-square.png';
 import Arrow from '../assets/arrow-square-down.png';
+import InternshipColumn from '../components/InternshipColumn'
 
 
 const Dashboard = () => {
@@ -26,41 +27,11 @@ const Dashboard = () => {
                                 <img src={Arrow} alt='Arrow Icon'></img>
                             </button>
                         </HeaderRow>
-                        <div>
-                            <h3>Product Design GVI</h3>
-                            <p>
-                                Amet minim mollit non deserunt est sit
-                                aliqua dolor do amet sint.
-                            </p>
-                        </div>
-                        <div>
-                            <h3>Product Design GVI</h3>
-                            <p>
-                                Amet minim mollit non deserunt est sit
-                                aliqua dolor do amet sint.
-                            </p>
-                        </div>
-                        <div>
-                            <h3>Product Design GVI</h3>
-                            <p>
-                                Amet minim mollit non deserunt est sit
-                                aliqua dolor do amet sint.
-                            </p>
-                        </div>
-                        <div>
-                            <h3>Product Design GVI</h3>
-                            <p>
-                                Amet minim mollit non deserunt est sit
-                                aliqua dolor do amet sint.
-                            </p>
-                        </div>
-                        <div>
-                            <h3>Product Design GVI</h3>
-                            <p>
-                                Amet minim mollit non deserunt est sit
-                                aliqua dolor do amet sint.
-                            </p>
-                        </div>
+                        <InternshipColumn/>
+                        <InternshipColumn/>
+                        <InternshipColumn/>
+                        <InternshipColumn/>
+                        <InternshipColumn/>
                     </TitleSection>
                 </InternshipDetails>
             </Internships>
@@ -77,7 +48,7 @@ const DashContainer = styled.div`
 `
 const Internships = styled.div`
     width: 100%;
-    margin: 45px 66px 0px 50px;
+    margin: 45px 66px 16px 50px;
 `
 const TitleContainer = styled.div`
     display: flex;
@@ -130,14 +101,14 @@ const TitleSection = styled.div`
     display: flex;
     flex-direction: column;
     background-color: white;
-    border-radius: 16px;
+    border-radius: 16px 0 0 16px;
 `
 const HeaderRow = styled.div`
     background-color: #F6F5F9;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-radius: 16px;
+    border-top-left-radius: 16px;
     height: 56px;
     width: 385px;
     h3 {
@@ -156,69 +127,69 @@ const HeaderRow = styled.div`
         height: 20px;
     }
 `
-const CompletionSection = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 200px;
-    height: 56px;
-    align-items: center;
-    background-color: #F6F5F9;
-    h3 {
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 24px;
-    }
-    button {
-        background-color: #F6F5F9;
-        border: none;
-    }
-    img {
-        width: 20px;
-        height: 20px;
-    }
-`
-const TotalSection = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 160px;
-    height: 56px;
-    background-color: #F6F5F9;
-    h3 {
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 24px;
-    }
-    button {
-        background-color: #F6F5F9;
-        border: none;
-    }
-    img {
-        width: 20px;
-        height: 20px;
-    }
-`
-const QualifiedSection = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 250px;
-    height: 56px;       
-    background-color: #F6F5F9;
-    h3 {
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 24px;
-    }
-    button {
-        background-color: #F6F5F9;
-        border: none;
-    }
-    img {
-        width: 20px;
-        height: 20px;
-    }
-`
+// const CompletionSection = styled.div`
+//     display: flex;
+//     justify-content: space-between;
+//     width: 200px;
+//     height: 56px;
+//     align-items: center;
+//     background-color: #F6F5F9;
+//     h3 {
+//         font-weight: 500;
+//         font-size: 14px;
+//         line-height: 24px;
+//     }
+//     button {
+//         background-color: #F6F5F9;
+//         border: none;
+//     }
+//     img {
+//         width: 20px;
+//         height: 20px;
+//     }
+// `
+// const TotalSection = styled.div`
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     width: 160px;
+//     height: 56px;
+//     background-color: #F6F5F9;
+//     h3 {
+//         font-weight: 500;
+//         font-size: 14px;
+//         line-height: 24px;
+//     }
+//     button {
+//         background-color: #F6F5F9;
+//         border: none;
+//     }
+//     img {
+//         width: 20px;
+//         height: 20px;
+//     }
+// `
+// const QualifiedSection = styled.div`
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     width: 250px;
+//     height: 56px;       
+//     background-color: #F6F5F9;
+//     h3 {
+//         font-weight: 500;
+//         font-size: 14px;
+//         line-height: 24px;
+//     }
+//     button {
+//         background-color: #F6F5F9;
+//         border: none;
+//     }
+//     img {
+//         width: 20px;
+//         height: 20px;
+//     }
+// `
 // const ChartTitles = styled.div`
 //     display: flex;
 //     flex-direction: row;
