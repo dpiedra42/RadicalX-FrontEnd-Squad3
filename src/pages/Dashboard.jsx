@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { AreaChart, Area, CartesianGrid, XAxis } from 'recharts';
+import { AreaChart, Area, XAxis, ResponsiveContainer } from 'recharts';
 import Logo from '../assets/RadicalXLogo.png';
 import Book from '../assets/book.png';
 import Brief from '../assets/briefcase.png';
@@ -12,7 +12,7 @@ import Calendar from '../assets/calendar.png';
 
 const Dashboard = () => {
     const data = [
-        {name: 'TotalEnrollments', value: 100000},
+        {name: 'Total Enrollments', value: 100000},
         {name: 'Completion', value: 65000},
         {name: 'Qualified Candidates', value: 850},
         {name: 'Reached Out', value: 375},
@@ -61,24 +61,25 @@ const Dashboard = () => {
                             in which knowledge about space can be both a priori and synthetic.
                         </BoxDesc>
                     </InsightsBox>
-                    <DateBox>
-                        <SmallButton>This week</SmallButton>
-                        <SmallButton>This month</SmallButton>
-                        <div>
-                            <LargeButton>
-                                <img src={Calendar} alt='calendar icon'></img>
-                                Select dates
-                            </LargeButton>
-                        </div>
-                    </DateBox>
+                    <DateGraphBox>
+                        <DateBox>
+                            <SmallButton>This week</SmallButton>
+                            <SmallButton>This month</SmallButton>
+                            <div>
+                                <LargeButton>
+                                    <img src={Calendar} alt='calendar icon'></img>
+                                    Select dates
+                                </LargeButton>
+                            </div>
+                        </DateBox>
+                        <ResponsiveContainer width="100%"  height={174}>
+                            <AreaChart data={data}>
+                                <Area type='monotone'dataKey="value" fill="#665FEF33" stroke="none" />
+                                <XAxis dataKey="name" />
+                            </AreaChart>
+                        </ResponsiveContainer>
+                    </DateGraphBox>
                 </InternshipInsights>
-                <div>
-                        <AreaChart width={1000} height={200} data={data}>
-                            <Area dataKey="value" fill="purple" stroke="grey" />
-                            <CartesianGrid stroke="#ccc" />
-                            <XAxis dataKey="name" />
-                        </AreaChart>
-                    </div>
             </Internships>
         </DashContainer>
     );
@@ -188,6 +189,7 @@ const AddIcon = styled.img`
 `
 const InternshipInsights = styled.div`
     height: 270px;
+    width: 100%;
     background: #FFFFFF;
     border-radius: 16px;
     display: flex;
@@ -216,16 +218,18 @@ const BoxDesc = styled.p`
     line-height: 20px;
     letter-spacing: 0.3px;
 `
+const DateGraphBox = styled.div`
+    width: calc(100% - 306px);
+`
 const DateBox = styled.div`
     display: flex;
     flex-direction: row;
     padding: 8px;
     gap: 10px;
-    width: calc(100% - 316px);
     background: #F2F2F2;
     border-radius: 12px;
     div {
-        width: calc(100% - 228px);
+        width: calc(100% - 218px);
         display: flex;
         justify-content: end;
     }
