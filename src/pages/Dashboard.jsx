@@ -54,6 +54,7 @@ const Dashboard = () => {
                                 <img src={Arrow} alt='Arrow Icon'></img>
                             </button>
                         </HeaderRow3>
+                        <EnrolledColumn>20,000</EnrolledColumn>
                     </TotalColumn>
                 </InternshipDetails>
             </Internships>
@@ -124,7 +125,7 @@ const TitleColumn = styled.div`
     flex-direction: column;
     background-color: white;
     border-radius: 16px 0 0 16px;
-    width: 385px;
+    width: 360px;
 `
 const HeaderRow1 = styled.div`
     background-color: #F6F5F9;
@@ -181,13 +182,15 @@ const HeaderRow2 = styled.div`
 `
 const TotalColumn = styled.div `
     width: 160px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
 `
 const HeaderRow3 = styled.div`
     background-color: #F6F5F9;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 200px;
     height: 56px;   
     h3 {
         padding-left: 12px;
@@ -205,4 +208,17 @@ const HeaderRow3 = styled.div`
         width: 20px;
         height: 20px;
     }
+`
+const EnrolledColumn = styled.p`
+    background-color: #F0EFFD;
+    border-radius: 8px;
+    color: #793EF5;
+    font-weight: 600;
+    font-size: 18px;
+    width: 94px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
 `
