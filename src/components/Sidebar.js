@@ -42,17 +42,16 @@ const SidebarContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: left;
-    margin: 16px;
     width: 229px;
-    /* height: calc(100% - 32px); */
     background: #ffffff;
     box-shadow: 0px 12px 34px rgba(0, 0, 0, 0.04);
     border-radius: 24px;
+    margin: 16px;
 `
 const LogoImg = styled.img`
     width: 160px;
     height: 32px;
-    margin: 35px;
+    padding: 35px;
 `
 const IconContainer = styled.button`
     display: flex;

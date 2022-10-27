@@ -86,6 +86,7 @@ const Grid2 = styled.div`
     grid-row: auto auto;
     align-items: center;
     justify-content: center;
+
 `
 const LogoContainer = styled.div`
     display: flex;

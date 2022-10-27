@@ -6,9 +6,33 @@ import Arrow from '../assets/arrow-square-down.png';
 import InternshipColumn from '../components/InternshipColumn';
 import DaysColumn from '../components/DaysColumn'
 import EnrolledColumn from '../components/EnrolledColumn';
+import { BarChart, Bar, ResponsiveContainer } from 'recharts';
 
 
 const Dashboard = () => {
+    const data = [
+        {value: 60},
+        {value: 80},
+        {value: 100},
+        {value: 80},
+        {value: 80},
+        {value: 60},
+        {value: 80},
+        {value: 100},
+        {value: 110},
+        {value: 120},
+        {value: 110},
+        {value: 100},
+        {value: 140},
+        {value: 120},
+        {value: 110},
+        {value: 80},
+        {value: 100},
+        {value: 60},
+        {value: 50},
+        {value: 40}
+    ];
+
     return (
         <DashContainer>
             <Sidebar/>
@@ -61,6 +85,21 @@ const Dashboard = () => {
                         <EnrolledColumn/>
                         <EnrolledColumn/>
                     </TotalColumn>
+                    <QualifiedColumn>
+                        <HeaderRow4> 
+                            <h3>Qualified Candidates</h3>
+                            <button>
+                                <img src={Arrow} alt='Arrow Icon'></img>
+                            </button>
+                        </HeaderRow4>
+                        <GraphColumn>
+                            <ResponsiveContainer width="80%" height="45%">
+                                <BarChart data={data}>
+                                    <Bar dataKey="value"  barSize={6} fill="#C4C4C4" radius={[10, 10, 0, 0]}/>
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </GraphColumn>
+                    </QualifiedColumn>
                 </InternshipDetails>
             </Internships>
         </DashContainer>
@@ -71,19 +110,18 @@ export default Dashboard;
 const DashContainer = styled.div`
     display: flex;
     width: 100%;
-    /* height: 100%; */
     background-color: #F1F4F8;
 `
 const Internships = styled.div`
     width: 100%;
-    margin: 45px 66px 16px 50px;
+    padding: 45px 66px 16px 50px;
 `
 const TitleContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
 `
 const Title = styled.h1`
     font-weight: 600;
@@ -120,10 +158,9 @@ const AddIcon = styled.img`
     height: 20px;
 `
 const InternshipDetails = styled.div`
-    background-color: pink;
     display: flex;
     border-radius: 16px;
-    margin-top: 24px;
+    padding-top: 24px;
 `
 const TitleColumn = styled.div`
     display: flex;
@@ -213,4 +250,42 @@ const HeaderRow3 = styled.div`
         width: 20px;
         height: 20px;
     }
+`
+const QualifiedColumn = styled.div`
+    flex: 1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+`
+const HeaderRow4 = styled.div`
+    background-color: #F6F5F9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 56px;
+
+    h3 {
+        padding-left: 12px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        white-space: nowrap;
+    }
+    button {
+        background-color: #F6F5F9;
+        border: none;
+        padding-right: 12px;
+        cursor: pointer;
+    }
+    img {
+        width: 20px;
+        height: 20px;
+    }
+`
+const GraphColumn = styled.div`
+    width: 250px;
+    height: 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `

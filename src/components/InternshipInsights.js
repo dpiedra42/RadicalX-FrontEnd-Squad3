@@ -46,9 +46,9 @@ const InternshipInsightsContainer = styled.div`
     background: #FFFFFF;
     border-radius: 16px;
     display: flex;
+    padding-left: 16px;
     flex-direction: row;
     align-items: center;
-    padding-left: 16px;
     gap: 10px;
 `
 const InsightsBox = styled.div`
@@ -60,12 +60,14 @@ const InsightsBox = styled.div`
     flex-direction: column;
 `
 const BoxTitle = styled.h2`
-    margin: 16px 35px 0 16px;
+    margin: 0;
+    padding: 16px 0 0 16px;
     font-weight: 600;
     font-size: 19px;
 `
 const BoxDesc = styled.p`
-    margin: 12px 35px 0 16px;
+    margin: 0;
+    padding: 12px 35px 0 16px;
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
