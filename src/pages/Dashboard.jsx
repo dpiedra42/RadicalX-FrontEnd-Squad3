@@ -99,6 +99,34 @@ const Dashboard = () => {
                                 </BarChart>
                             </ResponsiveContainer>
                         </GraphColumn>
+                        <GraphColumn>
+                            <ResponsiveContainer width="80%" height="45%">
+                                <BarChart data={data}>
+                                    <Bar dataKey="value"  barSize={6} fill="#C4C4C4" radius={[10, 10, 0, 0]}/>
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </GraphColumn>
+                        <GraphColumn>
+                            <ResponsiveContainer width="80%" height="45%">
+                                <BarChart data={data}>
+                                    <Bar dataKey="value"  barSize={6} fill="#C4C4C4" radius={[10, 10, 0, 0]}/>
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </GraphColumn>
+                        <GraphColumn>
+                            <ResponsiveContainer width="80%" height="45%">
+                                <BarChart data={data}>
+                                    <Bar dataKey="value"  barSize={6} fill="#C4C4C4" radius={[10, 10, 0, 0]}/>
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </GraphColumn>
+                        <GraphColumn>
+                            <ResponsiveContainer width="80%" height="45%">
+                                <BarChart data={data}>
+                                    <Bar dataKey="value"  barSize={6} fill="#C4C4C4" radius={[10, 10, 0, 0]}/>
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </GraphColumn>
                     </QualifiedColumn>
                 </InternshipDetails>
             </Internships>
