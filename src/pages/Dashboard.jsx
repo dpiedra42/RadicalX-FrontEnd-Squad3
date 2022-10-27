@@ -5,6 +5,7 @@ import Add from '../assets/add-square.png';
 import Arrow from '../assets/arrow-square-down.png';
 import InternshipColumn from '../components/InternshipColumn';
 import DaysColumn from '../components/DaysColumn'
+import EnrolledColumn from '../components/EnrolledColumn';
 
 
 const Dashboard = () => {
@@ -54,7 +55,11 @@ const Dashboard = () => {
                                 <img src={Arrow} alt='Arrow Icon'></img>
                             </button>
                         </HeaderRow3>
-                        <EnrolledColumn>20,000</EnrolledColumn>
+                        <EnrolledColumn/>
+                        <EnrolledColumn/>
+                        <EnrolledColumn/>
+                        <EnrolledColumn/>
+                        <EnrolledColumn/>
                     </TotalColumn>
                 </InternshipDetails>
             </Internships>
@@ -122,10 +127,10 @@ const InternshipDetails = styled.div`
 `
 const TitleColumn = styled.div`
     display: flex;
+    flex: 2;
     flex-direction: column;
     background-color: white;
     border-radius: 16px 0 0 16px;
-    width: 360px;
 `
 const HeaderRow1 = styled.div`
     background-color: #F6F5F9;
@@ -153,9 +158,9 @@ const HeaderRow1 = styled.div`
 `
 const CompletionColumn = styled.div`
     display: flex;
+    flex: 1;
     flex-direction: column;
     background-color: white;
-    width: 200px;
 `
 const HeaderRow2 = styled.div`
     background-color: #F6F5F9;
@@ -181,7 +186,7 @@ const HeaderRow2 = styled.div`
     }
 `
 const TotalColumn = styled.div `
-    width: 160px;
+    flex: 1;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -208,16 +213,4 @@ const HeaderRow3 = styled.div`
         width: 20px;
         height: 20px;
     }
-`
-const EnrolledColumn = styled.p`
-    background-color: #F0EFFD;
-    border-radius: 8px;
-    color: #793EF5;
-    font-weight: 600;
-    font-size: 18px;
-    width: 94px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-self: center;
 `

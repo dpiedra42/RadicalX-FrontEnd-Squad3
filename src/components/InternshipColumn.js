@@ -14,16 +14,15 @@ export default function InternshipColumn() {
 
 const InternshipColumnContainer = styled.div`
     height: 96px;
+    padding-left: 12px;
+    width: 195px;
+
     h4{
-        padding-left: 12px;
-        width: 195px;
         font-weight: 500;
         font-size: 16px;
         margin-bottom: 0;
     }
     p {
-        padding-left: 12px;
-        width: 195px;
         font-size: 12px;
         line-height: 16px;
     }

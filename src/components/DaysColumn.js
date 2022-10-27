@@ -11,17 +11,19 @@ export default function DaysColumn() {
 
 const DaysColumnContainer = styled.div`
     height: 96px;
+    width: 195px;
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     h4{
-        margin-bottom: 0;
-        padding-left: 12px;
-        width: 195px;
+        margin: 0;
         font-weight: 500;
         font-size: 16px;
     }
     p {
         margin: 0;
-        padding-left: 12px;
-        width: 195px;
         font-size: 12px;
         line-height: 16px;
         color: #828282;
