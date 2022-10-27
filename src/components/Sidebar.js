@@ -42,11 +42,14 @@ const SidebarContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: left;
-    width: 229px;
     background: #ffffff;
     box-shadow: 0px 12px 34px rgba(0, 0, 0, 0.04);
     border-radius: 24px;
     margin: 16px;
+
+    @media screen and (max-width: 1000px) {
+        display: none;
+    }
 `
 const LogoImg = styled.img`
     width: 160px;
@@ -60,13 +63,11 @@ const IconContainer = styled.button`
     padding: 12px 16px;
     gap: 10px;
     margin: 13px 0px 0px 20px;
-    width: 189px;
-    height: 48px;
     font-size: 16px;
     font-family: "Space Grotesk", sans-serif;
     cursor: pointer;
     background-color: white;
-    border: none;
+    border: 1px solid transparent;
     letter-spacing: 0.3px;
     border-radius: 16px;
 

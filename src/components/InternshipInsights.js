@@ -14,15 +14,17 @@ const InternshipInsights = () => {
     return (
         <InternshipInsightsContainer>
             <InsightsBox>
-                <BoxTitle>Internship Insights</BoxTitle>
-                <BoxDesc>In the eighteenth century the German philosopher Immanuel Kant developed a theory of knowledge
+                <h2>Internship Insights</h2>
+                <p>In the eighteenth century the German philosopher Immanuel Kant developed a theory of knowledge
                     in which knowledge about space can be both a priori and synthetic.
-                </BoxDesc>
+                </p>
             </InsightsBox>
             <DateGraphBox>
                 <DateBox>
-                    <SmallButton>This week</SmallButton>
-                    <SmallButton>This month</SmallButton>
+                    <div>
+                        <SmallButton>This week</SmallButton>
+                        <SmallButton>This month</SmallButton>
+                    </div>
                     <div>
                         <LargeButton>
                             <img src={Calendar} alt='calendar icon'></img>
@@ -42,51 +44,60 @@ const InternshipInsights = () => {
 }
 
 const InternshipInsightsContainer = styled.div`
-    height: 270px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     background: #FFFFFF;
     border-radius: 16px;
-    display: flex;
-    padding-left: 16px;
-    flex-direction: row;
-    align-items: center;
+    padding: 16px;
     gap: 10px;
+    
 `
 const InsightsBox = styled.div`
     background: #F6F5F9;
     border-radius: 16px;
-    width: 280px;
-    height: 238px;
-    display: flex;
-    flex-direction: column;
-`
-const BoxTitle = styled.h2`
-    margin: 0;
+    box-sizing: border-box;
     padding: 16px 0 0 16px;
-    font-weight: 600;
-    font-size: 19px;
-`
-const BoxDesc = styled.p`
-    margin: 0;
-    padding: 12px 35px 0 16px;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.3px;
+    display: flex;
+    width: 280px;
+    flex-direction: column;
+    gap: 12px;
+
+    h2{
+        margin: 0;
+        font-weight: 600;
+        font-size: 19px;
+    }
+    p {
+        margin: 0;
+        width: 230px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+    }
 `
 const DateGraphBox = styled.div`
-    width: calc(100% - 306px);
+    display: flex;
+    width: calc(100% - 290px);
+    flex-direction: column;
+    flex-wrap: wrap;
 `
 const DateBox = styled.div`
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
+    flex-wrap: wrap;
     padding: 8px;
-    gap: 10px;
     background: #F2F2F2;
     border-radius: 12px;
+    gap: 10px;
+
     div {
-        width: calc(100% - 218px);
         display: flex;
-        justify-content: end;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
     }
     button {
         display: flex;

@@ -113,8 +113,17 @@ const DashContainer = styled.div`
     background-color: #F1F4F8;
 `
 const Internships = styled.div`
-    width: 100%;
-    padding: 45px 66px 16px 50px;
+    width: calc(100% - 331px);
+    box-sizing: border-box;
+    padding: 46px 0 16px 46px;
+
+    @media screen and (max-width: 1000px) {
+        display: flex;
+        width: calc(100vw - 46px);
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 `
 const TitleContainer = styled.div`
     display: flex;
@@ -161,6 +170,7 @@ const InternshipDetails = styled.div`
     display: flex;
     border-radius: 16px;
     padding-top: 24px;
+    flex-wrap: wrap;
 `
 const TitleColumn = styled.div`
     display: flex;
