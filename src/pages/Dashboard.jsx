@@ -1,12 +1,15 @@
 import styled from '@emotion/styled';
+
 import Sidebar from '../components/Sidebar'
 import InternshipInsights from '../components/InternshipInsights';
-import Add from '../assets/add-square.png';
-import Arrow from '../assets/arrow-square-down.png';
 import InternshipColumn from '../components/InternshipColumn';
 import DaysColumn from '../components/DaysColumn'
 import EnrolledColumn from '../components/EnrolledColumn';
 import BarGraphColumn from '../components/BarGraphColumn';
+import IconsColumn from '../components/IconsColumn';
+
+import Add from '../assets/add-square.png';
+import Arrow from '../assets/arrow-square-down.png';
 
 
 const Dashboard = () => {
@@ -75,6 +78,14 @@ const Dashboard = () => {
                         <BarGraphColumn/>
                         <BarGraphColumn/>
                     </QualifiedColumn>
+                    <OptionsColumn>
+                        <HeaderRow5/>
+                        <IconsColumn/>
+                        <IconsColumn/>
+                        <IconsColumn/>
+                        <IconsColumn/>
+                        <IconsColumn/>
+                    </OptionsColumn>
                 </InternshipDetails>
             </Internships>
         </DashContainer>
@@ -266,4 +277,14 @@ const HeaderRow4 = styled.div`
         width: 20px;
         height: 20px;
     }
+`
+const OptionsColumn = styled.div`
+    flex: 1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+`
+const HeaderRow5 = styled.div`
+    background-color: #F6F5F9;
+    height: 56px;
 `
