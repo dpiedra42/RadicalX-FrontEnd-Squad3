@@ -6,33 +6,10 @@ import Arrow from '../assets/arrow-square-down.png';
 import InternshipColumn from '../components/InternshipColumn';
 import DaysColumn from '../components/DaysColumn'
 import EnrolledColumn from '../components/EnrolledColumn';
-import { BarChart, Bar, ResponsiveContainer } from 'recharts';
+import BarGraphColumn from '../components/BarGraphColumn';
 
 
 const Dashboard = () => {
-    const data = [
-        {value: 60},
-        {value: 80},
-        {value: 100},
-        {value: 80},
-        {value: 80},
-        {value: 60},
-        {value: 80},
-        {value: 100},
-        {value: 110},
-        {value: 120},
-        {value: 110},
-        {value: 100},
-        {value: 140},
-        {value: 120},
-        {value: 110},
-        {value: 80},
-        {value: 100},
-        {value: 60},
-        {value: 50},
-        {value: 40}
-    ];
-
     return (
         <DashContainer>
             <Sidebar/>
@@ -92,41 +69,11 @@ const Dashboard = () => {
                                 <img src={Arrow} alt='Arrow Icon'></img>
                             </button>
                         </HeaderRow4>
-                        <GraphColumn>
-                            <ResponsiveContainer width="80%" height="45%">
-                                <BarChart data={data}>
-                                    <Bar dataKey="value"  barSize={6} fill="#C4C4C4" radius={[10, 10, 0, 0]}/>
-                                </BarChart>
-                            </ResponsiveContainer>
-                        </GraphColumn>
-                        <GraphColumn>
-                            <ResponsiveContainer width="80%" height="45%">
-                                <BarChart data={data}>
-                                    <Bar dataKey="value"  barSize={6} fill="#C4C4C4" radius={[10, 10, 0, 0]}/>
-                                </BarChart>
-                            </ResponsiveContainer>
-                        </GraphColumn>
-                        <GraphColumn>
-                            <ResponsiveContainer width="80%" height="45%">
-                                <BarChart data={data}>
-                                    <Bar dataKey="value"  barSize={6} fill="#C4C4C4" radius={[10, 10, 0, 0]}/>
-                                </BarChart>
-                            </ResponsiveContainer>
-                        </GraphColumn>
-                        <GraphColumn>
-                            <ResponsiveContainer width="80%" height="45%">
-                                <BarChart data={data}>
-                                    <Bar dataKey="value"  barSize={6} fill="#C4C4C4" radius={[10, 10, 0, 0]}/>
-                                </BarChart>
-                            </ResponsiveContainer>
-                        </GraphColumn>
-                        <GraphColumn>
-                            <ResponsiveContainer width="80%" height="45%">
-                                <BarChart data={data}>
-                                    <Bar dataKey="value"  barSize={6} fill="#C4C4C4" radius={[10, 10, 0, 0]}/>
-                                </BarChart>
-                            </ResponsiveContainer>
-                        </GraphColumn>
+                        <BarGraphColumn/>
+                        <BarGraphColumn/>
+                        <BarGraphColumn/>
+                        <BarGraphColumn/>
+                        <BarGraphColumn/>
                     </QualifiedColumn>
                 </InternshipDetails>
             </Internships>
@@ -319,11 +266,4 @@ const HeaderRow4 = styled.div`
         width: 20px;
         height: 20px;
     }
-`
-const GraphColumn = styled.div`
-    width: 250px;
-    height: 96px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 `
