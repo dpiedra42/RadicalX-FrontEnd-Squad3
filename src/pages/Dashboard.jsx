@@ -95,21 +95,13 @@ export default Dashboard;
 
 const DashContainer = styled.div`
     display: flex;
-    width: 100%;
+    min-width: 1400px;
     background-color: #F1F4F8;
 `
 const Internships = styled.div`
     width: calc(100% - 331px);
     box-sizing: border-box;
     padding: 46px 0 16px 46px;
-
-    @media screen and (max-width: 1000px) {
-        display: flex;
-        width: calc(100vw - 46px);
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 `
 const TitleContainer = styled.div`
     display: flex;

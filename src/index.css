@@ -1,8 +1,6 @@
 body {
   margin: 0;
   height: 100vh;
-  min-height: 500px;
-  min-width: 800px;
   font-family: 'Space Grotesk', sans-serif;;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
