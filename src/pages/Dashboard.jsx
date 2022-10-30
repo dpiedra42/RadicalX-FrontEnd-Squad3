@@ -6,7 +6,6 @@ import InternshipDetails from '../components/InternshipDetails';
 
 import Add from '../assets/add-square.png';
 
-
 const Dashboard = () => {
     return (
         <DashContainer>
