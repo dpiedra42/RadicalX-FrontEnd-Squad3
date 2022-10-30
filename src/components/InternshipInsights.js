@@ -2,7 +2,7 @@ import { AreaChart, Area, XAxis, ResponsiveContainer } from 'recharts';
 import Calendar from '../assets/calendar.png';
 import styled from '@emotion/styled';
 
-const InternshipInsights = () => {
+export default function InternshipInsights() {
     const data = [
         {name: '' , value: ''},
         {name: 'Total Enrollments', value: 100000},
@@ -142,5 +142,3 @@ const LargeButton = styled.button`
         height: 20px;
     }
 `
-
-export default InternshipInsights;

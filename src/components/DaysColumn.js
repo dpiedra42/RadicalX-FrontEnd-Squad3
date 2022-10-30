@@ -1,10 +1,12 @@
 import styled from '@emotion/styled';
 
-export default function DaysColumn() {
+export default function DaysColumn(props) {
+    const createdDate = new Date(props.createdTs * 1000);
+
     return (
         <DaysColumnContainer>
-            <h4>120 days</h4>
-            <p>(created on 10/12/2021)</p>
+            <h4>{props.days} {props.days > 1 ? 'days' : 'day'}</h4>
+            <p>(created on {createdDate.toLocaleDateString()})</p>
         </DaysColumnContainer>
     )
 }

@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
 
-export default function EnrolledColumn() {
+export default function EnrolledColumn(props) {
+    const formattedEnrolled = props.enrolled.toLocaleString();
     return (
         <EnrolledColumnContainer>
-            <p>20,000</p>
+            <p>{formattedEnrolled}</p>
         </EnrolledColumnContainer>
     )
 }

@@ -1,13 +1,10 @@
 import styled from '@emotion/styled';
 
-export default function InternshipColumn() {
+export default function InternshipTitleColumn(props) {
     return (
         <InternshipColumnContainer>
-            <h4>Product Design GVI</h4>
-            <p>
-                Amet minim mollit non deserunt est sit
-                aliqua dolor do amet sint.
-            </p>
+            <h4>{props.title}</h4>
+            <p>{props.description}</p>
         </InternshipColumnContainer>
     )
 }
