@@ -1,3 +1,10 @@
+This project was created for the RadicalX internship. As a Front-End developer, my job is to build out the client-facing side of the web application.
+
+For the login page I have an email and password stored on Firebase that will allow you to access the dashboard. To login please use the information below:
+
+Email: test@gmail.com
+Password: tester1
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
