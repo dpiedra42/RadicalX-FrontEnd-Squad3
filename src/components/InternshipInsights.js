@@ -13,6 +13,7 @@ export default function InternshipInsights() {
         {name: 'Candidates Hired', value: 150},
         {name: '' , value: ''}
       ];
+
     return (
         <InternshipInsightsContainer>
             <InsightsBox>

@@ -6,7 +6,7 @@ import Medal from '../assets/medal-star.png';
 import Setting from '../assets/setting.png';
 import styled from '@emotion/styled';
 
-const Sidebar = () => {
+export default function Sidebar () {
     return (
         <SidebarContainer>
                 <LogoAndIcons>
@@ -41,7 +41,6 @@ const Sidebar = () => {
             </SidebarContainer>
     )
 }
-export default Sidebar;
 
 const SidebarContainer = styled.div`
     box-sizing: content-box;
