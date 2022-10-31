@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
 
 import Sidebar from '../components/Sidebar'
 import InternshipInsights from '../components/InternshipInsights';
@@ -7,13 +8,15 @@ import InternshipDetails from '../components/InternshipDetails';
 import Add from '../assets/add-square.png';
 
 const Dashboard = () => {
+    const navigate = useNavigate();
+
     return (
         <DashContainer>
             <Sidebar/>
             <Internships>
                 <TitleContainer>
                     <Title>Internships</Title>
-                    <AddButton>
+                    <AddButton onClick={() => navigate('./createInternship')}>
                         <AddIcon src={Add} alt='Add-Icon'></AddIcon>
                         Create New Internship
                     </AddButton>
