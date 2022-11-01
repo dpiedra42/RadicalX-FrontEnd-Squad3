@@ -117,6 +117,9 @@ export default function CreateInternship() {
                             </button>
                         </div>
                     </Option>
+                    <AddOption>
+                        <p>Add More</p>
+                    </AddOption>
                 </OptionsList>
                 <div>
                     hi  
@@ -260,5 +263,22 @@ const Option = styled.div`
         width: 24px;
         height: 24px;
     }
+
+`
+const AddOption = styled.div`
+    width: calc(100% - 48px);
+    margin-left: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    color: #333333;
+    height: 64px;
+    border: 1px dashed #793EF5;
+    border-radius: 12px;
+    color: #793EF5;
 
 `
