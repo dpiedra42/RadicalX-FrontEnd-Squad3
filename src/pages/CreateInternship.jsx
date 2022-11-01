@@ -6,6 +6,7 @@ import RightArrow from '../assets/arrow-right.png';
 import Unticked from '../assets/untick-circle.png';
 import Menu from '../assets/menu.png';
 import RightMenu from '../assets/right-menu.png';
+import Add from '../assets/add2.png';
 
 export default function CreateInternship() {
     const navigate = useNavigate();
@@ -31,16 +32,28 @@ export default function CreateInternship() {
                     <li>Internship Description</li>
                 </ul>
                 <ul>
-                    <img src={Unticked} alt='Unticked circle icon'/>
-                    <li>Internship Guide</li>
+                    <img 
+                        style={{filter: 'invert(82%) sepia(8%) saturate(83%) hue-rotate(177deg) brightness(96%) contrast(91%)'}}
+                        src={Unticked} 
+                        alt='Unticked circle icon'
+                    />
+                    <li style={{opacity: '0.3'}}>Internship Guide</li>
                 </ul>
                 <ul>
-                    <img src={Unticked} alt='Unticked circle icon'/>
-                    <li>Surveys</li>
+                    <img 
+                        style={{filter: 'invert(82%) sepia(8%) saturate(83%) hue-rotate(177deg) brightness(96%) contrast(91%)'}}
+                        src={Unticked} 
+                        alt='Unticked circle icon'
+                    />
+                    <li style={{opacity: '0.3'}}>Surveys</li>
                 </ul>
                 <ul>
-                    <img src={Unticked} alt='Unticked circle icon'/>
-                    <li>Settings</li>
+                    <img 
+                        style={{filter: 'invert(82%) sepia(8%) saturate(83%) hue-rotate(177deg) brightness(96%) contrast(91%)'}}
+                        src={Unticked} 
+                        alt='Unticked circle icon'
+                    />
+                    <li style={{opacity: '0.3'}}>Settings</li>
                 </ul>
             </ProgressBar>
             <FormData>
@@ -118,7 +131,8 @@ export default function CreateInternship() {
                         </div>
                     </Option>
                     <AddOption>
-                        <p>Add More</p>
+                        <img src={Add} alt='Add Icon'/>
+                        Add More
                     </AddOption>
                 </OptionsList>
                 <div>
@@ -209,7 +223,6 @@ const ProgressBar = styled.div`
         gap: 8px;
         padding: 0 24px 0 24px;
     }
-
     img{
         width: 24px;
         height: 24px;
@@ -272,9 +285,9 @@ const Option = styled.li`
     }
 
 `
-const AddOption = styled.div`
-    width: calc(100% - 48px);
-    margin-left: 48px;
+const AddOption = styled.li`
+    width: calc(100% - 52px);
+    margin: 0 0 73px 48px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -283,9 +296,14 @@ const AddOption = styled.div`
     font-size: 18px;
     line-height: 18px;
     color: #333333;
-    height: 64px;
-    border: 1px dashed #793EF5;
-    border-radius: 12px;
+    height: 56px;
     color: #793EF5;
-
+    border: dashed 1px #793EF5;
+    border-radius: 12px;
+    gap: 12px;
+    
+    img{
+        width: 20px;
+        height: 20px;
+    }
 `
