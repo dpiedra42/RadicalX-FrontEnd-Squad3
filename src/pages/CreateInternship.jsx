@@ -26,22 +26,22 @@ export default function CreateInternship() {
                 </NextButton>
             </HeaderBox>
             <ProgressBar>
-                <div>
+                <ul>
                     <img src={Unticked} alt='Unticked circle icon'/>
-                    Internship Description
-                </div>
-                <div>
+                    <li>Internship Description</li>
+                </ul>
+                <ul>
                     <img src={Unticked} alt='Unticked circle icon'/>
-                    Internship Guide
-                </div>
-                <div>
+                    <li>Internship Guide</li>
+                </ul>
+                <ul>
                     <img src={Unticked} alt='Unticked circle icon'/>
-                    Surveys
-                </div>
-                <div>
+                    <li>Surveys</li>
+                </ul>
+                <ul>
                     <img src={Unticked} alt='Unticked circle icon'/>
-                    Settings
-                </div>
+                    <li>Settings</li>
+                </ul>
             </ProgressBar>
             <FormData>
                 <OptionsList>
@@ -147,6 +147,8 @@ const HeaderBox = styled.div`
 `
 const HeaderTitle = styled.h1`
     font-size: 28px;
+    color: #1E1E1E;
+    font-weight: 500;
 `
 const BackButton = styled.button`
     background-color: white;
@@ -199,13 +201,15 @@ const ProgressBar = styled.div`
     border: solid #D0D4DA 1px;
     border-radius: 20px;
 
-    div {
+    ul {
+        list-style: none;
         display: flex;
         align-items: center;
         letter-spacing: 0.3px;
         gap: 8px;
         padding: 0 24px 0 24px;
     }
+
     img{
         width: 24px;
         height: 24px;
@@ -218,13 +222,16 @@ const FormData = styled.div`
     margin-top: 34px;
     gap: 23px;
 `
-const OptionsList = styled.div`
+const OptionsList = styled.ul`
     display: flex;
     flex-direction: column;
     width: 50%;
     gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 `
-const Option = styled.div`
+const Option = styled.li`
     display: flex;
     flex-direction: row;
     align-items: center;
