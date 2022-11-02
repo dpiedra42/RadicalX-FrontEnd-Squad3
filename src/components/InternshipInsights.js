@@ -132,11 +132,13 @@ const DateBox = styled.div`
 const SmallButton = styled.button`
     width: 100px;
     height: 32px;
+    cursor: pointer;
 `
 const LargeButton = styled.button`
     width: 137px;
     height: 32px;
     gap: 8px;
+    cursor: pointer;
 
     img {
         width: 20px;

@@ -22,5 +22,6 @@ const IconsContainer = styled.div`
     img {
         width: 28px;
         height: 28px;
+        cursor: pointer;
     }
 `
