@@ -10,6 +10,20 @@ import Add from '../assets/add2.png';
 
 export default function CreateInternship() {
     const navigate = useNavigate();
+    const ButtonName = [
+        {name: 'Category'},
+        {name: 'Description'},
+        {name: 'Location'},
+        {name: 'Benefits'},
+        {name: 'Intro Video'},
+        {name: 'Mentor Details'},
+        {name: 'Recommended Roles'},
+        {name: 'Web Links & Resources'}   
+    ]
+
+    function handleClick() {
+        
+    }
 
     return (
         <CreateContainer>
@@ -58,78 +72,15 @@ export default function CreateInternship() {
             </ProgressBar>
             <FormData>
                 <OptionsList>
-                    <Option>
-                        <img src={Menu} alt='menu logo'/>
-                        <div>
-                            Category
+                    {ButtonName.map((button) => (
+                        <Option>
+                            <img src={Menu} alt='menu logo'/>
                             <button>
+                                {button.name}
                                 <img src={RightMenu} alt='Right menu arrow'/>
                             </button>
-                        </div>
-                    </Option>
-                    <Option>
-                        <img src={Menu} alt='menu logo'/>
-                        <div>
-                            Description
-                            <button>
-                                <img src={RightMenu} alt='Right menu arrow'/>
-                            </button>
-                        </div>
-                    </Option>
-                    <Option>
-                        <img src={Menu} alt='menu logo'/>
-                        <div>
-                            Location
-                            <button>
-                                <img src={RightMenu} alt='Right menu arrow'/>
-                            </button>
-                        </div>
-                    </Option>
-                    <Option>
-                        <img src={Menu} alt='menu logo'/>
-                        <div>
-                            Benefits
-                            <button>
-                                <img src={RightMenu} alt='Right menu arrow'/>
-                            </button>
-                        </div>
-                    </Option>
-                    <Option>
-                        <img src={Menu} alt='menu logo'/>
-                        <div>
-                            Intro Video
-                            <button>
-                                <img src={RightMenu} alt='Right menu arrow'/>
-                            </button>
-                        </div>
-                    </Option>
-                    <Option>
-                        <img src={Menu} alt='menu logo'/>
-                        <div>
-                            Mentor Details
-                            <button>
-                                <img src={RightMenu} alt='Right menu arrow'/>
-                            </button>
-                        </div>
-                    </Option>
-                    <Option>
-                        <img src={Menu} alt='menu logo'/>
-                        <div>
-                            Recommended Roles
-                            <button>
-                                <img src={RightMenu} alt='Right menu arrow'/>
-                            </button>
-                        </div>
-                    </Option>
-                    <Option>
-                        <img src={Menu} alt='menu logo'/>
-                        <div>
-                            Web Links & Resources
-                            <button>
-                                <img src={RightMenu} alt='Right menu arrow'/>
-                            </button>
-                        </div>
-                    </Option>
+                        </Option>
+                    ))}
                     <AddOption>
                         <img src={Add} alt='Add Icon'/>
                         Add More
@@ -249,33 +200,24 @@ const Option = styled.li`
     flex-direction: row;
     align-items: center;
     gap: 24px;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 18px;
-    color: #333333;
     width: 100%;
     height: 64px;
 
-    div{
+    button {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
         align-items: center;
+        width: 100%;
+        height: 100%;
+        justify-content: space-between;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 18px;
+        color: #333333;
         background-color: white;
         border: 1px solid #E0E0E0;
         border-radius: 16px;
-        width: 100%;
-        height: 100%;
-        padding-left: 20px;
-    }
-
-    button {
-        border: none;
-        background-color: transparent;
-        display: flex;
-        align-items: center;
-        padding: 0;
-        margin-right: 20px;
+        padding: 20px;
         cursor: pointer;
     }
 
@@ -285,7 +227,7 @@ const Option = styled.li`
     }
 
 `
-const AddOption = styled.li`
+const AddOption = styled.button`
     width: calc(100% - 52px);
     margin: 0 0 73px 48px;
     display: flex;
@@ -301,6 +243,8 @@ const AddOption = styled.li`
     border: dashed 1px #793EF5;
     border-radius: 12px;
     gap: 12px;
+    cursor: pointer;
+    background-color: transparent;
     
     img{
         width: 20px;
