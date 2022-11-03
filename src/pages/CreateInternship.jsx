@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
 
 import LeftArrow from '../assets/arrow-left.png';
 import RightArrow from '../assets/arrow-right.png';
@@ -8,7 +9,10 @@ import Menu from '../assets/menu.png';
 import RightMenu from '../assets/right-menu.png';
 import Add from '../assets/add2.png';
 
+import Category from '../components/CreateInternship/Category';
+
 export default function CreateInternship() {
+    const [showElement, setShowElement] = useState(false)
     const navigate = useNavigate();
     const ButtonName = [
         {name: 'Category'},
@@ -21,8 +25,9 @@ export default function CreateInternship() {
         {name: 'Web Links & Resources'}   
     ]
 
-    function handleClick() {
-        
+    function handleClick(id) {
+        if (id === 0)
+            setShowElement(!showElement);
     }
 
     return (
@@ -72,10 +77,10 @@ export default function CreateInternship() {
             </ProgressBar>
             <FormData>
                 <OptionsList>
-                    {ButtonName.map((button) => (
-                        <Option>
+                    {ButtonName.map((button, id) => (
+                        <Option key={id}>
                             <img src={Menu} alt='menu logo'/>
-                            <button>
+                            <button onClick={() => handleClick(id)}>
                                 {button.name}
                                 <img src={RightMenu} alt='Right menu arrow'/>
                             </button>
@@ -86,9 +91,9 @@ export default function CreateInternship() {
                         Add More
                     </AddOption>
                 </OptionsList>
-                <div>
-                    hi  
-                </div>
+                <OptionDescription>
+                    { showElement ? <Category/> : null }
+                </OptionDescription>
             </FormData>
         </CreateContainer>
     )
@@ -250,4 +255,10 @@ const AddOption = styled.button`
         width: 20px;
         height: 20px;
     }
+`
+const OptionDescription = styled.div`
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 `

@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 
-import Arrow from '../assets/arrow-square-down.png';
+import Arrow from '../../assets/arrow-square-down.png';
 
-import InternshipTitleColumn from '../components/TitleColumn';
-import DaysColumn from '../components/DaysColumn'
-import EnrolledColumn from '../components/EnrolledColumn';
-import BarGraphColumn from '../components/BarGraphColumn';
-import IconsColumn from '../components/IconsColumn';
+import InternshipTitleColumn from './TitleColumn';
+import DaysColumn from './DaysColumn'
+import EnrolledColumn from './EnrolledColumn';
+import BarGraphColumn from './BarGraphColumn';
+import IconsColumn from './IconsColumn';
 
 export default function InternshipDetails() {
     const columnData = [

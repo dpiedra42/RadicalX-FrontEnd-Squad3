@@ -1,5 +1,5 @@
 import { AreaChart, Area, XAxis, ResponsiveContainer } from 'recharts';
-import Calendar from '../assets/calendar.png';
+import Calendar from '../../assets/calendar.png';
 import styled from '@emotion/styled';
 
 export default function InternshipInsights() {

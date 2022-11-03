@@ -1,9 +1,9 @@
-import Logo from '../assets/RadicalXLogo.png';
-import Book from '../assets/book.png';
-import Brief from '../assets/briefcase.png';
-import Dash from '../assets/dashboard.png';
-import Medal from '../assets/medal-star.png';
-import Setting from '../assets/setting.png';
+import Logo from '../../assets/RadicalXLogo.png';
+import Book from '../../assets/book.png';
+import Brief from '../../assets/briefcase.png';
+import Dash from '../../assets/dashboard.png';
+import Medal from '../../assets/medal-star.png';
+import Setting from '../../assets/setting.png';
 import styled from '@emotion/styled';
 
 export default function Sidebar () {

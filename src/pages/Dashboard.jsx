@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 
-import Sidebar from '../components/Sidebar'
-import InternshipInsights from '../components/InternshipInsights';
-import InternshipDetails from '../components/InternshipDetails';
+import Sidebar from '../components/Dashboard/Sidebar'
+import InternshipInsights from '../components/Dashboard/InternshipInsights';
+import InternshipDetails from '../components/Dashboard/InternshipDetails';
 
 import Add from '../assets/add-square.png';
 

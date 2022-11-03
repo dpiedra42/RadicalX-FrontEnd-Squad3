@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import Chart from '../assets/chart.png';
-import More from '../assets/more.png';
-import Profile from '../assets/profile.png';
+import Chart from '../../assets/chart.png';
+import More from '../../assets/more.png';
+import Profile from '../../assets/profile.png';
 
 export default function IconsColumn() {
     return (
