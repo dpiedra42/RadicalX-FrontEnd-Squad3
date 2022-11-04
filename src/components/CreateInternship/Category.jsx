@@ -1,14 +1,34 @@
 import styled from "@emotion/styled";
+import { useState } from "react";
 import Search from '../../assets/search-normal.png';
 
 export default function Category() {
+    const [categoryName, setCategoryName] = useState('')
+    const [optionsArray, setOptionsArray] = useState([])
+
+    function handleInput(e) {
+        e.preventDefault();
+        setOptionsArray(oldArray => [...oldArray, categoryName]);
+        setCategoryName('');
+    }
     return (
         <CategoryContainer>
             <p>Category</p>
-            <form>
-                <input type="text" name="search category" placeholder='Search Category' required/>
+            <form onSubmit={(e) => handleInput(e)}>
+                <input 
+                    type="text" 
+                    name="searchCategory" 
+                    value={categoryName }
+                    placeholder='Search Category' 
+                    onChange={(e) => setCategoryName(e.target.value)}
+                    required/>
                 <img src={Search} alt='Search Icon'/>
             </form>
+            {optionsArray.map(cat => (
+                <div>
+                    {cat}
+                </div>
+            ))}
         </CategoryContainer>
     )
 } 
