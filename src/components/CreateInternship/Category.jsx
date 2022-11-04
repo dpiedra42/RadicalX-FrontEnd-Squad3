@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 import Search from '../../assets/search-normal.png';
+import Close from '../../assets/close.png';
 
 export default function Category() {
     const [categoryName, setCategoryName] = useState('')
@@ -11,6 +12,12 @@ export default function Category() {
         setOptionsArray(oldArray => [...oldArray, categoryName]);
         setCategoryName('');
     }
+
+    function filterArray(name) {
+        setOptionsArray(optionsArray.filter(item => item !== name))
+        console.log(optionsArray)
+    }
+
     return (
         <CategoryContainer>
             <p>Category</p>
@@ -24,11 +31,16 @@ export default function Category() {
                     required/>
                 <img src={Search} alt='Search Icon'/>
             </form>
-            {optionsArray.map(cat => (
-                <div>
-                    {cat}
-                </div>
-            ))}
+            <CategoryDisplay>
+                {optionsArray.map((cat, id) => (
+                    <CategoryItem key={id}>
+                        {cat}
+                        <button onClick={() => filterArray(cat)}>
+                            <img src={Close} alt='Close Icon'/>
+                        </button>
+                    </CategoryItem>
+                ))}
+            </CategoryDisplay>
         </CategoryContainer>
     )
 } 
@@ -36,7 +48,7 @@ export default function Category() {
 const CategoryContainer = styled.div`
     padding: 0 24px 24px 24px;
     background-color: white;
-    border-radius: 12px;
+    border-radius: 20px;
     width: 100%;
 
     p {
@@ -50,6 +62,13 @@ const CategoryContainer = styled.div`
         display: flex;
         justify-content: flex-end;
         align-items: center;
+
+        img {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        padding-right: 14px;
+        }
     }
 
     input {
@@ -65,11 +84,39 @@ const CategoryContainer = styled.div`
         border: 1px solid #CECECE;
         padding-left: 16px;
     }
+`
+const CategoryDisplay = styled.div`
+    padding-top: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+`
+const CategoryItem = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 141px;
+    height: 46px;
+    background-color: #665FEF33;
+    border: 1px solid #793EF5;
+    border-radius: 32px;
 
-    img {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        padding-right: 14px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    color: #793EF5;
+
+    button{
+        border: none;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        img{
+            width: 22px;
+            height: 22px;
+        }
     }
 `
