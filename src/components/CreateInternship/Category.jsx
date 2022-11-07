@@ -9,6 +9,7 @@ export default function Category() {
 
     function handleInput(e) {
         e.preventDefault();
+        optionsArray.includes(categoryName) ? alert("Already listed in Category") :
         setOptionsArray(oldArray => [...oldArray, categoryName]);
         setCategoryName('');
     }
@@ -25,7 +26,7 @@ export default function Category() {
                 <input 
                     type="text" 
                     name="searchCategory" 
-                    value={categoryName }
+                    value={ categoryName }
                     placeholder='Search Category' 
                     onChange={(e) => setCategoryName(e.target.value)}
                     required/>

@@ -13,6 +13,13 @@ import Category from '../components/CreateInternship/Category';
 
 export default function CreateInternship() {
     const [showElement, setShowElement] = useState(false)
+    // const [showElement, setShowElement] = useState(false)
+    // const [showElement, setShowElement] = useState(false)
+    // const [showElement, setShowElement] = useState(false)
+    // const [showElement, setShowElement] = useState(false)
+    // const [showElement, setShowElement] = useState(false)
+    // const [showElement, setShowElement] = useState(false)
+    // const [showElement, setShowElement] = useState(false)
     const navigate = useNavigate();
     const ButtonName = [
         {name: 'Category'},
