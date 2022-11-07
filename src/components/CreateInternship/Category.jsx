@@ -31,7 +31,8 @@ export default function Category() {
                     value={ categoryName }
                     placeholder='Search Category' 
                     onChange={(e) => setCategoryName(e.target.value)}
-                    required/>
+                    required
+                />
                 <img src={Search} alt='Search Icon'/>
             </form>
             <CategoryDisplay>
