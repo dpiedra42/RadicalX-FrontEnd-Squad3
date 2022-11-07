@@ -35,7 +35,7 @@ export default function Category() {
             <CategoryDisplay>
                 {optionsArray.map((cat, id) => (
                     <CategoryItem key={id}>
-                        {cat}
+                        <p>{cat}</p>
                         <button onClick={() => filterArray(cat)}>
                             <img src={Close} alt='Close Icon'/>
                         </button>
@@ -97,16 +97,20 @@ const CategoryItem = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 141px;
     height: 46px;
     background-color: #665FEF33;
     border: 1px solid #793EF5;
     border-radius: 32px;
-
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 22px;
-    color: #793EF5;
+    /* padding: 0 12px 0 12px;   */
+    
+    p {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 22px;
+        color: #793EF5;
+        flex-wrap: wrap;
+        padding-left: 16px;
+    }
 
     button{
         border: none;
@@ -114,6 +118,7 @@ const CategoryItem = styled.div`
         display: flex;
         align-items: center;
         cursor: pointer;
+        padding-right: 12px;
 
         img{
             width: 22px;

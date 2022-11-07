@@ -111,6 +111,7 @@ const CreateContainer = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    min-width: 1400px;
 `
 const HeaderBox = styled.div`
     width: calc(100% - 46px);
