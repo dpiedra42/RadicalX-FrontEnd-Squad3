@@ -5,7 +5,9 @@ import Close from '../../assets/close.png';
 
 export default function Category() {
     const [categoryName, setCategoryName] = useState('')
-    const [optionsArray, setOptionsArray] = useState([])
+    const [optionsArray, setOptionsArray] = useState([
+        'Technology', 'Development'
+    ])
 
     function handleInput(e) {
         e.preventDefault();
@@ -101,7 +103,6 @@ const CategoryItem = styled.div`
     background-color: #665FEF33;
     border: 1px solid #793EF5;
     border-radius: 32px;
-    /* padding: 0 12px 0 12px;   */
     
     p {
         font-weight: 500;

@@ -10,10 +10,11 @@ import RightMenu from '../assets/right-menu.png';
 import Add from '../assets/add2.png';
 
 import Category from '../components/CreateInternship/Category';
+import Description from "../components/CreateInternship/Description";
 
 export default function CreateInternship() {
-    const [showElement, setShowElement] = useState(false)
-    // const [showElement, setShowElement] = useState(false)
+    const [showCategory, setShowCategory] = useState(false)
+    const [showDescription, setShowDescription] = useState(false)
     // const [showElement, setShowElement] = useState(false)
     // const [showElement, setShowElement] = useState(false)
     // const [showElement, setShowElement] = useState(false)
@@ -34,7 +35,15 @@ export default function CreateInternship() {
 
     function handleClick(id) {
         if (id === 0)
-            setShowElement(!showElement);
+        {
+            setShowDescription(false);
+            setShowCategory(!showCategory);
+        }
+        else if (id === 1)
+        {
+            setShowDescription(!showDescription);
+            setShowCategory(false);
+        }
     }
 
     return (
@@ -99,7 +108,8 @@ export default function CreateInternship() {
                     </AddOption>
                 </OptionsList>
                 <OptionDescription>
-                    { showElement ? <Category/> : null }
+                    { showCategory ? <Category/> : null }
+                    { showDescription? <Description/> : null }
                 </OptionDescription>
             </FormData>
         </CreateContainer>
