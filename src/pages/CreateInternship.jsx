@@ -10,7 +10,7 @@ import RightMenu from '../assets/right-menu.png';
 import Add from '../assets/add2.png';
 
 import Category from '../components/CreateInternship/Category';
-import Description from "../components/CreateInternship/Description";
+// import Description from "../components/CreateInternship/Description";
 
 export default function CreateInternship() {
     const [showCategory, setShowCategory] = useState(false)
@@ -22,15 +22,16 @@ export default function CreateInternship() {
     // const [showElement, setShowElement] = useState(false)
     // const [showElement, setShowElement] = useState(false)
     const navigate = useNavigate();
+
     const ButtonName = [
-        {name: 'Category'},
-        {name: 'Description'},
-        {name: 'Location'},
-        {name: 'Benefits'},
-        {name: 'Intro Video'},
-        {name: 'Mentor Details'},
-        {name: 'Recommended Roles'},
-        {name: 'Web Links & Resources'}   
+       {name: 'Category'},
+       {name: 'Description'},
+       {name: 'Location'},
+       {name: 'Benefits'},
+       {name: 'Intro Video'},
+       {name: 'Mentor Details'},
+       {name: 'Recommended Roles'},
+       {name: 'Web Links & Resources'} 
     ]
 
     function handleClick(id) {
@@ -45,7 +46,6 @@ export default function CreateInternship() {
             setShowCategory(false);
         }
     }
-
     return (
         <CreateContainer>
             <HeaderBox>
@@ -108,8 +108,7 @@ export default function CreateInternship() {
                     </AddOption>
                 </OptionsList>
                 <OptionDescription>
-                    { showCategory ? <Category/> : null }
-                    { showDescription? <Description/> : null }
+                    <Category show={showCategory}/>
                 </OptionDescription>
             </FormData>
         </CreateContainer>

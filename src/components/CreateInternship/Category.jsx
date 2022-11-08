@@ -3,11 +3,9 @@ import { useState } from "react";
 import Search from '../../assets/search-normal.png';
 import Close from '../../assets/close.png';
 
-export default function Category() {
+export default function Category({show}) {
     const [categoryName, setCategoryName] = useState('')
-    const [optionsArray, setOptionsArray] = useState([
-        'Technology', 'Development'
-    ])
+    const [optionsArray, setOptionsArray] = useState([])
 
     function handleInput(e) {
         e.preventDefault();
@@ -18,12 +16,11 @@ export default function Category() {
 
     function filterArray(name) {
         setOptionsArray(optionsArray.filter(item => item !== name))
-        console.log(optionsArray)
     }
 
     return (
-        <CategoryContainer>
-            <p>Category</p>
+        <CategoryContainer show={show}>
+            <SectionTitle>Category</SectionTitle>
             <form onSubmit={(e) => handleInput(e)}>
                 <input 
                     type="text" 
@@ -50,17 +47,11 @@ export default function Category() {
 } 
 
 const CategoryContainer = styled.div`
+    display: ${props => props.show ? 'initial' : 'none'};
     padding: 0 24px 24px 24px;
     background-color: white;
     border-radius: 20px;
     width: 100%;
-
-    p {
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 18px;
-        color: #333333;
-    }
 
     form {
         display: flex;
@@ -88,6 +79,12 @@ const CategoryContainer = styled.div`
         border: 1px solid #CECECE;
         padding-left: 16px;
     }
+`
+const SectionTitle = styled.p`
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 18px;
+    color: #333333;
 `
 const CategoryDisplay = styled.div`
     padding-top: 16px;
