@@ -10,20 +10,14 @@ import RightMenu from '../assets/right-menu.png';
 import Add from '../assets/add2.png';
 
 import Category from '../components/CreateInternship/Category';
-// import Description from "../components/CreateInternship/Description";
+import Description from "../components/CreateInternship/Description";
 
 export default function CreateInternship() {
     const [showCategory, setShowCategory] = useState(false)
     const [showDescription, setShowDescription] = useState(false)
-    // const [showElement, setShowElement] = useState(false)
-    // const [showElement, setShowElement] = useState(false)
-    // const [showElement, setShowElement] = useState(false)
-    // const [showElement, setShowElement] = useState(false)
-    // const [showElement, setShowElement] = useState(false)
-    // const [showElement, setShowElement] = useState(false)
     const navigate = useNavigate();
 
-    const ButtonName = [
+    const buttonName = [
        {name: 'Category'},
        {name: 'Description'},
        {name: 'Location'},
@@ -93,7 +87,7 @@ export default function CreateInternship() {
             </ProgressBar>
             <FormData>
                 <OptionsList>
-                    {ButtonName.map((button, id) => (
+                    {buttonName.map((button, id) => (
                         <Option key={id}>
                             <img src={Menu} alt='menu logo'/>
                             <button onClick={() => handleClick(id)}>
@@ -109,6 +103,7 @@ export default function CreateInternship() {
                 </OptionsList>
                 <OptionDescription>
                     <Category show={showCategory}/>
+                    <Description show={showDescription}/>
                 </OptionDescription>
             </FormData>
         </CreateContainer>

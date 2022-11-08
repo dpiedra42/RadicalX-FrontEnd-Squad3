@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 
-export default function Description() {
+export default function Description({show}) {
     const [descriptionText, setDescriptionText] = useState('')
     const [descriptionArray, setDescriptionArray] = useState([]);
 
@@ -12,7 +12,7 @@ export default function Description() {
     }
 
     return (
-        <DescriptionContainer>
+        <DescriptionContainer show={show}>
             <p>Description</p>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <textarea
@@ -32,6 +32,7 @@ export default function Description() {
 }
 
 const DescriptionContainer = styled.div`
+    display: ${props => props.show ? 'initial' : 'none'};
     padding: 0 24px 24px 24px;
     background-color: white;
     border-radius: 20px;
