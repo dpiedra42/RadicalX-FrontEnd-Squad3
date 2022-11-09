@@ -3,7 +3,7 @@ import { useState } from "react";
 import Search from '../../assets/search-normal.png';
 import Close from '../../assets/close.png';
 
-export default function Category({show}) {
+export default function Category() {
     const [categoryName, setCategoryName] = useState('')
     const [optionsArray, setOptionsArray] = useState([])
 
@@ -19,7 +19,7 @@ export default function Category({show}) {
     }
 
     return (
-        <CategoryContainer show={show}>
+        <CategoryContainer>
             <SectionTitle>Category</SectionTitle>
             <form onSubmit={(e) => handleInput(e)}>
                 <input 
@@ -47,7 +47,6 @@ export default function Category({show}) {
 } 
 
 const CategoryContainer = styled.div`
-    display: ${props => props.show ? 'initial' : 'none'};
     padding: 0 24px 24px 24px;
     background-color: white;
     border-radius: 20px;

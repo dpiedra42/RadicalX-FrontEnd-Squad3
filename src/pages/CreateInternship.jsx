@@ -13,33 +13,16 @@ import Category from '../components/CreateInternship/Category';
 import Description from "../components/CreateInternship/Description";
 
 export default function CreateInternship() {
-    const [showCategory, setShowCategory] = useState(false)
-    const [showDescription, setShowDescription] = useState(false)
+    const [toggledSection, setToggledSection] = useState(undefined)
+    const FormSectionKeys = Object.keys(formSections);
     const navigate = useNavigate();
 
-    const buttonName = [
-       {name: 'Category'},
-       {name: 'Description'},
-       {name: 'Location'},
-       {name: 'Benefits'},
-       {name: 'Intro Video'},
-       {name: 'Mentor Details'},
-       {name: 'Recommended Roles'},
-       {name: 'Web Links & Resources'} 
-    ]
+    const ToggledSectionComponent = formSections[toggledSection]?.component || formSections?.category.component;
 
-    function handleClick(id) {
-        if (id === 0)
-        {
-            setShowDescription(false);
-            setShowCategory(!showCategory);
-        }
-        else if (id === 1)
-        {
-            setShowDescription(!showDescription);
-            setShowCategory(false);
-        }
+    function handleClick(name) {
+        setToggledSection(name);
     }
+    
     return (
         <CreateContainer>
             <HeaderBox>
@@ -87,11 +70,11 @@ export default function CreateInternship() {
             </ProgressBar>
             <FormData>
                 <OptionsList>
-                    {buttonName.map((button, id) => (
-                        <Option key={id}>
+                    {FormSectionKeys.map((sectionKey) => (
+                        <Option key={sectionKey} className={sectionKey === toggledSection ? 'optionToggled' : null}>
                             <img src={Menu} alt='menu logo'/>
-                            <button onClick={() => handleClick(id)}>
-                                {button.name}
+                            <button onClick={() => handleClick(sectionKey)}>
+                                {formSections[sectionKey].name}
                                 <img src={RightMenu} alt='Right menu arrow'/>
                             </button>
                         </Option>
@@ -102,13 +85,51 @@ export default function CreateInternship() {
                     </AddOption>
                 </OptionsList>
                 <OptionDescription>
-                    <Category show={showCategory}/>
-                    <Description show={showDescription}/>
+                    {toggledSection ? <ToggledSectionComponent/> : null}
                 </OptionDescription>
             </FormData>
         </CreateContainer>
     )
 }
+
+// Constants
+
+const formSections = {
+    category: {
+        name: 'Category',
+        component: Category,
+    },
+    description: {
+        name: 'Description',
+        component: Description,
+    },
+    location: {
+        name: 'Location',
+        component: null,
+    },
+    benefits: {
+        name: 'Benefits',
+        component: null,
+    },
+    introVideo: {
+        name: 'Intro Video',
+        component: null,
+    },
+    mentorDetails: {
+        name: 'Mentor Details',
+        component: null,
+    },
+    recRoles: {
+        name: 'Recommended Roles',
+        component: null,
+    },
+    links: {
+        name: 'Links',
+        component: null,
+    },
+}
+
+// Styles
 
 const CreateContainer = styled.div`
     background-color: #F1F4F8;
@@ -219,6 +240,10 @@ const Option = styled.li`
     gap: 24px;
     width: 100%;
     height: 64px;
+
+    &.optionToggled {
+        background: blue;
+    }
 
     button {
         display: flex;
