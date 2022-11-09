@@ -142,6 +142,7 @@ const Option = styled.li`
         border-radius: 16px;
         padding: 20px;
         cursor: pointer;
+        transition: 0.5s;
     }
 
     img {

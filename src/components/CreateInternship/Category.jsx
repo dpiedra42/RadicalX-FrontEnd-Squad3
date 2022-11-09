@@ -43,6 +43,7 @@ export default function Category() {
                 ))}
             </CategoryDisplay>
         </CategoryContainer>
+        //add trim of categories for space and commas
     )
 } 
 
