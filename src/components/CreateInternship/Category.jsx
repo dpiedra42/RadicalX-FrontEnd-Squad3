@@ -5,7 +5,7 @@ import Close from '../../assets/close.png';
 
 export default function Category() {
     const [categoryName, setCategoryName] = useState('')
-    const [optionsArray, setOptionsArray] = useState([])
+    const [optionsArray, setOptionsArray] = useState(['Technology', 'Development'])
 
     function handleInput(e) {
         e.preventDefault();

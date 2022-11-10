@@ -4,6 +4,7 @@ import { useState } from "react";
 import Menu from '../assets/menu.png';
 import RightMenu from '../assets/right-menu.png';
 import Add from '../assets/add2.png';
+import Check from '../assets/tick-circle.png';
 
 import HeaderBox from "../components/CreateInternship/HeaderBox";
 import ProgressBar from "../components/CreateInternship/ProgressBar";
@@ -27,13 +28,16 @@ export default function CreateInternship() {
             <FormData>
                 <OptionsList>
                     {FormSectionKeys.map((sectionKey) => (
-                        <Option key={sectionKey} className={sectionKey === toggledSection ? 'optionToggled' : null}>
+                        <OptionSection key={sectionKey}>
                             <img src={Menu} alt='menu logo'/>
-                            <button onClick={() => handleClick(sectionKey)}>
-                                {formSections[sectionKey].name}
+                            <SectionName onClick={() => handleClick(sectionKey)} className={sectionKey === toggledSection ? 'optionToggled' : null}>
+                                <div>
+                                    <p>{formSections[sectionKey].name}</p>
+                                    {/* <img src={Check} alt='CheckMark'/> */}
+                                </div>
                                 <img src={RightMenu} alt='Right menu arrow'/>
-                            </button>
-                        </Option>
+                            </SectionName>
+                        </OptionSection>
                     ))}
                     <AddOption>
                         <img src={Add} alt='Add Icon'/>
@@ -110,46 +114,47 @@ const OptionsList = styled.ul`
     padding: 0;
     margin: 0;
 `
-const Option = styled.li`
+const OptionSection = styled.li`
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 24px;
     width: 100%;
-    height: 64px;
-
-    &.optionToggled {
-       button {
-            border: 1px solid #793EF5;
-            box-shadow: 0px 24px 34px rgba(0, 0, 0, 0.12);
-            border-radius: 16px;
-        }
-    }
-
-    button {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        justify-content: space-between;
-        font-family: 'Space Grotesk', sans-serif;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 18px;
-        color: #333333;
-        background-color: white;
-        border: 1px solid #E0E0E0;
-        border-radius: 16px;
-        padding: 20px;
-        cursor: pointer;
-        transition: 0.5s;
-    }
 
     img {
         width: 24px;
         height: 24px;
     }
 
+`
+const SectionName = styled.div`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 18px;
+    color: #333333;
+    background-color: white;
+    border: 1px solid #E0E0E0;
+    border-radius: 16px;
+    padding: 0 20px 0 20px;
+    cursor: pointer;
+    transition: 0.5s;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+
+    &.optionToggled {
+        border: 1px solid #793EF5;
+        box-shadow: 0px 24px 34px rgba(0, 0, 0, 0.12);
+        border-radius: 16px;
+    }
 `
 const AddOption = styled.button`
     width: calc(100% - 52px);
