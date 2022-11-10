@@ -3,25 +3,25 @@ import { useState } from "react";
 import Search from '../../assets/search-normal.png';
 import Close from '../../assets/close.png';
 
-export default function Category() {
+export default function Category({ modifySectionValue, value }) {
     const [categoryName, setCategoryName] = useState('')
-    const [optionsArray, setOptionsArray] = useState(['Technology', 'Development'])
 
-    function handleInput(e) {
+    function handleSubmit(e) {
         e.preventDefault();
-        optionsArray.includes(categoryName) ? alert("Already listed in Category") :
-        setOptionsArray(oldArray => [...oldArray, categoryName]);
+        if (!value.includes(categoryName))
+            modifySectionValue([...value, categoryName]);
+
         setCategoryName('');
     }
 
     function filterArray(name) {
-        setOptionsArray(optionsArray.filter(item => item !== name))
+        modifySectionValue(value.filter(item => item !== name));
     }
 
     return (
         <CategoryContainer>
             <SectionTitle>Category</SectionTitle>
-            <form onSubmit={(e) => handleInput(e)}>
+            <form onSubmit={(e) => handleSubmit(e)}>
                 <input 
                     type="text" 
                     name="searchCategory" 
@@ -33,7 +33,7 @@ export default function Category() {
                 <img src={Search} alt='Search Icon'/>
             </form>
             <CategoryDisplay>
-                {optionsArray.map((cat, id) => (
+                {value.map((cat, id) => (
                     <CategoryItem key={id}>
                         <p>{cat}</p>
                         <button onClick={() => filterArray(cat)}>

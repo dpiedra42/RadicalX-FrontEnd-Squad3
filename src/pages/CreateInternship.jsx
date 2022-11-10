@@ -4,7 +4,7 @@ import { useState } from "react";
 import Menu from '../assets/menu.png';
 import RightMenu from '../assets/right-menu.png';
 import Add from '../assets/add2.png';
-import Check from '../assets/tick-circle.png';
+// import Check from '../assets/tick-circle.png';
 
 import HeaderBox from "../components/CreateInternship/HeaderBox";
 import ProgressBar from "../components/CreateInternship/ProgressBar";
@@ -13,12 +13,30 @@ import Description from "../components/CreateInternship/Description";
 
 export default function CreateInternship() {
     const [toggledSection, setToggledSection] = useState(undefined)
+    const [sectionValues, setSectionValues] = useState({
+        category: ['Technology', 'Development'],
+        description: '',
+        location: '',
+        benefits: '',
+        introVideo: '',
+    });
+
     const FormSectionKeys = Object.keys(formSections);
 
-    const ToggledSectionComponent = formSections[toggledSection]?.component || formSections?.category.component;
+    const ToggledSectionComponent = formSections[toggledSection].component;
 
     function handleClick(name) {
-        setToggledSection(name);
+        if (formSections[name].component)
+            setToggledSection(name);
+    }
+
+    function getModifySectionValueFor(sectionName) {
+        return function modifySectionValue(newValue) {
+            const newSectionValues = { ...sectionValues };
+            newSectionValues[sectionName] = newValue;
+            console.log(newSectionValues);
+            setSectionValues(newSectionValues);
+        }
     }
 
     return (
@@ -45,7 +63,15 @@ export default function CreateInternship() {
                     </AddOption>
                 </OptionsList>
                 <OptionDescription>
-                    {toggledSection ? <ToggledSectionComponent/> : null}
+                    {
+                        toggledSection ? 
+                            <ToggledSectionComponent 
+                                modifySectionValue={getModifySectionValueFor(toggledSection)}
+                                value={sectionValues[toggledSection]}
+                            /> 
+                        : 
+                            null
+                    }
                 </OptionDescription>
             </FormData>
         </CreateContainer>
@@ -57,35 +83,35 @@ export default function CreateInternship() {
 const formSections = {
     category: {
         name: 'Category',
-        component: Category,
+        component: Category
     },
     description: {
         name: 'Description',
-        component: Description,
+        component: Description
     },
     location: {
         name: 'Location',
-        component: null,
+        component: null
     },
     benefits: {
         name: 'Benefits',
-        component: null,
+        component: null
     },
     introVideo: {
         name: 'Intro Video',
-        component: null,
+        component: null
     },
     mentorDetails: {
         name: 'Mentor Details',
-        component: null,
+        component: null
     },
     recRoles: {
         name: 'Recommended Roles',
-        component: null,
+        component: null
     },
     links: {
         name: 'Links',
-        component: null,
+        component: null
     },
 }
 
