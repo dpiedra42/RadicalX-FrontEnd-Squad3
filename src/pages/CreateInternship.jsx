@@ -13,6 +13,8 @@ import Description from "../components/CreateInternship/Description";
 
 export default function CreateInternship() {
     const [toggledSection, setToggledSection] = useState(undefined)
+    const ToggledSectionComponent = formSections[toggledSection] ? formSections[toggledSection].component : null ;
+    const FormSectionKeys = Object.keys(formSections);
     const [sectionValues, setSectionValues] = useState({
         category: ['Technology', 'Development'],
         description: '',
@@ -21,23 +23,18 @@ export default function CreateInternship() {
         introVideo: '',
     });
 
-    const FormSectionKeys = Object.keys(formSections);
-
-    const ToggledSectionComponent = formSections[toggledSection].component;
-
     function handleClick(name) {
         if (formSections[name].component)
             setToggledSection(name);
-    }
+    };
 
     function getModifySectionValueFor(sectionName) {
         return function modifySectionValue(newValue) {
             const newSectionValues = { ...sectionValues };
             newSectionValues[sectionName] = newValue;
-            console.log(newSectionValues);
             setSectionValues(newSectionValues);
         }
-    }
+    };
 
     return (
         <CreateContainer>
@@ -110,7 +107,7 @@ const formSections = {
         component: null
     },
     links: {
-        name: 'Links',
+        name: 'Web Links & Resources',
         component: null
     },
 }
