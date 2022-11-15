@@ -4,7 +4,7 @@ import { useState } from "react";
 import Menu from '../assets/menu.png';
 import RightMenu from '../assets/right-menu.png';
 import Add from '../assets/add2.png';
-// import Check from '../assets/tick-circle.png';
+import Check from '../assets/tick-circle.png';
 
 import HeaderBox from "../components/CreateInternship/HeaderBox";
 import ProgressBar from "../components/CreateInternship/ProgressBar";
@@ -16,7 +16,7 @@ export default function CreateInternship() {
     const ToggledSectionComponent = formSections[toggledSection] ? formSections[toggledSection].component : null ;
     const FormSectionKeys = Object.keys(formSections);
     const [sectionValues, setSectionValues] = useState({
-        category: ['Technology', 'Development'],
+        category: [],
         description: '',
         location: '',
         benefits: '',
@@ -24,6 +24,19 @@ export default function CreateInternship() {
     });
 
     function handleClick(name) {
+        const imgsbox = document.getElementById('imgbox');
+        var imgs = imgsbox.getElementsByTagName('img');
+        var len = imgs.length;
+        
+        if (name === 'description' && sectionValues['category'].length > 0 && len === 0)
+        {
+            const img = document.createElement("img");
+            img.src = Check;
+            img.alt = "Check Icon";
+            const src = document.getElementById('imgbox');
+            src.appendChild(img);
+        }
+
         if (formSections[name].component)
             setToggledSection(name);
     };
@@ -46,9 +59,8 @@ export default function CreateInternship() {
                         <OptionSection key={sectionKey}>
                             <img src={Menu} alt='menu logo'/>
                             <SectionName onClick={() => handleClick(sectionKey)} className={sectionKey === toggledSection ? 'optionToggled' : null}>
-                                <div>
+                                <div id='imgbox'>
                                     <p>{formSections[sectionKey].name}</p>
-                                    {/* <img src={Check} alt='CheckMark'/> */}
                                 </div>
                                 <img src={RightMenu} alt='Right menu arrow'/>
                             </SectionName>
