@@ -33,8 +33,8 @@ export default function Category({ modifySectionValue, value }) {
                 <img src={Search} alt='Search Icon'/>
             </form>
             <CategoryDisplay>
-                {value.map((cat, id) => (
-                    <CategoryItem key={id}>
+                {value.map((cat) => (
+                    <CategoryItem key={cat}>
                         <p>{cat}</p>
                         <button onClick={() => filterArray(cat)}>
                             <img src={Close} alt='Close Icon'/>
@@ -43,7 +43,6 @@ export default function Category({ modifySectionValue, value }) {
                 ))}
             </CategoryDisplay>
         </CategoryContainer>
-        //add trim of categories for space and commas
     )
 } 
 

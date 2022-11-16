@@ -1,20 +1,21 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 
+// Images
 import Menu from '../assets/menu.png';
 import RightMenu from '../assets/right-menu.png';
 import Add from '../assets/add2.png';
 import Check from '../assets/tick-circle.png';
 
+// Components
 import HeaderBox from "../components/CreateInternship/HeaderBox";
 import ProgressBar from "../components/CreateInternship/ProgressBar";
 import Category from '../components/CreateInternship/Category';
 import Description from "../components/CreateInternship/Description";
+import Location from "../components/CreateInternship/Location";
 
 export default function CreateInternship() {
     const [toggledSection, setToggledSection] = useState(undefined)
-    const ToggledSectionComponent = formSections[toggledSection] ? formSections[toggledSection].component : null ;
-    const FormSectionKeys = Object.keys(formSections);
     const [sectionValues, setSectionValues] = useState({
         category: [],
         description: '',
@@ -22,7 +23,10 @@ export default function CreateInternship() {
         benefits: '',
         introVideo: '',
     });
-
+    
+    const FormSectionKeys = Object.keys(formSections);
+    const ToggledSectionComponent = formSections[toggledSection] ? formSections[toggledSection].component : null ;
+    
     function handleClick(name) {
         const imgsbox = document.getElementById('imgbox');
         var imgs = imgsbox.getElementsByTagName('img');
@@ -88,7 +92,6 @@ export default function CreateInternship() {
 }
 
 // Constants
-
 const formSections = {
     category: {
         name: 'Category',
@@ -100,7 +103,7 @@ const formSections = {
     },
     location: {
         name: 'Location',
-        component: null
+        component: Location
     },
     benefits: {
         name: 'Benefits',
@@ -125,7 +128,6 @@ const formSections = {
 }
 
 // Styles
-
 const CreateContainer = styled.div`
     background-color: #F1F4F8;
     display: flex;
