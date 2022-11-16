@@ -58,24 +58,21 @@ const CategoryContainer = styled.div`
         align-items: center;
 
         img {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        padding-right: 14px;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            padding-right: 14px;
         }
     }
 
     input {
         background-color: #F1F4F8;
         font-family: 'Space Grotesk';
-        font-weight: 400;
         font-size: 16px;
-        line-height: 24px;
-        border: none;
+        border: 1px solid #CECECE;
         border-radius: 16px;
         width: 100%;
         height: 48px;
-        border: 1px solid #CECECE;
         padding-left: 16px;
     }
 `
