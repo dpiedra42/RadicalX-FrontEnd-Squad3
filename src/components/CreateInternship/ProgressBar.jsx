@@ -32,7 +32,7 @@ export default function ProgressBar() {
                         src={Unticked} 
                         alt='Unticked circle icon'
                         />
-                    Setting
+                    Settings
                 </li>
             </ul>
         </ProgressBarContainer>
