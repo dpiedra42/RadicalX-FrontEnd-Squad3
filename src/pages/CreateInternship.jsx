@@ -33,20 +33,24 @@ export default function CreateInternship() {
     const FormSectionKeys = Object.keys(formSections);
     const ToggledSectionComponent = formSections[toggledSection] ? formSections[toggledSection].component : null ;
     
-    function handleClick(name) {
-        const imgsbox = document.getElementById('imgbox');
-        var imgs = imgsbox.getElementsByTagName('img');
-        var len = imgs.length;
-        
-        if (name === 'description' && sectionValues['category'].length > 0 && len === 0)
+    function addCheckIcon(key) {
+        const imgsBox = document.getElementById(key);
+        const imgsCount = imgsBox.getElementsByTagName('img').length;
+
+        if (sectionValues[key].length > 0 && imgsCount === 0)
         {
-            const img = document.createElement("img");
+            const img = document.createElement('img');
             img.src = Check;
             img.alt = "Check Icon";
-            const src = document.getElementById('imgbox');
-            src.appendChild(img);
+            imgsBox.append(img);
         }
+    };
 
+    function handleClick(name) {
+        FormSectionKeys.map((key) => (
+            addCheckIcon(key)
+        ));
+        
         if (formSections[name].component)
             setToggledSection(name);
     };
@@ -69,7 +73,7 @@ export default function CreateInternship() {
                         <OptionSection key={sectionKey}>
                             <img src={Menu} alt='menu logo'/>
                             <SectionName onClick={() => handleClick(sectionKey)} className={sectionKey === toggledSection ? 'optionToggled' : null}>
-                                <div id='imgbox'>
+                                <div id={sectionKey}>
                                     <p>{formSections[sectionKey].name}</p>
                                 </div>
                                 <img src={RightMenu} alt='Right menu arrow'/>

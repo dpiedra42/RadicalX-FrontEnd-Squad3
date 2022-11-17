@@ -46,6 +46,7 @@ export default function InternshipDetails() {
             enrolled: 5000 + Math.floor(Math.random() * 15000),
         }
     ];
+    
     return (
         <InternshipDetailsContainer>
             <TitleColumn>
