@@ -14,7 +14,7 @@ import Category from '../components/CreateInternship/Category';
 import Description from "../components/CreateInternship/Description";
 import Location from "../components/CreateInternship/Location";
 import Benefits from "../components/CreateInternship/Benefits";
-// import Roles from "../components/CreateInternship/Roles";
+import Roles from "../components/CreateInternship/Roles";
 
 
 export default function CreateInternship() {
@@ -25,6 +25,9 @@ export default function CreateInternship() {
         location: [],
         benefits: '',
         introVideo: '',
+        mentorDetails: '',
+        recRoles: [],
+        links: '',
     });
     
     const FormSectionKeys = Object.keys(formSections);
@@ -122,7 +125,7 @@ const formSections = {
     },
     recRoles: {
         name: 'Recommended Roles',
-        component: null
+        component: Roles
     },
     links: {
         name: 'Web Links & Resources',

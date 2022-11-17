@@ -33,10 +33,10 @@ export default function Roles({ modifySectionValue, value }) {
                 <img src={Search} alt='Search Icon'/>
             </form>
             <RoleDisplay>
-                {value.map((cat) => (
-                    <RoleItem key={cat}>
-                        <p>{cat}</p>
-                        <button onClick={() => filterArray(cat)}>
+                {value.map((role) => (
+                    <RoleItem key={role}>
+                        <p>{role}</p>
+                        <button onClick={() => filterArray(role)}>
                             <img src={Close} alt='Close Icon'/>
                         </button>
                     </RoleItem>
