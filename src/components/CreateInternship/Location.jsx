@@ -3,14 +3,27 @@ import { useState } from "react";
 
 import ArrowDown from '../../assets/arrow-down.png';
 import LocationIcon from '../../assets/location.png';
+import Close from '../../assets/close.png';
 
 export default function Location({ modifySectionValue, value}) {
-    const [locationName, setLocationName] = useState('')
+    const [locationName, setLocationName] = useState('');
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        if (!value.includes(locationName))
+            modifySectionValue([...value, locationName]);
+
+        setLocationName('');
+    };
+
+    function filterArray(name) {
+        modifySectionValue(value.filter(item => item !== name));
+    };
 
     return (
         <LocationContainer>
             <SectionTitle>Location</SectionTitle>
-            <form>
+            <form onSubmit={(e) => handleSubmit(e)}>
                 <div>
                     <img src={LocationIcon} alt='Location Pin Icon'/>
                     <input
@@ -24,6 +37,16 @@ export default function Location({ modifySectionValue, value}) {
                 </div>
                 <img src={ArrowDown} alt='Down Arrow Icon'/>
             </form>
+            <LocationDisplay>
+                {value.map((loc) => (
+                    <LocationItem key={loc}>
+                        <p>{loc}</p>
+                        <button onClick={() => filterArray(loc)}>
+                            <img src={Close} alt='Close Icon'/>
+                        </button>
+                    </LocationItem>
+                ))}
+            </LocationDisplay>
         </LocationContainer>
     )
 }
@@ -79,4 +102,43 @@ const SectionTitle = styled.p`
     font-size: 24px;
     line-height: 18px;
     color: #333333;
+`
+const LocationDisplay = styled.div`
+    padding-top: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+`
+const LocationItem = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 46px;
+    background-color: #665FEF33;
+    border: 1px solid #793EF5;
+    border-radius: 32px;
+    
+    p {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 22px;
+        color: #793EF5;
+        flex-wrap: wrap;
+        padding-left: 16px;
+    }
+
+    button{
+        border: none;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding-right: 12px;
+
+        img{
+            width: 22px;
+            height: 22px;
+        }
+    }
 `

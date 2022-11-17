@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
+
 import Search from '../../assets/search-normal.png';
 import Close from '../../assets/close.png';
 

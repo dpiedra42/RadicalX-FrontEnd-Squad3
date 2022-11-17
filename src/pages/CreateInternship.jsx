@@ -22,7 +22,7 @@ export default function CreateInternship() {
     const [sectionValues, setSectionValues] = useState({
         category: [],
         description: '',
-        location: '',
+        location: [],
         benefits: '',
         introVideo: '',
     });
