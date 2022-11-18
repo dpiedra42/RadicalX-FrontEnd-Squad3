@@ -65,10 +65,11 @@ export default function FormData() {
     const ToggledSectionComponent = formSections[toggledSection] ? formSections[toggledSection].component : null ;
     
     function addCheckIcon(key) {
+        console.log(sectionValues[key].length)
         const imgsBox = document.getElementById(key);
         const imgsCount = imgsBox.getElementsByTagName('img').length;
 
-        if (sectionValues[key].length > 0 && imgsCount === 0)
+        if (sectionValues[key].length >= 0 && imgsCount === 0)
         {
             const img = document.createElement('img');
             img.src = Check;
@@ -78,10 +79,6 @@ export default function FormData() {
     };
 
     function handleClick(name) {
-        FormSectionKeys.map((key) => (
-            addCheckIcon(key)
-        ));
-        
         if (formSections[name].component)
             setToggledSection(name);
     };
@@ -91,6 +88,7 @@ export default function FormData() {
             const newSectionValues = { ...sectionValues };
             newSectionValues[sectionName] = newValue;
             setSectionValues(newSectionValues);
+            addCheckIcon(sectionName);
         }
     };
 
