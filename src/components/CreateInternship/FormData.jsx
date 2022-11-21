@@ -65,7 +65,6 @@ export default function FormData() {
     const ToggledSectionComponent = formSections[toggledSection] ? formSections[toggledSection].component : null ;
     
     function addCheckIcon(key) {
-        console.log(sectionValues[key].length)
         const imgsBox = document.getElementById(key);
         const imgsCount = imgsBox.getElementsByTagName('img').length;
 
