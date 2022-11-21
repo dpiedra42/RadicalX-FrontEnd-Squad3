@@ -98,12 +98,12 @@ export default function FormData() {
                 {FormSectionKeys.map((sectionKey) => (
                     <OptionSection key={sectionKey}>
                         <img src={Menu} alt='menu logo'/>
-                        <SectionName onClick={() => handleClick(sectionKey)} className={sectionKey === toggledSection ? 'optionToggled' : null}>
+                        <SectionBox onClick={() => handleClick(sectionKey)} className={sectionKey === toggledSection ? 'optionToggled' : null}>
                             <div id={sectionKey}>
                                 <p>{formSections[sectionKey].name}</p>
                             </div>
                             <img src={RightMenu} alt='Right menu arrow'/>
-                        </SectionName>
+                        </SectionBox>
                     </OptionSection>
                 ))}
                 <AddOption>
@@ -155,7 +155,7 @@ const OptionSection = styled.li`
     }
 
 `
-const SectionName = styled.div`
+const SectionBox = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
