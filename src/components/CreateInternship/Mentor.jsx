@@ -1,14 +1,42 @@
 import styled from "@emotion/styled";
 
 import ImageIcon from '../../assets/image-icon.png';
+import Profile from '../../assets/profile2.png';
+import Link from '../../assets/link.png';
+import SMS from '../../assets/sms-purple.png';
+
 
 export default function MentorDetails() {
     return(
         <MentorContainer>
             <p>Mentor Details</p>
-            <div>
+            <MentorPicture>
                 <img src={ImageIcon} alt='Icon'/>
-            </div>
+            </MentorPicture>
+            <UserEmailContainer>
+                <ProfileIcon src={Profile} alt='user icon'></ProfileIcon>
+                <input 
+                    type="text" 
+                    name="Mentor Name" 
+                    placeholder='Name' 
+                    required
+                />
+                <EmailIcon src={SMS} alt='email icon'></EmailIcon>
+                <input 
+                    type="text" 
+                    name="Email Address" 
+                    placeholder='Email address' 
+                    required
+                />
+            </UserEmailContainer>
+            <LinkContainer>
+                <img src={Link} alt='link icon'></img>
+                <input 
+                    type="text" 
+                    name="Linkedin URL" 
+                    placeholder='LinkedIn URL (optional)'
+                />
+            </LinkContainer>
         </MentorContainer>
     )
 }
@@ -26,18 +54,80 @@ const MentorContainer = styled.div`
         line-height: 18px;
         color: #333333;
     }
-    div{
-        width: 80px;
-        height: 80px;
-        background: #E2E6EB;
-        border-radius: 20px;
-        
-        img{
-            position: relative;
-            top: 58px;
-            left: 57px;
-            width: 28px;
-            height: 28px;
-        }
+`
+const MentorPicture = styled.div`
+    width: 80px;
+    height: 80px;
+    background: #E2E6EB;
+    border-radius: 20px;
+
+    img{
+        position: relative;
+        top: 58px;
+        left: 57px;
+        width: 28px;
+        height: 28px;
+    }
+`
+const UserEmailContainer = styled.div`
+    padding-top: 24px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 24px;
+
+    input {
+        width: 50%;
+        height: 46px;
+        padding-left: 50px;
+        border: 1px solid #CECECE;
+        border-radius: 14px;
+
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.3px;
+    }
+`
+const ProfileIcon = styled.img`
+    height: 24px;
+    width: 24px;
+
+    position: absolute;
+    left: 15px;
+`
+const EmailIcon = styled.img`
+    height: 24px;
+    width: 24px;
+
+    position: absolute;
+    right: 385px;
+`
+const LinkContainer = styled.div`
+    padding-top: 24px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 24px;
+
+    input {
+        width: 100%;
+        height: 46px;
+        padding-left: 50px;
+        border: 1px solid #CECECE;
+        border-radius: 14px;
+
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.3px;
+    }
+    img{
+        position: absolute;
+        left: 15px;
+        height: 24px;
+        width: 24px;
     }
 `

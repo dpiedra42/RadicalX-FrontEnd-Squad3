@@ -16,7 +16,7 @@ const Dashboard = () => {
             <Internships>
                 <TitleContainer>
                     <Title>Internships</Title>
-                    <AddButton onClick={() => navigate('./createInternship')}>
+                    <AddButton onClick={() => navigate('/createInternship')}>
                         <AddIcon src={Add} alt='Add-Icon'></AddIcon>
                         Create New Internship
                     </AddButton>
