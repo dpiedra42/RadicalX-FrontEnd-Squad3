@@ -13,6 +13,7 @@ import Description from "./Description";
 import Location from "./Location";
 import Benefits from "./Benefits";
 import IntroVideo from './IntroVideo';
+import Mentor from './Mentor';
 import Roles from "./Roles";
 
 
@@ -39,7 +40,7 @@ const formSections = {
     },
     mentorDetails: {
         name: 'Mentor Details',
-        component: null
+        component: Mentor
     },
     recRoles: {
         name: 'Recommended Roles',
