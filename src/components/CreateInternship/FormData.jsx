@@ -1,15 +1,18 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 
+//imgs
 import Menu from '../../assets/menu.png';
 import RightMenu from '../../assets/right-menu.png';
 import Add from '../../assets/add2.png';
 import Check from '../../assets/tick-circle.png';
 
+//components
 import Category from './Category';
 import Description from "./Description";
 import Location from "./Location";
 import Benefits from "./Benefits";
+import IntroVideo from './IntroVideo';
 import Roles from "./Roles";
 
 
@@ -32,7 +35,7 @@ const formSections = {
     },
     introVideo: {
         name: 'Intro Video',
-        component: null
+        component: IntroVideo
     },
     mentorDetails: {
         name: 'Mentor Details',
