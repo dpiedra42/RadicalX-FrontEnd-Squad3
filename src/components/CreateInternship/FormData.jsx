@@ -15,6 +15,7 @@ import Benefits from "./Benefits";
 import IntroVideo from './IntroVideo';
 import Mentor from './Mentor';
 import Roles from "./Roles";
+import WebLinks from "./WebLinks";
 
 
 const formSections = {
@@ -48,7 +49,7 @@ const formSections = {
     },
     links: {
         name: 'Web Links & Resources',
-        component: null
+        component: WebLinks
     },
 }
 
@@ -62,7 +63,7 @@ export default function FormData() {
         introVideo: '',
         mentorDetails: '',
         recRoles: [],
-        links: '',
+        links: [],
     });
     
     const FormSectionKeys = Object.keys(formSections);
