@@ -16,7 +16,7 @@ export default function HeaderBox() {
             <HeaderTitle>
                 Add New Internship
             </HeaderTitle>
-            <NextButton>
+            <NextButton id='completeNext' className={null}>
                 Continue To Next Step
                 <img src={RightArrow} alt='Right Arrow Icon'/>
             </NextButton>
@@ -73,8 +73,18 @@ const NextButton = styled.button`
     color: #828282;
     gap: 8px;
 
+    &.sectionComplete{
+        background-color: #793EF5;
+        color: white;
+        cursor: pointer;
+
+        img{
+            filter: saturate(100%) brightness(0%) invert(94%) sepia(9%) saturate(495%) hue-rotate(205deg) brightness(120%) contrast(100%);
+        }
+    }
+
     img {
         width: 20px;
-        height: 20px; 
+        height: 20px;
     }
 `

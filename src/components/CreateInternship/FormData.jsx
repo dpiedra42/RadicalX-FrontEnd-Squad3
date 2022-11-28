@@ -72,6 +72,9 @@ export default function FormData() {
     function addCheckIcon(key) {
         const imgsBox = document.getElementById(key);
         const imgsCount = imgsBox.getElementsByTagName('img').length;
+        
+        const imgTotal = document.getElementById('imgTotal');
+        const imgTotalCount = imgTotal.getElementsByTagName('img').length;
 
         if (sectionValues[key].length >= 0 && imgsCount === 0)
         {
@@ -79,6 +82,11 @@ export default function FormData() {
             img.src = Check;
             img.alt = "Check Icon";
             imgsBox.append(img);
+        }
+
+        if (imgTotalCount === 23)
+        {
+            document.getElementById('completeNext').classList.add('sectionComplete');
         }
     };
 
@@ -98,7 +106,7 @@ export default function FormData() {
 
     return (
         <FormContainer>
-            <OptionsList>
+            <OptionsList id='imgTotal'>
                 {FormSectionKeys.map((sectionKey) => (
                     <OptionSection key={sectionKey}>
                         <img src={Menu} alt='menu logo'/>
