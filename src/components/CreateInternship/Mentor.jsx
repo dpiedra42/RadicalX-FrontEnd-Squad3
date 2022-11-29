@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useState } from "react";
 
 import ImageIcon from '../../assets/image-icon.png';
 import Profile from '../../assets/profile2.png';
@@ -6,7 +7,21 @@ import Link from '../../assets/link.png';
 import SMS from '../../assets/sms-purple.png';
 
 
-export default function MentorDetails() {
+export default function MentorDetails({ modifySectionValue, value}) {
+    const [nameInput, SetNameInput] = useState('')
+    const [emailInput, SetEmailInput] = useState('')
+    const [linkInput, SetLinkInput] = useState('')
+
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+    //     console.log(nameInput, emailInput)
+    //     if (!value.includes(nameInput))
+    //         modifySectionValue([...value, nameInput]);
+    //     if (!value.includes(emailInput))
+    //         modifySectionValue([...value, emailInput]);
+
+    // };
+
     return(
         <MentorContainer>
             <p>Mentor Details</p>
@@ -18,7 +33,9 @@ export default function MentorDetails() {
                 <input 
                     type="text" 
                     name="Mentor Name" 
-                    placeholder='Name' 
+                    placeholder='Name'
+                    value={nameInput}
+                    onChange={(e) => SetNameInput(e.target.value)}
                     required
                 />
                 <EmailIcon src={SMS} alt='email icon'></EmailIcon>
@@ -26,6 +43,8 @@ export default function MentorDetails() {
                     type="text" 
                     name="Email Address" 
                     placeholder='Email address' 
+                    value={emailInput}
+                    onChange={(e) => SetEmailInput(e.target.value)}
                     required
                 />
             </UserEmailContainer>
@@ -35,6 +54,8 @@ export default function MentorDetails() {
                     type="text" 
                     name="Linkedin URL" 
                     placeholder='LinkedIn URL (optional)'
+                    value={linkInput}
+                    onChange={(e) => SetLinkInput(e.target.value)}
                 />
             </LinkContainer>
         </MentorContainer>

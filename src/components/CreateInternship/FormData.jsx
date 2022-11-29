@@ -61,7 +61,7 @@ export default function FormData() {
         location: [],
         benefits: '',
         introVideo: '',
-        mentorDetails: '',
+        mentorDetails: {name: '', email: '', link: ''},
         recRoles: [],
         links: [],
     });
