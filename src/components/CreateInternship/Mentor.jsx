@@ -102,7 +102,7 @@ const EmailIcon = styled.img`
     width: 24px;
 
     position: absolute;
-    right: 385px;
+    right: 265px;
 `
 const LinkContainer = styled.div`
     padding-top: 24px;
