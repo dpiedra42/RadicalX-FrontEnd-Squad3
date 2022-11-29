@@ -10,7 +10,6 @@ export default function Location({ modifySectionValue, value}) {
     const autoCompleteRef = useRef();
     const inputRef = useRef();
     
-
     useEffect(() => {
         const options = {
             componentRestrictions: { country: "us" },
