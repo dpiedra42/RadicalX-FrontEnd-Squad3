@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
 
 import ImageIcon from '../../assets/image-icon.png';
 import Profile from '../../assets/profile2.png';
@@ -8,20 +7,6 @@ import SMS from '../../assets/sms-purple.png';
 
 
 export default function MentorDetails({ modifySectionValue, value}) {
-    const [nameInput, SetNameInput] = useState('')
-    const [emailInput, SetEmailInput] = useState('')
-    const [linkInput, SetLinkInput] = useState('')
-
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     console.log(nameInput, emailInput)
-    //     if (!value.includes(nameInput))
-    //         modifySectionValue([...value, nameInput]);
-    //     if (!value.includes(emailInput))
-    //         modifySectionValue([...value, emailInput]);
-
-    // };
-
     return(
         <MentorContainer>
             <p>Mentor Details</p>
@@ -30,32 +15,32 @@ export default function MentorDetails({ modifySectionValue, value}) {
             </MentorPicture>
             <UserEmailContainer>
                 <ProfileIcon src={Profile} alt='user icon'></ProfileIcon>
-                <input 
+                <textarea 
                     type="text" 
                     name="Mentor Name" 
                     placeholder='Name'
-                    value={nameInput}
-                    onChange={(e) => SetNameInput(e.target.value)}
+                    value={value.name}
+                    onChange={(e) => modifySectionValue(e.target.value, 'name')}
                     required
                 />
                 <EmailIcon src={SMS} alt='email icon'></EmailIcon>
-                <input 
+                <textarea 
                     type="text" 
                     name="Email Address" 
                     placeholder='Email address' 
-                    value={emailInput}
-                    onChange={(e) => SetEmailInput(e.target.value)}
+                    value={value.email}
+                    onChange={(e) => modifySectionValue(e.target.value, 'email')}
                     required
                 />
             </UserEmailContainer>
             <LinkContainer>
                 <img src={Link} alt='link icon'></img>
-                <input 
+                <textarea
                     type="text" 
                     name="Linkedin URL" 
                     placeholder='LinkedIn URL (optional)'
-                    value={linkInput}
-                    onChange={(e) => SetLinkInput(e.target.value)}
+                    value={value.link}
+                    onChange={(e) => modifySectionValue(e.target.value, 'link')}
                 />
             </LinkContainer>
         </MentorContainer>
@@ -97,12 +82,21 @@ const UserEmailContainer = styled.div`
     align-items: center;
     gap: 24px;
 
-    input {
-        width: 50%;
-        height: 46px;
+    form {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+    }
+
+    textarea {
+        width: 100%;
+        height: 34px;
         padding-left: 50px;
+        padding-top: 12px;
         border: 1px solid #CECECE;
         border-radius: 14px;
+        resize: none;
 
         font-family: 'Space Grotesk', sans-serif;
         font-weight: 400;
@@ -132,10 +126,11 @@ const LinkContainer = styled.div`
     align-items: center;
     gap: 24px;
 
-    input {
+    textarea {
         width: 100%;
-        height: 46px;
+        height: 34px;
         padding-left: 50px;
+        padding-top: 12px;
         border: 1px solid #CECECE;
         border-radius: 14px;
 
@@ -144,7 +139,9 @@ const LinkContainer = styled.div`
         font-size: 16px;
         line-height: 24px;
         letter-spacing: 0.3px;
+        resize: none;
     }
+
     img{
         position: absolute;
         left: 15px;

@@ -76,7 +76,8 @@ export default function FormData() {
         const imgTotal = document.getElementById('imgTotal');
         const imgTotalCount = imgTotal.getElementsByTagName('img').length;
 
-        if (sectionValues[key].length >= 0 && imgsCount === 0)
+        if ((sectionValues[key].length >= 0 || (sectionValues[key].name &&
+            sectionValues[key].email)) && imgsCount === 0)
         {
             const img = document.createElement('img');
             img.src = Check;
@@ -96,10 +97,29 @@ export default function FormData() {
     };
 
     function getModifySectionValueFor(sectionName) {
-        return function modifySectionValue(newValue) {
+        return function modifySectionValue(newValue, type) {
             const newSectionValues = { ...sectionValues };
-            newSectionValues[sectionName] = newValue;
-            setSectionValues(newSectionValues);
+
+            if (type === 'link')
+            {
+                newSectionValues[sectionName].link = newValue;
+                setSectionValues(newSectionValues);
+            }
+            else if (type === 'email')
+            {
+                newSectionValues[sectionName].email = newValue;
+                setSectionValues(newSectionValues);
+            }
+            else if (type === 'name')
+            {
+                newSectionValues[sectionName].name = newValue;
+                setSectionValues(newSectionValues);
+            }
+            else
+            {
+                newSectionValues[sectionName] = newValue;
+                setSectionValues(newSectionValues);
+            }
             addCheckIcon(sectionName);
         }
     };
