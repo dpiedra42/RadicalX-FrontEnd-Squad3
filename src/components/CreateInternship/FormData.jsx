@@ -85,7 +85,7 @@ export default function FormData() {
             imgsBox.append(img);
         }
 
-        if (imgTotalCount === 23)
+        if (imgTotalCount === 24)
         {
             document.getElementById('completeNext').classList.add('sectionComplete');
         }
@@ -100,27 +100,30 @@ export default function FormData() {
         return function modifySectionValue(newValue, type) {
             const newSectionValues = { ...sectionValues };
 
-            if (type === 'link')
+            switch(type)
             {
-                newSectionValues[sectionName].link = newValue;
-                setSectionValues(newSectionValues);
+                case 'link':
+                    newSectionValues[sectionName].link = newValue;
+                    setSectionValues(newSectionValues);
+                    addCheckIcon(sectionName);
+                    break;
+                case 'email':
+                    newSectionValues[sectionName].email = newValue;
+                    setSectionValues(newSectionValues);
+                    addCheckIcon(sectionName);
+                    break;
+                case 'name':
+                    newSectionValues[sectionName].name = newValue;
+                    setSectionValues(newSectionValues);
+                    addCheckIcon(sectionName);
+                    break;
+                default:
+                    newSectionValues[sectionName] = newValue;
+                    setSectionValues(newSectionValues);
+                    addCheckIcon(sectionName);
+                    break;
+
             }
-            else if (type === 'email')
-            {
-                newSectionValues[sectionName].email = newValue;
-                setSectionValues(newSectionValues);
-            }
-            else if (type === 'name')
-            {
-                newSectionValues[sectionName].name = newValue;
-                setSectionValues(newSectionValues);
-            }
-            else
-            {
-                newSectionValues[sectionName] = newValue;
-                setSectionValues(newSectionValues);
-            }
-            addCheckIcon(sectionName);
         }
     };
 
