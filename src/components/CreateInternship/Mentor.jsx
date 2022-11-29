@@ -82,13 +82,6 @@ const UserEmailContainer = styled.div`
     align-items: center;
     gap: 24px;
 
-    form {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        align-items: center;
-    }
-
     textarea {
         width: 100%;
         height: 34px;
@@ -117,7 +110,7 @@ const EmailIcon = styled.img`
     width: 24px;
 
     position: absolute;
-    right: 265px;
+    right: 365px;
 `
 const LinkContainer = styled.div`
     padding-top: 24px;
