@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import ArrowDown from '../../assets/arrow-down.png';
 import LocationIcon from '../../assets/location.png';
@@ -7,6 +7,28 @@ import Close from '../../assets/close.png';
 
 export default function Location({ modifySectionValue, value}) {
     const [locationName, setLocationName] = useState('');
+    const autoCompleteRef = useRef();
+    const inputRef = useRef();
+    
+
+    useEffect(() => {
+        const options = {
+            componentRestrictions: { country: "us" },
+           };
+           
+        autoCompleteRef.current = new window.google.maps.places.Autocomplete(
+         inputRef.current,
+         options
+        );
+        autoCompleteRef.current.addListener("place_changed", async function () {
+            const place = await autoCompleteRef.current.getPlace();
+            if (place.formatted_address !== undefined)
+            {
+                modifySectionValue([...value, place.formatted_address]);
+                setLocationName('');
+            }
+        });
+       }, [value, modifySectionValue]);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -32,6 +54,7 @@ export default function Location({ modifySectionValue, value}) {
                         value={ locationName }
                         placeholder='Select Location' 
                         onChange={(e) => setLocationName(e.target.value)}
+                        ref={inputRef}
                         required
                     />
                 </div>
