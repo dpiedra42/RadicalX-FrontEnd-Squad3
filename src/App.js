@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import CreateInternship from './pages/CreateInternship';
+import InternshipGuide from './pages/InternshipGuide'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Login />}/>
           <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/createInternship" element={<CreateInternship />}/>
+          <Route path="/internshipGuide" element={<InternshipGuide />}/>
         </Routes>
     </BrowserRouter>
   );

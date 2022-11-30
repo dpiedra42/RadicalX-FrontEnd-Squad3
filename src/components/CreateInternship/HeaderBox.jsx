@@ -16,7 +16,7 @@ export default function HeaderBox() {
             <HeaderTitle>
                 Add New Internship
             </HeaderTitle>
-            <NextButton id='completeNext' className={null}>
+            <NextButton id='completeNext' onClick={() => navigate('/internshipGuide')}>
                 Continue To Next Step
                 <img src={RightArrow} alt='Right Arrow Icon'/>
             </NextButton>
@@ -72,10 +72,13 @@ const NextButton = styled.button`
     letter-spacing: 0.4px;
     color: #828282;
     gap: 8px;
+    pointer-events: none;
+
 
     &.sectionComplete{
         background-color: #793EF5;
         color: white;
+        pointer-events: all;
         cursor: pointer;
 
         img{
