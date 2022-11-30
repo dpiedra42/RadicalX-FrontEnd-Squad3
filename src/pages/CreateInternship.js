@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
 
 // Components
-import HeaderBox from "../components/CreateInternship/HeaderBox";
-import ProgressBar from "../components/CreateInternship/ProgressBar";
+import HeaderBox from "../components/reusable/HeaderBox";
+import ProgressBar from "../components/reusable/ProgressBar";
 import FormData from "../components/CreateInternship/FormData";
 
 export default function CreateInternship() {
     return (
         <CreateContainer>
             <HeaderBox/>
-            <ProgressBar/>
+            <ProgressBar name='Internship Description'/>
             <FormData/>
         </CreateContainer>
     )
