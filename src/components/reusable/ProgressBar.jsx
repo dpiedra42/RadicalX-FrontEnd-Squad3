@@ -2,9 +2,10 @@ import styled from "@emotion/styled";
 
 import Unticked from '../../assets/untick-circle.png';
 
-export default function ProgressBar({name}) {
-    const phases = ['Internship Description', 'Internship Guide', 'Surveys', 'Settings']
+const phases = ['Internship Description', 'Internship Guide', 'Surveys', 'Settings']
 
+export default function ProgressBar({name}) {
+    
     return (
         <ProgressBarContainer>
             <ul>
