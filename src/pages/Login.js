@@ -10,7 +10,7 @@ import Email from '../assets/sms.png';
 import Lock from '../assets/lock.png';
 import Eye from '../assets/eye.png';
 
-const Login = () => {
+export default function Login() {
     const [showPassword, setShowPassword] = useState(false);
     const [loginPassword, setloginPassword] = useState('');
     const [loginEmail, setloginEmail] = useState('');
@@ -87,7 +87,6 @@ const Login = () => {
         </PageContainer>
     );
 };
-export default Login;
 
 const PageContainer = styled.div`
     display: flex;

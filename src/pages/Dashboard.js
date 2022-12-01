@@ -1,13 +1,15 @@
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 
+// components
 import Sidebar from '../components/Dashboard/Sidebar'
 import InternshipInsights from '../components/Dashboard/InternshipInsights';
 import InternshipDetails from '../components/Dashboard/InternshipDetails';
 
+// images
 import Add from '../assets/add-square.png';
 
-const Dashboard = () => {
+export default function Dashboard() {
     const navigate = useNavigate();
 
     return (
@@ -27,7 +29,6 @@ const Dashboard = () => {
         </DashContainer>
     );
 }
-export default Dashboard;
 
 const DashContainer = styled.div`
     display: flex;
