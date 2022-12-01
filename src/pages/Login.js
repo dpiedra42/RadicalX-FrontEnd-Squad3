@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
-
 import styled from '@emotion/styled';
+
+// images
 import Logo from '../assets/RadicalXLogo.png';
 import Email from '../assets/sms.png';
 import Lock from '../assets/lock.png';
@@ -36,28 +37,50 @@ const Login = () => {
             <Grid1/>
             <Grid2>
                 <LogoContainer>
-                    <LogoImg src={Logo} alt="Logo"/>
+                    <img src={Logo} alt="Logo"/>
                 </LogoContainer>
                 <div>
                     <LoginTitle>Login</LoginTitle>
                     <form onSubmit={handleLogin}>
                         <IconContainer>
-                            <Icon src={Email} alt="Email Icon"/>
-                            <LoginInput type="text" name="Email" placeholder='Email' 
-                            onChange={(e) => {setloginEmail(e.target.value)}} required/>
+                            <Icon 
+                                src={Email} 
+                                alt="Email Icon"
+                            />
+                            <LoginInput 
+                                type="text" 
+                                name="Email" 
+                                placeholder='Email' 
+                                onChange={(e) => {setloginEmail(e.target.value)}} 
+                                required
+                            />
                         </IconContainer>
                         <IconContainer>
                             <Icon src={Lock} alt="Lock Icon"/>
-                            <LoginInput type={showPassword ? "text" : "password"} name="Password" placeholder='Password' 
-                            onChange={(e) => {setloginPassword(e.target.value)}} required/>
-                            <IconEye src={Eye} alt="Eye Icon" onClick={() => setShowPassword(!showPassword)}/>
+                            <LoginInput 
+                                type={showPassword ? "text" : "password"} 
+                                name="Password" 
+                                placeholder='Password' 
+                                onChange={(e) => {setloginPassword(e.target.value)}} 
+                                required
+                            />
+                            <IconEye 
+                                src={Eye} 
+                                alt="Eye Icon" 
+                                onClick={() => setShowPassword(!showPassword)}
+                            />
                         </IconContainer>
                         <LoginOptions>
                             <p>Remember me</p>
                             <ForgotText>Forgot password?</ForgotText>
                         </LoginOptions>
                         <SubmitButton type="submit">Login</SubmitButton>
-                        {errorMsg && <p style={{ maxWidth: '300px' }}>Error: {errorMsg}</p>}
+                        {
+                            errorMsg && 
+                            <p style={{ maxWidth: '300px' }}> 
+                                Error: {errorMsg}
+                            </p>
+                        }
                     </form>
                 </div>
             </Grid2>
@@ -82,30 +105,30 @@ const Grid1 = styled.div`
 const Grid2 = styled.div`
     flex: 1;
     background-color: white;
-    display: grid;
-    grid-row: auto auto;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
+    div {
+        height: 50%;
+    }
 `
 const LogoContainer = styled.div`
     display: flex;
     justify-content: center;
 
+    img{
+        width: 200px;
+        height: 40px;
+        padding-top: 77px;
+    }
+
     @media screen and (max-height: 450px) {
         display: none;
     }
 `
-const LogoImg = styled.img`
-    position: absolute;
-    width: 200px;
-    height: 40px;
-    top: 77px;
-
-`
 const LoginTitle = styled.h1`
-    width: 66px;
-    height: 24px;   
     font-weight: 500;
     font-size: 24px;
     line-height: 24px;
@@ -114,7 +137,7 @@ const LoginTitle = styled.h1`
 `
 const IconContainer = styled.div`
     position:relative;
-    padding-bottom:12px;
+    padding-bottom: 12px;
     margin:0;
 `
 const Icon = styled.img`
