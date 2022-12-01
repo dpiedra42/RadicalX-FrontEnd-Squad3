@@ -206,13 +206,6 @@ const SectionBox = styled.div`
     cursor: pointer;
     transition: 0.5s;
 
-    div {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 8px;
-    }
-
     &.optionToggled {
         border: 1px solid #793EF5;
         box-shadow: 0px 24px 34px rgba(0, 0, 0, 0.12);
@@ -220,23 +213,20 @@ const SectionBox = styled.div`
     }
 `
 const AddOption = styled.button`
-    width: calc(100% - 52px);
-    margin: 0 0 73px 48px;
+    height: 56px;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 18px;
-    color: #333333;
-    height: 56px;
+    margin: 0 0 73px 48px;
+    
+    background-color: transparent;
     color: #793EF5;
+    font-size: 18px;
+
     border: dashed 1px #793EF5;
     border-radius: 12px;
     gap: 12px;
     cursor: pointer;
-    background-color: transparent;
     
     img{
         width: 20px;
