@@ -35,7 +35,7 @@ export default function SectionNamesList({names, keys}) {
                     <MenuIcon className={toggle === sectionName ? 'start' : null}>
                         <img src={Menu} alt='menu logo'/>
                     </MenuIcon>
-                    <SectionBox>
+                    <SectionBox className={toggle === sectionName ? 'highlight' : null}>
                         <NameImgBox onClick={() => handleClick(sectionName)}>
                             <p>{sectionName}</p>
                             <img src={RightMenu} alt='Right menu arrow'/>
@@ -102,6 +102,12 @@ const SectionBox = styled.div`
     border: 1px solid #E0E0E0;
     border-radius: 16px;
     padding: 0 20px 0 20px;
+
+    &.highlight {
+        border: 1px solid #793EF5;
+        box-shadow: 0px 24px 34px rgba(0, 0, 0, 0.12);
+        border-radius: 16px;
+    }
 `
 const NameImgBox = styled.div`
     display: flex;
@@ -112,7 +118,6 @@ const NameImgBox = styled.div`
     color: #333333;
     
     cursor: pointer;
-    transition: 0.5s;
 
 `
 const MenuSectionsBox = styled.div`
@@ -120,7 +125,7 @@ const MenuSectionsBox = styled.div`
     flex-direction: column;
     gap: 12px;
     padding-bottom: 24px;
-
+    
     div{
         display: flex;
         align-items: center;
