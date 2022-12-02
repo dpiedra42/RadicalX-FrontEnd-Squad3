@@ -10,7 +10,7 @@ export default function ProgressBar({name}) {
         <ProgressBarContainer>
             <ul>
                 {phases.map((stage) => (
-                    <li style={stage === name ? null : {opacity: '0.3'}}>
+                    <li key={stage} style={stage === name ? null : {opacity: '0.3'}}>
                         <img 
                             src={Unticked} alt='Unticked circle icon'
                             style={stage === name ? null : {filter: 'invert(82%) sepia(8%) saturate(83%) hue-rotate(177deg) brightness(96%) contrast(91%)'}}

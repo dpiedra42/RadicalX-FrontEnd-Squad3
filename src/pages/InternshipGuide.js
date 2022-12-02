@@ -48,7 +48,7 @@ export default function InternshipGuide() {
             <HeaderBox/>
             <ProgressBar name='Internship Guide'/>
             <SectionsBox>
-                <SectionNamesList names={FormSectionNames}/>
+                <SectionNamesList names={FormSectionNames} keys={formValues}/>
                 <SectionForms>
 
                 </SectionForms>
@@ -63,13 +63,11 @@ const GuideContainer = styled.div`
     align-items: center;
     flex-direction: column;
     min-width: 1400px;
-    height: 100%; //remove later
 `
 const SectionsBox = styled.div`
     display: flex;
     flex-direction: row;
     width: calc(100% - 46px);
-    /* height: 100%; //remove later */
     margin-top: 34px;
     gap: 23px;
 `
