@@ -69,26 +69,26 @@ export default function InternshipGuide() {
                 />
                 <SectionForms>
                     {getArray(toggle).map((option) => (
-                        <div>
-                            <p>{option}</p>
-                            <form>
+                        <Section>
+                            <OptionTitle>{option}</OptionTitle>
+                            <DescriptionForm>
                                 <input 
                                     type="text" 
                                     name="Description" 
                                     placeholder='Description'
                                 />
-                            </form>
-                            {/* <form>
+                            </DescriptionForm>
+                            <DragForm>
                                 <input
                                     type='file'
                                     multiple={false}
                                 />
-                                <div>
+                                <DragBox>
                                     <p>Drag n drop to upload your video</p>
                                     <img src={Video} alt='video icon'/>
-                                </div>
-                            </form> */}
-                        </div>
+                                </DragBox>
+                            </DragForm>
+                        </Section>
                     ))}
                 </SectionForms>
             </SectionsBox>
@@ -114,8 +114,59 @@ const SectionForms = styled.div`
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: flex-start;
     background-color: white;
     border-radius: 20px;
+`
+const Section = styled.div`
+    padding: 24px; 
+    width: calc(100% - 69px);
+`
+const OptionTitle = styled.p`
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 18px;
+    color: #333333;
+    margin: 0;
+    padding-bottom: 16px;
+`
+const DescriptionForm = styled.form`
+    padding-bottom: 16px;
+
+    input {
+        background-color: #F1F4F8;
+        font-family: 'Space Grotesk';
+        font-size: 16px;
+        border: 1px solid #CECECE;
+        border-radius: 16px;
+        height: 48px;
+        width: 100%;
+        padding-left: 16px;
+    }
+`
+const DragForm = styled.form`
+    input {
+        display: none;
+    }
+`
+const DragBox = styled.div `
+    height: 68px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: 1px dashed #B2B6BC;
+    border-radius: 12px;
+    color: #778188;
+
+    p{
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
 `
