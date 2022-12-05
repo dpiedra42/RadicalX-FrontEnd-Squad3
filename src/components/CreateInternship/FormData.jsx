@@ -134,9 +134,9 @@ export default function FormData() {
                     <OptionSection key={sectionKey}>
                         <img src={Menu} alt='menu logo'/>
                         <SectionBox onClick={() => handleClick(sectionKey)} className={sectionKey === toggledSection ? 'optionToggled' : null}>
-                            <div id={sectionKey}>
+                            <CheckIcon id={sectionKey}>
                                 <p>{formSections[sectionKey].name}</p>
-                            </div>
+                            </CheckIcon>
                             <img src={RightMenu} alt='Right menu arrow'/>
                         </SectionBox>
                     </OptionSection>
@@ -211,6 +211,12 @@ const SectionBox = styled.div`
         box-shadow: 0px 24px 34px rgba(0, 0, 0, 0.12);
         border-radius: 16px;
     }
+`
+const CheckIcon = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
 `
 const AddOption = styled.button`
     height: 56px;
