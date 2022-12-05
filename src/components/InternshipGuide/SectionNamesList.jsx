@@ -8,26 +8,14 @@ import RightMenu from '../../assets/right-menu.png';
 import AddItem from '../../assets/additem.png';
 import Add2 from '../../assets/add2.png';
 
-export default function SectionNamesList({names, keys}) {
-    const [toggle, setToggle] = useState(undefined);
-
-    function getArray(section) {
-        switch(section)
-        {
-            case 'Overview':
-                return(Object.keys(keys.Overview));
-            case 'Schedule':
-                return(Object.keys(keys.Schedule));
-            case 'Resources':
-                return(Object.keys(keys.Resources));
-            default:
-                return null;
-        }
-    };
+export default function SectionNamesList({names, toggleFunction, getArray}) {
+    const [toggle, setToggle] = useState('Overview');
 
     function handleClick(name) {
        setToggle(name);
+       toggleFunction(name)
     };
+
     return (
         <SectionNamesContainer>
             {names.map((sectionName) => (
@@ -42,7 +30,7 @@ export default function SectionNamesList({names, keys}) {
                         </NameImgBox>
                         <MenuSectionsBox className={toggle === sectionName ? null : 'hidden'}>
                             {getArray(sectionName).map((option) => (
-                                <div>
+                                <div key={option}>
                                     <img src={Menu2} alt='menu Icon'/>
                                     <p>{option}</p>
                                 </div>

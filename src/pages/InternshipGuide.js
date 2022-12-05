@@ -5,16 +5,30 @@ import HeaderBox from "../components/reusable/HeaderBox";
 import ProgressBar from "../components/reusable/ProgressBar";
 import SectionNamesList from "../components/InternshipGuide/SectionNamesList";
 
-// import Add from '../assets/add2.png';
+import Video from '../assets/document-upload.png';
 
 export default function InternshipGuide() {
-    // const [dragActive, setDragActive] = useState(false);
     const [formValues, setFormValues] = useState({
         Overview: {Brief: '', Requirements: '', Milestones: ''},
         Schedule: {Duration: '', Timeline: '', Deliverables: ''},
         Resources: {Curated: '', Events: ''}
     })
+    const [toggle, setToggle] = useState('Overview');
     const FormSectionNames = Object.keys(formValues);
+
+    function getArray(section) {
+        switch(section)
+        {
+            case 'Overview':
+                return(Object.keys(formValues.Overview));
+            case 'Schedule':
+                return(Object.keys(formValues.Schedule));
+            case 'Resources':
+                return(Object.keys(formValues.Resources));
+            default:
+                return null;
+        }
+    };
 
     // function getModifySectionValueFor(sectionName) {
     //     return function modifySectionValue(newValue, type) {
@@ -48,9 +62,34 @@ export default function InternshipGuide() {
             <HeaderBox/>
             <ProgressBar name='Internship Guide'/>
             <SectionsBox>
-                <SectionNamesList names={FormSectionNames} keys={formValues}/>
+                <SectionNamesList 
+                    names={FormSectionNames}
+                    toggleFunction={setToggle}
+                    getArray = {getArray}
+                />
                 <SectionForms>
-
+                    {getArray(toggle).map((option) => (
+                        <div>
+                            <p>{option}</p>
+                            <form>
+                                <input 
+                                    type="text" 
+                                    name="Description" 
+                                    placeholder='Description'
+                                />
+                            </form>
+                            {/* <form>
+                                <input
+                                    type='file'
+                                    multiple={false}
+                                />
+                                <div>
+                                    <p>Drag n drop to upload your video</p>
+                                    <img src={Video} alt='video icon'/>
+                                </div>
+                            </form> */}
+                        </div>
+                    ))}
                 </SectionForms>
             </SectionsBox>
         </GuideContainer>
@@ -74,6 +113,7 @@ const SectionsBox = styled.div`
 const SectionForms = styled.div`
     width: 50%;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     background-color: white;
