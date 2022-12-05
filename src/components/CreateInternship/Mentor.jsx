@@ -14,24 +14,28 @@ export default function MentorDetails({ modifySectionValue, value}) {
                 <img src={ImageIcon} alt='Icon'/>
             </MentorPicture>
             <UserEmailContainer>
-                <ProfileIcon src={Profile} alt='user icon'></ProfileIcon>
-                <textarea 
-                    type="text" 
-                    name="Mentor Name" 
-                    placeholder='Name'
-                    value={value.name}
-                    onChange={(e) => modifySectionValue(e.target.value, 'name')}
-                    required
-                />
-                <EmailIcon src={SMS} alt='email icon'></EmailIcon>
-                <textarea 
-                    type="text" 
-                    name="Email Address" 
-                    placeholder='Email address' 
-                    value={value.email}
-                    onChange={(e) => modifySectionValue(e.target.value, 'email')}
-                    required
-                />
+                <div>
+                    <ProfileIcon src={Profile} alt='user icon'></ProfileIcon>
+                    <textarea 
+                        type="text" 
+                        name="Mentor Name" 
+                        placeholder='Name'
+                        value={value.name}
+                        onChange={(e) => modifySectionValue(e.target.value, 'name')}
+                        required
+                    />
+                </div>
+                <div>
+                    <EmailIcon src={SMS} alt='email icon'></EmailIcon>
+                    <textarea 
+                        type="text" 
+                        name="Email Address" 
+                        placeholder='Email address' 
+                        value={value.email}
+                        onChange={(e) => modifySectionValue(e.target.value, 'email')}
+                        required
+                    />
+                </div>
             </UserEmailContainer>
             <LinkContainer>
                 <img src={Link} alt='link icon'></img>
@@ -78,9 +82,15 @@ const MentorPicture = styled.div`
 const UserEmailContainer = styled.div`
     padding-top: 24px;
     display: flex;
-    position: relative;
     align-items: center;
     gap: 24px;
+
+    div {
+        width: 50%;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
 
     textarea {
         width: 100%;
@@ -110,7 +120,7 @@ const EmailIcon = styled.img`
     width: 24px;
 
     position: absolute;
-    right: 365px;
+    left: 15px;
 `
 const LinkContainer = styled.div`
     padding-top: 24px;
