@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 import Video from '../../assets/document-upload.png';
 
-export default function SectionsForms({toggle, getArray}) {
+export default function SectionsForms({toggle, getArray, modifySectionValue, formValues}) {
     return (
         <SectionFormsContainer>
             {getArray(toggle).map((option) => (
@@ -10,9 +10,12 @@ export default function SectionsForms({toggle, getArray}) {
                     <OptionTitle>{option}</OptionTitle>
                     <DescriptionForm>
                         <textarea 
-                            type="text" 
+                            type="text"
+                            value={formValues[toggle][option]} 
                             name="Description" 
                             placeholder='Description'
+                            onChange={(e) => modifySectionValue(e.target.value, option)}
+                            required
                         />
                     </DescriptionForm>
                     <DragForm>

@@ -29,14 +29,14 @@ export default function InternshipGuide() {
         }
     };
 
-    // function getModifySectionValueFor(sectionName) {
-    //     return function modifySectionValue(newValue, type) {
-    //         const newFormValues = { ...formValues };
+    function getModifySectionValueFor(sectionName) {
+        return function modifySectionValue(newValue, type) {
+            const newFormValues = { ...formValues };
 
-    //         newFormValues[sectionName].type = newValue;
-    //         setFormValues(newFormValues);
-    //     }
-    // };
+            newFormValues[sectionName][type] = newValue;
+            setFormValues(newFormValues);
+        }
+    };
 
     // function handleDrag(e) {
     //     e.preventDefault();
@@ -69,6 +69,8 @@ export default function InternshipGuide() {
                 <SectionsForms
                     toggle = {toggle}
                     getArray = {getArray}
+                    modifySectionValue={getModifySectionValueFor(toggle)}
+                    formValues = {formValues}
                 />
             </SectionsBox>
         </GuideContainer>
