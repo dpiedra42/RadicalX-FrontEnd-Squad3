@@ -92,6 +92,7 @@ const PageContainer = styled.div`
     display: flex;
     width: 100%;
     height: 100vh;
+    overflow: auto;
 `
 const Grid1 = styled.div`
     background-color: #7041ec;

@@ -22,4 +22,6 @@ const CreateContainer = styled.div`
     align-items: center;
     flex-direction: column;
     min-width: 1400px;
+    height: 100vh;
+    overflow: auto;
 `

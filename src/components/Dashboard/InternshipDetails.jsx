@@ -117,6 +117,7 @@ const InternshipDetailsContainer = styled.div`
     display: flex;
     border-radius: 16px;
     padding-top: 24px;
+    padding-bottom: 24px;
     flex-wrap: wrap;
 `
 const TitleColumn = styled.div`
@@ -244,8 +245,12 @@ const OptionsColumn = styled.div`
     background-color: white;
     display: flex;
     flex-direction: column;
+
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
 `
 const HeaderRow5 = styled.div`
     background-color: #F6F5F9;
     height: 56px;
+    border-top-right-radius: 12px;
 `

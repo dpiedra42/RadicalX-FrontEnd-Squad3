@@ -34,6 +34,8 @@ const DashContainer = styled.div`
     display: flex;
     min-width: 1400px;
     background-color: #F1F4F8;
+    height: 100vh;
+    overflow: auto;
 `
 const Internships = styled.div`
     width: calc(100% - 331px);
