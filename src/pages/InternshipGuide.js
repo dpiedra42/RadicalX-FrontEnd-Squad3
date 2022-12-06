@@ -14,9 +14,9 @@ export default function InternshipGuide() {
         Resources: {Curated: '', Events: ''}
     })
     const [videoValues, setVideoValues] = useState({
-        Overview: {Brief: [], Requirements: [], Milestones: []},
-        Schedule: {Duration: [], Timeline: [], Deliverables: []},
-        Resources: {Curated: [], Events: []}
+        Overview: {Brief: '', Requirements: '', Milestones: ''},
+        Schedule: {Duration: '', Timeline: '', Deliverables: ''},
+        Resources: {Curated: '', Events: ''}
     })
     const [toggle, setToggle] = useState('Overview');
     const FormSectionNames = Object.keys(formValues);

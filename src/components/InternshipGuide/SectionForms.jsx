@@ -1,25 +1,50 @@
 import styled from "@emotion/styled";
+import { useState } from "react";
 
 import Video from '../../assets/document-upload.png';
+import Close from '../../assets/close.png';
 
 export default function SectionsForms(props) {
-    // function handleDrag(e) {
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     if (e.type === 'dragenter' || e.type === 'dragover')
-    //         setDragActive(true);
-    //     else if (e.type === "dragleave")
-    //         setDragActive(false);
-    // }
+    const [dragValues, setDragValues] = useState({
+        Overview: {Brief: false, Requirements: false, Milestones: false},
+        Schedule: {Duration: false, Timeline: false, Deliverables: false},
+        Resources: {Curated: false, Events: false}
+    })
 
-    // function handleDrop(e) {
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     setDragActive(false);
-    //     if (e.dataTransfer.files){
-    //         modifySectionValue(e.dataTransfer.files[0].name.toString())
-    //     }
-    // }
+    function handleDrag(e, option) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (e.type === 'dragenter' || e.type === 'dragover')
+        {
+            const newDragValues = {...dragValues};
+            newDragValues[props.toggle][option] = true;
+            setDragValues(newDragValues);
+        }
+        else if (e.type === "dragleave")
+        {
+            const newDragValues = {...dragValues};
+            newDragValues[props.toggle][option] = false;
+            setDragValues(newDragValues);
+        }
+    }
+
+    function handleDrop(e, option) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const newDragValues = {...dragValues};
+        newDragValues[props.toggle][option] = false;
+        setDragValues(newDragValues);
+
+        if (e.dataTransfer.files){
+            props.modifyVideoValue(e.dataTransfer.files[0].name.toString(), option)
+        }
+    }
+
+    function filterArray(name, option) {
+        props.modifyVideoValue('', option);
+    }
 
     return (
         <SectionFormsContainer>
@@ -36,16 +61,25 @@ export default function SectionsForms(props) {
                             required
                         />
                     </DescriptionForm>
-                    <DragForm>
+                    <DragForm onDragEnter={(e) => handleDrag(e, option)} onSubmit={(e) => e.preventDefault()}>
                         <input
                             type='file'
                             multiple={false}
                         />
-                        <DragBox>
+                        <DragBox className={dragValues[props.toggle][option] ? "drag-active" : "" }>
                             <p>Drag n drop to upload your video</p>
                             <img src={Video} alt='video icon'/>
                         </DragBox>
+                        { dragValues[props.toggle][option] && <InvisibleDiv onDragEnter={(e) => handleDrag(e, option)} onDragLeave={(e) => handleDrag(e, option)} onDragOver={(e) => handleDrag(e, option)} onDrop={(e) => handleDrop(e, option)}/> }
                     </DragForm>
+                    <VideoDisplay>
+                        <VideoItem className={props.videoValues[props.toggle][option] ? null : "hide"}>
+                            <p>{props.videoValues[props.toggle][option]}</p>
+                            <button onClick={() => filterArray(props.videoValues[props.toggle][option], option)}>
+                                <img src={Close} alt='Close Icon'/>
+                            </button>
+                        </VideoItem>
+                    </VideoDisplay>
                 </Section>
             ))}
         </SectionFormsContainer>
@@ -114,5 +148,67 @@ const DragBox = styled.div `
     img {
         width: 20px;
         height: 20px;
+    }
+
+    &.drag-active {
+        background-color: #665FEF33;
+        color: #793EF5;
+        border: 2px dashed #793EF5;
+
+        img {
+            filter: brightness(0) saturate(100%) invert(33%) sepia(73%) saturate(7001%) hue-rotate(253deg) brightness(102%) contrast(92%);
+        }
+    }
+`
+const InvisibleDiv = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+`
+const VideoDisplay = styled.div`
+    padding-top: 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+`
+const VideoItem = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 46px;
+    background-color: #665FEF33;
+    border: 1px solid #793EF5;
+    border-radius: 32px;
+
+    &.hide {
+        display: none;
+    }
+    
+    p {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 22px;
+        color: #793EF5;
+        flex-wrap: wrap;
+        padding-left: 16px;
+    }
+
+    button{
+        border: none;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding-right: 12px;
+
+        img{
+            width: 22px;
+            height: 22px;
+        }
     }
 `

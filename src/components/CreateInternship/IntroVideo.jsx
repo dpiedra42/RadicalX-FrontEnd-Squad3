@@ -41,7 +41,7 @@ export default function IntroVideo({ value, modifySectionValue }) {
                     <p>Drag n drop to upload your video</p>
                     <img src={video} alt='video icon'/>
                 </DragContainer>
-                { dragActive && <InvisibleDiv id="drag-file-element" onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}/> }
+                { dragActive && <InvisibleDiv onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}/> }
             </DragForm>
             <FileDisplay>
                 <FileItem className={value ? null : "hide"}>
