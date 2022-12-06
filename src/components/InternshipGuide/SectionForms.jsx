@@ -2,19 +2,37 @@ import styled from "@emotion/styled";
 
 import Video from '../../assets/document-upload.png';
 
-export default function SectionsForms({toggle, getArray, modifySectionValue, formValues}) {
+export default function SectionsForms(props) {
+    // function handleDrag(e) {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     if (e.type === 'dragenter' || e.type === 'dragover')
+    //         setDragActive(true);
+    //     else if (e.type === "dragleave")
+    //         setDragActive(false);
+    // }
+
+    // function handleDrop(e) {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     setDragActive(false);
+    //     if (e.dataTransfer.files){
+    //         modifySectionValue(e.dataTransfer.files[0].name.toString())
+    //     }
+    // }
+
     return (
         <SectionFormsContainer>
-            {getArray(toggle).map((option) => (
+            {props.getArray(props.toggle).map((option) => (
                 <Section key={option}>
                     <OptionTitle>{option}</OptionTitle>
                     <DescriptionForm>
                         <textarea 
                             type="text"
-                            value={formValues[toggle][option]} 
+                            value={props.formValues[props.toggle][option]} 
                             name="Description" 
                             placeholder='Description'
-                            onChange={(e) => modifySectionValue(e.target.value, option)}
+                            onChange={(e) => props.modifySectionValue(e.target.value, option)}
                             required
                         />
                     </DescriptionForm>
