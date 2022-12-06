@@ -81,11 +81,13 @@ const LocationContainer = styled.div`
 
     form {
         display: flex;
+        position: relative;
         justify-content: flex-end;
         align-items: center;
         
         div {
             display: flex;
+            position: relative;
             align-items: center;
             width: 100%;
 

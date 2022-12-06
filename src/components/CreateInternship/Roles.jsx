@@ -54,6 +54,7 @@ const RolesContainer = styled.div`
 
     form {
         display: flex;
+        position: relative;
         justify-content: flex-end;
         align-items: center;
 
