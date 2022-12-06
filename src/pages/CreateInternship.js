@@ -8,7 +8,7 @@ import FormData from "../components/CreateInternship/FormData";
 export default function CreateInternship() {
     return (
         <CreateContainer>
-            <HeaderBox/>
+            <HeaderBox next='/internshipGuide'/>
             <ProgressBar name='Internship Description'/>
             <FormData/>
         </CreateContainer>

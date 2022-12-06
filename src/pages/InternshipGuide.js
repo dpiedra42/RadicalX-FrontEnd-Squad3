@@ -8,7 +8,6 @@ import SectionNamesList from "../components/InternshipGuide/SectionNamesList";
 import SectionsForms from "../components/InternshipGuide/SectionForms";
 
 export default function InternshipGuide() {
-    const [numberVideos, setNumberVideos] = useState(0);
     const [formValues, setFormValues] = useState({
         Overview: {Brief: '', Requirements: '', Milestones: ''},
         Schedule: {Duration: '', Timeline: '', Deliverables: ''},
@@ -21,11 +20,12 @@ export default function InternshipGuide() {
     })
     const [toggle, setToggle] = useState('Overview');
     const FormSectionNames = Object.keys(formValues);
+    const [numberVideos, setNumberVideos] = useState(0);
 
     function checkComplete() {
         setNumberVideos(numberVideos + 1)
         console.log(numberVideos);
-        if (numberVideos === 8)
+        if (numberVideos === 7)
         {
             document.getElementById('completeNext').classList.add('sectionComplete');
         }
@@ -66,7 +66,7 @@ export default function InternshipGuide() {
 
     return (
         <GuideContainer>
-            <HeaderBox/>
+            <HeaderBox next='/surveys'/>
             <ProgressBar name='Internship Guide'/>
             <SectionsBox>
                 <SectionNamesList 

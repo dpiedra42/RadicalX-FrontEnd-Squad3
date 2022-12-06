@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import CreateInternship from './pages/CreateInternship';
 import InternshipGuide from './pages/InternshipGuide'
+import Surveys from './pages/Surveys';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/createInternship" element={<CreateInternship />}/>
           <Route path="/internshipGuide" element={<InternshipGuide />}/>
+          <Route path="/surveys" element={<Surveys />}/>
         </Routes>
     </BrowserRouter>
   );

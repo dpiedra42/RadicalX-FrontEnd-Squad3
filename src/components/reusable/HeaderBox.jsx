@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import LeftArrow from '../../assets/arrow-left.png';
 import RightArrow from '../../assets/arrow-right.png';
 
-export default function HeaderBox() {
+export default function HeaderBox({next}) {
     const navigate = useNavigate();
 
     return (
@@ -16,7 +16,7 @@ export default function HeaderBox() {
             <HeaderTitle>
                 Add New Internship
             </HeaderTitle>
-            <NextButton id='completeNext' onClick={() => navigate('/internshipGuide')}>
+            <NextButton id='completeNext' onClick={() => navigate(next)}>
                 Continue To Next Step
                 <img src={RightArrow} alt='Right Arrow Icon'/>
             </NextButton>
