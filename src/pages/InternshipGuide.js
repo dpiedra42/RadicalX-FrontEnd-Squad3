@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 
+// components
 import HeaderBox from "../components/reusable/HeaderBox";
 import ProgressBar from "../components/reusable/ProgressBar";
 import SectionNamesList from "../components/InternshipGuide/SectionNamesList";
@@ -11,6 +12,11 @@ export default function InternshipGuide() {
         Overview: {Brief: '', Requirements: '', Milestones: ''},
         Schedule: {Duration: '', Timeline: '', Deliverables: ''},
         Resources: {Curated: '', Events: ''}
+    })
+    const [videoValues, setVideoValues] = useState({
+        Overview: {Brief: [], Requirements: [], Milestones: []},
+        Schedule: {Duration: [], Timeline: [], Deliverables: []},
+        Resources: {Curated: [], Events: []}
     })
     const [toggle, setToggle] = useState('Overview');
     const FormSectionNames = Object.keys(formValues);
@@ -38,23 +44,14 @@ export default function InternshipGuide() {
         }
     };
 
-    // function handleDrag(e) {
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     if (e.type === 'dragenter' || e.type === 'dragover')
-    //         setDragActive(true);
-    //     else if (e.type === "dragleave")
-    //         setDragActive(false);
-    // }
+    function getModifyVideoValueFor(sectionName) {
+        return function modifyVideoValue(newValue, type) {
+            const newVideoValues = { ...videoValues };
 
-    // function handleDrop(e) {
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     setDragActive(false);
-    //     if (e.dataTransfer.files){
-    //         modifySectionValue(e.dataTransfer.files[0].name.toString())
-    //     }
-    // }
+            newVideoValues[sectionName][type] = newValue;
+            setVideoValues(newVideoValues);
+        }
+    };
 
     return (
         <GuideContainer>
@@ -67,10 +64,12 @@ export default function InternshipGuide() {
                     getArray = {getArray}
                 />
                 <SectionsForms
-                    toggle = {toggle}
-                    getArray = {getArray}
+                    toggle={toggle}
+                    getArray={getArray}
                     modifySectionValue={getModifySectionValueFor(toggle)}
-                    formValues = {formValues}
+                    formValues={formValues}
+                    videoValues={videoValues}
+                    modifyVideoValue={getModifyVideoValueFor(toggle)}
                 />
             </SectionsBox>
         </GuideContainer>
