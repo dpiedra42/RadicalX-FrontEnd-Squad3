@@ -38,6 +38,7 @@ const BenefitsContainer = styled.div`
         width: calc(100% - 34px);
         height: 197px;
         background: #F1F4F8;
+        
         border: 1px solid #CECECE;
         border-radius: 16px;
         resize: none;

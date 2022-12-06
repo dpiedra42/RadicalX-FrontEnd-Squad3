@@ -9,7 +9,7 @@ export default function SectionsForms({toggle, getArray}) {
                 <Section key={option}>
                     <OptionTitle>{option}</OptionTitle>
                     <DescriptionForm>
-                        <input 
+                        <textarea 
                             type="text" 
                             name="Description" 
                             placeholder='Description'
@@ -38,6 +38,7 @@ const SectionFormsContainer = styled.div`
 
     background-color: white;
     border-radius: 20px;
+    padding-bottom: 24px;
 `
 const Section = styled.div`
     padding: 24px 0 0 24px; 
@@ -54,15 +55,18 @@ const OptionTitle = styled.p`
 const DescriptionForm = styled.form`
     padding-bottom: 16px;
 
-    input {
-        background-color: #F1F4F8;
+    textarea {
+        height: 32px;
+        width: calc(100% - 16px);
+        padding: 10px 0 0 16px;
+
         font-family: 'Space Grotesk';
         font-size: 16px;
+
+        background-color: #F1F4F8;
         border: 1px solid #CECECE;
         border-radius: 16px;
-        height: 48px;
-        width: calc(100% - 16px);
-        padding: 0 0 0 16px;
+        resize: none;
     }
 `
 const DragForm = styled.form`

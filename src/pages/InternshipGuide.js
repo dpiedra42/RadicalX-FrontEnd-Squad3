@@ -88,4 +88,5 @@ const SectionsBox = styled.div`
     width: calc(100% - 46px);
     margin-top: 34px;
     gap: 23px;
+    padding-bottom: 24px;
 `
