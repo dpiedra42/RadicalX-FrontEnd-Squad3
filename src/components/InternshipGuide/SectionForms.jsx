@@ -61,16 +61,24 @@ export default function SectionsForms(props) {
                             required
                         />
                     </DescriptionForm>
-                    <DragForm onDragEnter={(e) => handleDrag(e, option)} onSubmit={(e) => e.preventDefault()}>
-                        <input
-                            type='file'
-                            multiple={false}
-                        />
+                    <DragForm 
+                        onDragEnter={(e) => handleDrag(e, option)}
+                        onSubmit={(e) => e.preventDefault()}
+                    >
+                        <input type='file'multiple={false}/>
                         <DragBox className={dragValues[props.toggle][option] ? "drag-active" : "" }>
                             <p>Drag n drop to upload your video</p>
                             <img src={Video} alt='video icon'/>
                         </DragBox>
-                        { dragValues[props.toggle][option] && <InvisibleDiv onDragEnter={(e) => handleDrag(e, option)} onDragLeave={(e) => handleDrag(e, option)} onDragOver={(e) => handleDrag(e, option)} onDrop={(e) => handleDrop(e, option)}/> }
+                        { 
+                            dragValues[props.toggle][option] && 
+                            <InvisibleDiv 
+                                onDragEnter={(e) => handleDrag(e, option)} 
+                                onDragLeave={(e) => handleDrag(e, option)} 
+                                onDragOver={(e) => handleDrag(e, option)} 
+                                onDrop={(e) => handleDrop(e, option)}
+                            />
+                        }
                     </DragForm>
                     <VideoDisplay>
                         <VideoItem className={props.videoValues[props.toggle][option] ? null : "hide"}>
@@ -173,17 +181,13 @@ const VideoDisplay = styled.div`
     padding-top: 16px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
 `
 const VideoItem = styled.div`
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 46px;
-    background-color: #665FEF33;
-    border: 1px solid #793EF5;
-    border-radius: 32px;
+    background-color: #EDEAFF;
+    border-radius: 12px;
 
     &.hide {
         display: none;
@@ -194,7 +198,6 @@ const VideoItem = styled.div`
         font-size: 15px;
         line-height: 22px;
         color: #793EF5;
-        flex-wrap: wrap;
         padding-left: 16px;
     }
 
