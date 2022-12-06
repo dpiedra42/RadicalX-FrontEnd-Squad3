@@ -4,8 +4,7 @@ import styled from "@emotion/styled";
 import HeaderBox from "../components/reusable/HeaderBox";
 import ProgressBar from "../components/reusable/ProgressBar";
 import SectionNamesList from "../components/InternshipGuide/SectionNamesList";
-
-import Video from '../assets/document-upload.png';
+import SectionsForms from "../components/InternshipGuide/SectionForms";
 
 export default function InternshipGuide() {
     const [formValues, setFormValues] = useState({
@@ -67,30 +66,10 @@ export default function InternshipGuide() {
                     toggleFunction={setToggle}
                     getArray = {getArray}
                 />
-                <SectionForms>
-                    {getArray(toggle).map((option) => (
-                        <Section>
-                            <OptionTitle>{option}</OptionTitle>
-                            <DescriptionForm>
-                                <input 
-                                    type="text" 
-                                    name="Description" 
-                                    placeholder='Description'
-                                />
-                            </DescriptionForm>
-                            <DragForm>
-                                <input
-                                    type='file'
-                                    multiple={false}
-                                />
-                                <DragBox>
-                                    <p>Drag n drop to upload your video</p>
-                                    <img src={Video} alt='video icon'/>
-                                </DragBox>
-                            </DragForm>
-                        </Section>
-                    ))}
-                </SectionForms>
+                <SectionsForms
+                    toggle = {toggle}
+                    getArray = {getArray}
+                />
             </SectionsBox>
         </GuideContainer>
     )
@@ -109,64 +88,4 @@ const SectionsBox = styled.div`
     width: calc(100% - 46px);
     margin-top: 34px;
     gap: 23px;
-`
-const SectionForms = styled.div`
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: white;
-    border-radius: 20px;
-`
-const Section = styled.div`
-    padding: 24px; 
-    width: calc(100% - 69px);
-`
-const OptionTitle = styled.p`
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 18px;
-    color: #333333;
-    margin: 0;
-    padding-bottom: 16px;
-`
-const DescriptionForm = styled.form`
-    padding-bottom: 16px;
-
-    input {
-        background-color: #F1F4F8;
-        font-family: 'Space Grotesk';
-        font-size: 16px;
-        border: 1px solid #CECECE;
-        border-radius: 16px;
-        height: 48px;
-        width: 100%;
-        padding-left: 16px;
-    }
-`
-const DragForm = styled.form`
-    input {
-        display: none;
-    }
-`
-const DragBox = styled.div `
-    height: 68px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border: 1px dashed #B2B6BC;
-    border-radius: 12px;
-    color: #778188;
-
-    p{
-        font-weight: 400;
-        font-size: 14px;
-    }
-
-    img {
-        width: 20px;
-        height: 20px;
-    }
 `

@@ -52,7 +52,7 @@ export default function SectionNamesList({names, toggleFunction, getArray}) {
 }
 
 const SectionNamesContainer = styled.ul`
-    width: 50%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 16px;
