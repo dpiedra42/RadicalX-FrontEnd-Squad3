@@ -6,7 +6,10 @@ import HeaderBox from '../components/reusable/HeaderBox';
 import ProgressBar from '../components/reusable/ProgressBar';
 import SurveyListNames from "../components/Surveys/SurveyListNames";
 
+
 export default function Surveys() {
+    const SurveyName = ['Survey 1', 'Survey 2'];
+    
     const [toggle, setToggle] = useState('Survey 1');
     // const [surveyValues, setSurveyValues] = useState({
     //     Survey1: [],
@@ -18,7 +21,7 @@ export default function Surveys() {
             <HeaderBox/>
             <ProgressBar name='Surveys'/>
             <SurveyBoxes>
-                <SurveyListNames toggle={toggle} toggleFunction={setToggle}/>
+                <SurveyListNames toggle={toggle} toggleFunction={setToggle} SurveyName={SurveyName}/>
                 <SurveyFormSection>
 
                 </SurveyFormSection>

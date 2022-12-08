@@ -5,9 +5,7 @@ import Menu from '../../assets/menu.png';
 import AddItem from '../../assets/additem.png';
 import RightMenu from '../../assets/right-menu.png';
 
-const SurveyName = ['Survey 1', 'Survey 2'];
-
-export default function SurveyListNames({toggleFunction}) {
+export default function SurveyListNames({toggleFunction, SurveyName}) {
     const [toggle, setToggle] = useState('Survey 1');
 
     function handleClick(name) {
