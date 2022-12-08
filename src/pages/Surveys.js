@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-// import { useState } from "react";
+import { useState } from "react";
 
 // components
 import HeaderBox from '../components/reusable/HeaderBox';
@@ -7,6 +7,7 @@ import ProgressBar from '../components/reusable/ProgressBar';
 import SurveyListNames from "../components/Surveys/SurveyListNames";
 
 export default function Surveys() {
+    const [toggle, setToggle] = useState('Survey 1');
     // const [surveyValues, setSurveyValues] = useState({
     //     Survey1: [],
     //     Survey2: []
@@ -17,7 +18,7 @@ export default function Surveys() {
             <HeaderBox/>
             <ProgressBar name='Surveys'/>
             <SurveyBoxes>
-                <SurveyListNames/>
+                <SurveyListNames toggle={toggle} toggleFunction={setToggle}/>
                 <SurveyFormSection>
 
                 </SurveyFormSection>

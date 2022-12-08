@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useState } from "react";
 
 import Menu from '../../assets/menu.png';
 import AddItem from '../../assets/additem.png';
@@ -6,18 +7,24 @@ import RightMenu from '../../assets/right-menu.png';
 
 const SurveyName = ['Survey 1', 'Survey 2'];
 
-export default function SurveyListNames() {
+export default function SurveyListNames({toggleFunction}) {
+    const [toggle, setToggle] = useState('Survey 1');
+
+    function handleClick(name) {
+        setToggle(name);
+        toggleFunction(name);
+    }
     return (
         <SurveyListNamesContainer>
             {SurveyName.map((name) => (
-                <SurveyListItem>
+                <SurveyListItem key={name}>
                     <MenuIcon>
                         <img 
                             src={Menu} 
                             alt='menu logo'
                         />
                     </MenuIcon>
-                    <NameImgBox>
+                    <NameImgBox onClick={() => handleClick(name)} className={toggle === name ? 'highlight' : null}>
                         <p>{name}</p>
                         <img 
                             src={RightMenu} 
@@ -28,7 +35,7 @@ export default function SurveyListNames() {
             ))}
             <AddOption>
                 <img src={AddItem} alt='Add Icon'/>
-                Add More
+                Add Survey
             </AddOption>
         </SurveyListNamesContainer>
     )
@@ -38,7 +45,7 @@ const SurveyListNamesContainer = styled.ul`
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -62,6 +69,7 @@ const MenuIcon = styled.div`
 `
 const NameImgBox = styled.div`
     width: 100%;
+    height: 72px;
     background-color: white;
     border: 1px solid #E0E0E0;
     border-radius: 16px;
@@ -75,6 +83,12 @@ const NameImgBox = styled.div`
     color: #333333;
     
     cursor: pointer;
+
+    &.highlight {
+        border: 1px solid #793EF5;
+        box-shadow: 0px 24px 34px rgba(0, 0, 0, 0.12);
+        border-radius: 16px;
+    }
 
 `
 const AddOption = styled.button`
