@@ -6,10 +6,12 @@ import HeaderBox from '../components/reusable/HeaderBox';
 import ProgressBar from '../components/reusable/ProgressBar';
 import SurveyListNames from "../components/Surveys/SurveyListNames";
 
+import Add3 from '../assets/add3.png';
+
 
 export default function Surveys() {
     const SurveyName = ['Survey 1', 'Survey 2'];
-    
+
     const [toggle, setToggle] = useState('Survey 1');
     // const [surveyValues, setSurveyValues] = useState({
     //     Survey1: [],
@@ -23,7 +25,24 @@ export default function Surveys() {
             <SurveyBoxes>
                 <SurveyListNames toggle={toggle} toggleFunction={setToggle} SurveyName={SurveyName}/>
                 <SurveyFormSection>
-
+                    {SurveyName.map((name) => (
+                        <div>
+                            <p>name</p>
+                            <input
+                                type='text'
+                                name='Question'
+                                placeholder="Question"
+                                required
+                            />
+                            <div>
+                                <img
+                                    src={Add3}
+                                    alt='add icon'
+                                />
+                                <p>Add Question</p>
+                            </div>
+                        </div>
+                    ))}
                 </SurveyFormSection>
             </SurveyBoxes>
         </SurveysContainer>
