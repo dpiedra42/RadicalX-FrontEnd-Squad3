@@ -5,25 +5,25 @@ import Menu from '../../assets/menu.png';
 import AddItem from '../../assets/additem.png';
 import RightMenu from '../../assets/right-menu.png';
 
-export default function SurveyListNames({toggleFunction, SurveyName}) {
+export default function SurveyListNames({surveyValues, toggleFunction, SurveyName}) {
     const [toggle, setToggle] = useState('Survey 1');
 
-    function handleClick(name) {
-        setToggle(name);
-        toggleFunction(name);
+    function handleClick(key) {
+        setToggle(surveyValues[key].name);
+        toggleFunction(key);
     }
     return (
         <SurveyListNamesContainer>
-            {SurveyName.map((name) => (
-                <SurveyListItem key={name}>
+            {SurveyName.map((key) => (
+                <SurveyListItem key={key}>
                     <MenuIcon>
                         <img 
                             src={Menu} 
                             alt='menu logo'
                         />
                     </MenuIcon>
-                    <NameImgBox onClick={() => handleClick(name)} className={toggle === name ? 'highlight' : null}>
-                        <p>{name}</p>
+                    <NameImgBox onClick={() => handleClick(key)} className={toggle === surveyValues[key].name ? 'highlight' : null}>
+                        <p>{surveyValues[key].name}</p>
                         <img 
                             src={RightMenu} 
                             alt='Right menu arrow'

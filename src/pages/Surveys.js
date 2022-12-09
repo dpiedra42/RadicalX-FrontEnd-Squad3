@@ -8,20 +8,33 @@ import SurveyFormSection from "../components/Surveys/SurveyFormSection";
 import SurveyListNames from "../components/Surveys/SurveyListNames";
 
 export default function Surveys() {
-    const SurveyName = ['Survey 1', 'Survey 2'];
-    const [toggle, setToggle] = useState('Survey 1');
-    // const [surveyValues, setSurveyValues] = useState({
-    //     Survey1: [],
-    //     Survey2: []
-    // });
+    const [surveyValues, setSurveyValues] = useState({
+        Survey1: {name: 'Survey 1', val: []},
+        Survey2: {name: 'Survey 2', val: []}
+    });
+    const names = Object.keys(surveyValues);
+    const [toggle, setToggle] = useState('Survey1');
+
+    function getModifySectionValueFor(sectionName) {
+        return function modifySectionValue(newValue) {
+            const newSurveyValues = { ...surveyValues };
+
+            newSurveyValues[sectionName].val = newValue;
+            setSurveyValues(newSurveyValues);
+        }
+    };
     
     return (
         <SurveysContainer>
             <HeaderBox/>
             <ProgressBar name='Surveys'/>
             <SurveyBoxes>
-                <SurveyListNames toggle={toggle} toggleFunction={setToggle} SurveyName={SurveyName}/>
-                <SurveyFormSection toggle={toggle}/>
+                <SurveyListNames surveyValues={surveyValues} toggleFunction={setToggle} SurveyName={names}/>
+                <SurveyFormSection 
+                    toggle={toggle}
+                    surveyValues={surveyValues}
+                    modifyValue={getModifySectionValueFor(toggle)}
+                />
             </SurveyBoxes>
         </SurveysContainer>
     )
