@@ -21,12 +21,20 @@ export default function Surveys() {
 
             newSurveyValues[sectionName].val = newValue;
             setSurveyValues(newSurveyValues);
+            checkComplete();
         }
     };
+
+    function checkComplete() {
+        if (surveyValues.Survey1.val.length > 0 && surveyValues.Survey2.val.length > 0)
+        {
+            document.getElementById('completeNext').classList.add('sectionComplete');
+        }
+    }
     
     return (
         <SurveysContainer>
-            <HeaderBox/>
+            <HeaderBox next='/settings'/>
             <ProgressBar name='Surveys'/>
             <SurveyBoxes>
                 <SurveyListNames surveyValues={surveyValues} toggleFunction={setToggle} SurveyName={names}/>

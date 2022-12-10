@@ -24,7 +24,6 @@ export default function InternshipGuide() {
 
     function checkComplete() {
         setNumberVideos(numberVideos + 1)
-        console.log(numberVideos);
         if (numberVideos === 7)
         {
             document.getElementById('completeNext').classList.add('sectionComplete');

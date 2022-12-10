@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
+
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import CreateInternship from './pages/CreateInternship';
 import InternshipGuide from './pages/InternshipGuide'
 import Surveys from './pages/Surveys';
+import Settings from './pages/Settings';
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
           <Route path="/createInternship" element={<CreateInternship />}/>
           <Route path="/internshipGuide" element={<InternshipGuide />}/>
           <Route path="/surveys" element={<Surveys />}/>
+          <Route path="/settings" element={<Settings />}/>
         </Routes>
     </BrowserRouter>
   );
