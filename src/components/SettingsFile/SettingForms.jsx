@@ -26,9 +26,22 @@ export default function SettingForms({toggle, surveyValues, modifyValue}) {
                 />
                 <div>
                     Access
+                    <label class="container">
+                        <input type="checkbox"/>
+                        Private Internship
+                    </label>
+
+                    <label class="container">
+                        <input type="checkbox"/>
+                        Hidden Internship
+                    </label>
                 </div>
                 <div>
                     Security
+                    <label class="container">
+                        <input type="checkbox"/>
+                        Disable Text Copying
+                    </label>
                 </div>
             </SettingsForm>
         </SettingFormsContainer>
