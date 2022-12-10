@@ -20,29 +20,28 @@ export default function SettingForms({toggle, surveyValues, modifyValue}) {
                     type='text'
                     name='Question'
                     value={inputValue}
-                    placeholder="Internship Url"
+                    placeholder="Internship URL"
                     onChange={(e) => setInputValue(e.target.value)}
                     required
                 />
-                <div>
-                    Access
-                    <label class="container">
+                <AccessBox>
+                    <AccessTitle>Access</AccessTitle>
+                    <label>
                         <input type="checkbox"/>
-                        Private Internship
+                        <p>Private Internship</p>
                     </label>
-
-                    <label class="container">
+                    <label>
                         <input type="checkbox"/>
-                        Hidden Internship
+                        <p>Hidden Internship</p>
                     </label>
-                </div>
-                <div>
-                    Security
-                    <label class="container">
+                </AccessBox>
+                <SecurityBox>
+                    <SecurityTitle>Security</SecurityTitle>
+                    <label>
                         <input type="checkbox"/>
-                        Disable Text Copying
+                        <p>Disable Text Copying</p>
                     </label>
-                </div>
+                </SecurityBox>
             </SettingsForm>
         </SettingFormsContainer>
     )
@@ -82,4 +81,75 @@ const FormTitle = styled.p`
     color: #333333;
     margin: 0;
     padding-bottom: 16px;
+`
+const AccessBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+
+    label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        height: 23px;
+
+        p{
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            letter-spacing: 0.3px;
+            color: #333333;
+        }
+        input {
+            height: 20px;
+            width: 20px;
+        }
+    }
+`
+const AccessTitle = styled.p`
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 18px;
+    color: #333333;
+    margin: 0;
+    padding-top: 24px;
+    padding-bottom: 7px;
+`
+const SecurityBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+
+    label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        height: 23px;
+
+        p{
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            letter-spacing: 0.3px;
+            color: #333333;
+        }
+
+        input {
+            height: 20px;
+            width: 20px;
+        }
+    }
+`
+const SecurityTitle = styled.p`
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 18px;
+    color: #333333;
+    margin: 0;
+    padding-top: 24px;
+    padding-bottom: 7px;
 `
