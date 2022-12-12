@@ -14,13 +14,26 @@ export default function Settings() {
     const names = Object.keys(settingValues);
     const [toggle, setToggle] = useState('Basic');
 
+    function getModifySectionValueFor(sectionName) {
+        return function modifySectionValue(newValue) {
+            const newSettingValues = { ...settingValues };
+
+            newSettingValues[sectionName].val = newValue;
+            setSettingValues(newSettingValues);
+        }
+    };
+
     return (
         <SettingsContainer>
             <SettingsHeader/>
             <ProgressBar name='Settings'/>
             <SettingsBoxes>
                 <SettingsListNames settingValues={settingValues} toggleFunction={setToggle} SettingName={names}/>
-                <SettingForms/>
+                <SettingForms 
+                    settingValues={settingValues}
+                    toggle={toggle}
+                    modifyValue={getModifySectionValueFor(toggle)}
+                />
             </SettingsBoxes>
         </SettingsContainer>
     )

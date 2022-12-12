@@ -1,16 +1,6 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
 
-export default function SettingForms({toggle, surveyValues, modifyValue}) {
-    const [inputValue, setInputValue] = useState('');
-
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     if (!surveyValues[toggle].val.includes(inputValue))
-    //         modifyValue([...surveyValues[toggle].val, inputValue])
-
-    //     setInputValue('');
-    // };
+export default function SettingForms({settingValues, toggle, modifyValue}) {
     
     return(
         <SettingFormsContainer>
@@ -19,9 +9,9 @@ export default function SettingForms({toggle, surveyValues, modifyValue}) {
                 <textarea
                     type='text'
                     name='Question'
-                    value={inputValue}
+                    value={settingValues[toggle].val}
                     placeholder="Internship URL"
-                    onChange={(e) => setInputValue(e.target.value)}
+                    onChange={(e) => modifyValue(e.target.value)}
                     required
                 />
                 <AccessBox>
