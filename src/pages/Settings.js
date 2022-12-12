@@ -8,8 +8,8 @@ import SettingForms from '../components/SettingsFile/SettingForms';
 
 export default function Settings() {
     const [settingValues, setSettingValues] = useState({
-        Basic: {name: 'Basic Settings', val: []},
-        Hero: {name: 'Hero Image', val: []}
+        Basic: {name: 'Basic Settings', val: [], inputval: []},
+        Hero: {name: 'Hero Image', val: [], inputval: []}
     });
     const names = Object.keys(settingValues);
     const [toggle, setToggle] = useState('Basic');

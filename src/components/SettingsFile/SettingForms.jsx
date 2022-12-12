@@ -14,24 +14,54 @@ export default function SettingForms({settingValues, toggle, modifyValue}) {
                     onChange={(e) => modifyValue(e.target.value)}
                     required
                 />
-                <AccessBox>
-                    <AccessTitle>Access</AccessTitle>
-                    <label>
-                        <input type="checkbox"/>
-                        <p>Private Internship</p>
-                    </label>
-                    <label>
-                        <input type="checkbox"/>
-                        <p>Hidden Internship</p>
-                    </label>
-                </AccessBox>
-                <SecurityBox>
-                    <SecurityTitle>Security</SecurityTitle>
-                    <label>
-                        <input type="checkbox"/>
-                        <p>Disable Text Copying</p>
-                    </label>
-                </SecurityBox>
+                {toggle === 'Basic' ? 
+                    <>
+                        <AccessBox>
+                            <AccessTitle>Access</AccessTitle>
+                            <label>
+                                <input type="checkbox"/>
+                                <p>Private Internship</p>
+                            </label>
+                            <label>
+                                <input type="checkbox"/>
+                                <p>Hidden Internship</p>
+                            </label>
+                        </AccessBox>
+                        <SecurityBox>
+                            <SecurityTitle>Security</SecurityTitle>
+                            <label>
+                                <input type="checkbox"/>
+                                <p>Disable Text Copying</p>
+                            </label>
+                        </SecurityBox>
+                    </>
+                    :
+                    null
+                }
+                {toggle === 'Hero' ? 
+                    <>
+                        <AccessBox>
+                            <AccessTitle>Access</AccessTitle>
+                            <label>
+                                <input type="checkbox" />
+                                <p>Private Internship</p>
+                            </label>
+                            <label>
+                                <input type="checkbox"/>
+                                <p>Hidden Internship</p>
+                            </label>
+                        </AccessBox>
+                        <SecurityBox>
+                            <SecurityTitle>Security</SecurityTitle>
+                            <label>
+                                <input type="checkbox"/>
+                                <p>Disable Text Copying</p>
+                            </label>
+                        </SecurityBox>
+                    </>
+                    :
+                    null
+                }
             </SettingsForm>
         </SettingFormsContainer>
     )
