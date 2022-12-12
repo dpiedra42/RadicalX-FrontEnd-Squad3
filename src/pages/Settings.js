@@ -8,11 +8,18 @@ import SettingForms from '../components/SettingsFile/SettingForms';
 
 export default function Settings() {
     const [settingValues, setSettingValues] = useState({
-        Basic: {name: 'Basic Settings', val: [], inputval: []},
-        Hero: {name: 'Hero Image', val: [], inputval: []}
+        Basic: {name: 'Basic Settings', val: []},
+        Hero: {name: 'Hero Image', val: []}
     });
     const names = Object.keys(settingValues);
     const [toggle, setToggle] = useState('Basic');
+
+    function checkComplete() {
+        if (settingValues.Basic.val.length > 0 && settingValues.Hero.val.length > 0)
+        {
+            document.getElementById('completeNext').classList.add('sectionComplete');
+        }
+    }
 
     function getModifySectionValueFor(sectionName) {
         return function modifySectionValue(newValue) {
@@ -20,7 +27,9 @@ export default function Settings() {
 
             newSettingValues[sectionName].val = newValue;
             setSettingValues(newSettingValues);
+            checkComplete()
         }
+       
     };
 
     return (
