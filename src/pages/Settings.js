@@ -34,6 +34,7 @@ export default function Settings() {
 
     return (
         <SettingsContainer>
+            {/* add what happens when form is complete. an alert or go back to dashboard */}
             <SettingsHeader/>
             <ProgressBar name='Settings'/>
             <SettingsBoxes>

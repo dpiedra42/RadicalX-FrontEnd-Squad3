@@ -14,6 +14,7 @@ export default function SettingForms({settingValues, toggle, modifyValue}) {
                     onChange={(e) => modifyValue(e.target.value)}
                     required
                 />
+                {/* check both articles for how to store checkbox values */}
                 {toggle === 'Basic' ? 
                     <>
                         <AccessBox>
