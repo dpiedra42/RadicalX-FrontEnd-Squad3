@@ -6,6 +6,11 @@ import RightArrow from '../../assets/arrow-right.png';
 
 export default function HeaderBox() {
     const navigate = useNavigate();
+
+    function completeAlert()
+    {
+        alert("You have completed the internship form!");
+    }
     
     return (
         <HeaderBoxContainer>
@@ -16,7 +21,7 @@ export default function HeaderBox() {
             <HeaderTitle>
                 Add New Internship
             </HeaderTitle>
-            <NextButton id='completeNext'>
+            <NextButton id='completeNext' onClick={() => completeAlert()}>
                 Publish Internship
                 <img src={RightArrow} alt='Right Arrow Icon'/>
             </NextButton>
