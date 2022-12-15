@@ -10,6 +10,7 @@ export default function HeaderBox() {
     function completeAlert()
     {
         alert("You have completed the internship form!");
+        navigate('/dashboard');
     }
     
     return (
